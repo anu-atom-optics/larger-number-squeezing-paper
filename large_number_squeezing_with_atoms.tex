@@ -71,6 +71,7 @@ More squeezing than you can shake a stick at.
 \maketitle
 
 \section{Introduction}
+\label{sectionIntroduction}
 \begin{itemize}
   \item General non-classical state generation with atoms
   \item Talk about number squeezing with atoms
@@ -80,11 +81,16 @@ More squeezing than you can shake a stick at.
   \item Lay out what sections we have and what we've done
 \end{itemize}
 
-\subsection{Subsection}
-This is a subsection
-
 \section{Model and single mode solutions}
-Mollusc mollusc.
+\begin{itemize}
+  \item Lay out the scheme with diagram, define all variable etc
+  \item Present multimode analytic solution, details go into an appendix
+  \item Plot a few solutions to give an idea of what things look like, plausible times and so on
+  \item Maybe point out it agrees with Oberthaler, or save that for discussion on MM effects?
+  \item Point out that number *difference* squeezing can often be considerably higher than absolute number squeezing in a single state
+\end{itemize}
+
+
 \begin{figure}
     \centering
     \includegraphics[width=8cm]{figures/pulse_scheme.eps}
@@ -92,9 +98,59 @@ Mollusc mollusc.
     \label{fig:PulseScheme}
 \end{figure}
 
+
+\section{Multimode background section}
+\begin{itemize}
+  \item Motivate why MM analysis is necessary
+  \item Brief recap why MM QFT is hard
+  \item Say how great phase space methods are, quick overview of how they work, say only wigner works here, can probably crib some explanation and formulae from our fully quantum multimode atom laser paper
+  \item Talk about all the checks I've done to make sure Wigner holds over the parameters we've simulated despite the fact that TWA is an uncontrolled approximation
+  \item Cite XMDS, and say we're amazing at doing QFT sims, send money
+  Derive link between mode shape, nonlinearity U, and the SM equivalent nonlinearity, so we can always compare a given high-dimensional multimode sim against the equivalent ideal analytic single mode case
+\end{itemize}
+
+\section{Meanfield multimode problems}
+\begin{itemize}
+  \item Point out that different densities have phases that evolve at different rates
+  \item This leads to poor mode matching when recombining if two states have different nonlinearity*number values 
+  \item give a plot of the mode in |a> and |b> at the beginning and end of the hold time to show mismatch
+  \item This means constant density is good since mode shape doesn't change
+  \item Plot of squeezing for given set of params for gaussian, TF, constant density, show it get steadily better
+  \item Say we can use a pi pulse to swap the populations half way through, so if the states have different nonlinearities we still end up with the same mode shapes when we recombine. The fact that this works will be clear from the SM equations for a(t), b(t) when the beam splitter is on
+  \item show some plots of squeezing with and without the pi pulse
+\end{itemize}
+
+\section{Mean field quantum statistical results}
+  \begin{itemize}
+  \item Two issues. 1) as we add dimensions results get worse (maybe point out how cool we are for being able to do multimode 3D simulations). 2) As our volume increases results get worse.
+  \item To gain insight into this we do a bog analysis
+  \item Do a comparision plot between SM analytic model and Bog to show everything agrees
+  \item show that the number of mode available degrades squeezing
+  \item Plot some bog results v MM sims for increasing box sizes, and increasing dimensions
+  \item Can we put some numbers on how bad 3D is compared to 2D, in order to motivate tight trapping?
+  \end{itemize}
+
+\section{Mitigating multimode quantum statistical effects}
+  \begin{itemize}
+  \item One way to approximate constant density is to look at core of BEC, since if we only look at number in the central 1 sigma portion of gaussian it's close to flat; show results compared to single mode equivalent
+
+  \item Another improvement is to put the BEC in a box since then we get constant density, discuss feasibility
+  \item 3D still sucks even with box, so point out we can win by freezing out dimensions
+  \item Show derivation for what physical situations are needed to freeze out 1, 2 and 3 dimensions. In general we need small number, which makes it hard since we want large number squeezing. Large number requirement leads to implausible geometry in 1D (i.e. a tube with a ridiculous aspect ratio), but going from 3D down to 2D is probably do-able
+  \end{itemize}
+
 \section{Conclusion}
+\label{sectionConclusion}
+\begin{itemize}
+  \item Kerr nonlinearities can give arbitrarily good squeezing in BECs with high number
+  \item In a straightforward approach we can't get good squeezing with high number due to MM effects
+  \item Mode matching issues can be solved with equal scattering lengths or a pi pulse or a box
+  \item Another MM effect scales with dimension and physical size
+  \item Can solve that problem with tight trapping and box
+\end{itemize}
 
-
+\ack
+Acknowledgements in here; funding sources etc
 
 \clearpage
 
