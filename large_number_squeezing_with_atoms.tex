@@ -51,8 +51,8 @@
 
 \author{Mattias T Johnsson$^1$, Graham R Dennis$^2$ and Joseph J Hope$^1$}
 
-\address{$^1$Department of Quantum Science, Research School of Physics and Engineering, The Australian National University, Canberra ACT 0200, Australia}
-\address{$^2$Plasma Research Laboratory, Research School of Physics and Engineering, The Australian National University, Canberra ACT 0200, Australia}
+\address{$^1$Department of Quantum Science, The Australian National University, Canberra ACT 0200, Australia}
+\address{$^2$Research School of Physics and Engineering, The Australian National University, Canberra ACT 0200, Australia}
 \ead{mattias.johnsson@anu.edu.au}
 
 \begin{abstract}
@@ -90,12 +90,64 @@ More squeezing than you can shake a stick at.
   \item Point out that number *difference* squeezing can often be considerably higher than absolute number squeezing in a single state
 \end{itemize}
 
+As our goal is to describe the number squeezing possibilities of a two component BEC, we begin by considering a simplified version of the problem, consisting of a two-mode system, with the modes corresponding to the two states of the condensate. In the full problem, each of the components will include many spacial modes; our two mode system makes the assumption that only one of these spacial modes is relevant for each of the condensate's components.
+
+We allow the atoms to interact via a standard Kerr-type nonlinearity arising from atom-atom interactions, as well as allowing a linear coupling between the two modes. Denoting the two modes by $|a\rangle$ and $|b\rangle$, the Hamiltonian governing this system is given by
+\begin{equation}
+\hat{H} = \hbar \omega_a \hat{a}^{\dagger} \hat{a} +  \hbar \omega_b \hat{b}^{\dagger} \hat{b} 
+          + \frac{\chi_{aa}}{2} \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}
+          + \chi_{ab} \hat{a}^{\dagger} \hat{a} \hat{b}^{\dagger} \hat{b}
+          + \frac{\chi_{bb}}{2} \hat{b}^{\dagger} \hat{b}^{\dagger} \hat{b} \hat{b}
+          + \Omega (\hat{a}^{\dagger} \hat{b} + \hat{a}^{\dagger} \hat{b} )
+\label{eqTwoModeHamiltonian}
+\end{equation}
+where the $\chi_{ij}$ describe the various inter- and intra-mode nonlinearities, and $\Omega$ couples the two modes and allows for population transfer between them.
+
+The system is prepared with all the population in $|a\rangle$, and vacuum in $|b\rangle$. $|a\rangle$ is well-described by a coherent state {\bf *** Justify this. ***} with average number $\langle \hat{a}^{\dagger} \hat{a} \rangle = N$, where $N$ is the total particle number in our system.
+
+At time $t=0$ the coupling $\Omega$ is switched on and applied until time $t=t_1$, at which point it is turned off, resulting in a portion of the population being transferred into mode $|a\rangle$. As the initial state was a coherent state in both modes, after the population transfer both $|a\rangle$ and $|b\rangle$ are described by coherent states, with mean number $\langle \hat{a}^{\dagger} \hat{a} \rangle = n_a$ and $\langle \hat{b}^{\dagger} \hat{b} \rangle = n_b$ respectively.
+
+The coupling $\Omega$ is then switched off until time $t_2$. During this period the atoms interact solely through the nonlinear terms, with no population being transferred. Due to the form of the Hamiltonian, the number variance remains unchanged, but the quadrature variances in the two modes change over time, which can lead to quadrature squeezing \cite{xxx}.
+
+After this hold time $\tau_{\mathrm{hold}} = t_2 - t_1 $, the coupling $\Omega$ is switched back on until time $t_3$, with a phase shift $\phi$ compared to it's first application. During this last stage, the two modes exchange population and the quadrature variance is converted into number variance, in the same way homodyne measurements are used in quantum optics to convert quadrature squeezing (which cannot be directly measured) into number squeezing (which can). In this interpretation, $\phi$ is the relative phase of the strong local oscillator, which allows specific phase angles of quadrature squeezing to be examined.
+
+The entire sequence of pulses and the resulting populations are shown schematically in Figure~\ref{figPulseScheme}.
+
+This system can be solved analytically, and expressions for quadrature, absolute and relative number squeezing can be derived. We present the solutions here; the full derivation can be found in \ref{appendixTwoModeDerivation}.
+If we define
+\begin{eqnarray}
+s &=& \sin(\Omega (t_3 - t_2)) \\
+c &=& \cos(\Omega (t_3 - t_2)) \\
+\lambda_{ij} &=& \chi_{ij} \tau_{\mathrm{hold}} / \hbar \\
+A &=& \sqrt{n_a} \exp [n_a (e^{-i(\lambda_{aa}-\lambda_{ab})} - 1 )] \\
+A_2 &=& n_a \exp [n_a (e^{-2i(\lambda_{aa}-\lambda_{ab})} - 1 )] \\
+B &=& -i e^{i \phi}\sqrt{n_b} \exp [n_b (e^{-i(\lambda_{bb}-\lambda_{ab})} - 1 )] \\
+B_2 &=& -n_b e^{2i\phi} \exp [n_b (e^{-2i(\lambda_{bb}-\lambda_{ab})} - 1 )]
+\end{eqnarray}
+then the expectation values for number and number squared at time $t=t_3$ are given by
+\begin{eqnarray}
+\langle \hat{a}^{\dagger}(t_3) \hat{a}(t_3) \rangle &=& n_a c^2 + n_b s^2 + i c s (A B^* - A^* B) \\
+%
+\langle \hat{b}^{\dagger}(t_3) \hat{b}(t_3) \rangle &=& n_a s^2 + n_b c^2 - i c s (A B^* - A^* B) \\
+%
+\langle \hat{a}^{\dagger}(t_3)  \hat{a}^{\dagger}(t_3) \hat{a}(t_3) \hat{a}(t_3) \rangle &=& (n_a^2 + n_a) c^4 + (n_b^2 + n_b) s^4 \nonumber \\
+&& + c^2 s^2 [n_a +n_b +4 n_a n_b - e^{i(\lambda_{aa}-\lambda_{bb})} B_2 A_2^* - e^{-i(\lambda_{aa}-\lambda_{bb})} B_2^* A_2] \nonumber \\
+&& + i c^3 s [2 n_a e^{-i(\lambda_{aa}-\lambda_{ab})}] A B^* - 2 n_a e^{i(\lambda_{aa}-\lambda_{ab})} A^* B + A B^* - A^* B] \nonumber \\
+&& + i c s^3 [2 n_b e^{i(\lambda_{bb}-\lambda_{ab})}] A B^* - 2 n_b e^{-i(\lambda_{bb}-\lambda_{ab})} A^* B + A B^* - A^* B] \\
+%
+\langle \hat{b}^{\dagger}(t_3)  \hat{b}^{\dagger}(t_3) \hat{b}(t_3) \hat{b}(t_3) \rangle &=& (n_b^2 + n_b) c^4 + (n_a^2 + n_a) s^4 \nonumber \\
+&& + c^2 s^2 [n_a +n_b +4 n_a n_b - e^{-i(\lambda_{aa}-\lambda_{bb})} B_2^* A_2 - e^{i(\lambda_{aa}-\lambda_{bb})} B_2 A_2^*] \nonumber \\
+&& + i c^3 s [2 n_b e^{-i(\lambda_{bb}-\lambda_{ab})}] A^* B - 2 n_b e^{i(\lambda_{bb}-\lambda_{ab})} A B^* + A^* B - A B^*] \nonumber \\
+&& + i c s^3 [2 n_a e^{i(\lambda_{aa}-\lambda_{ab})}] A^* B - 2 n_a e^{-i(\lambda_{aa}-\lambda_{ab})} A B^* + A^* B - A B^*] \\
+\end{eqnarray}
+
+
 
 \begin{figure}
     \centering
     \includegraphics[width=8cm]{figures/pulse_scheme.eps}
     \caption{Mollusc mollusc}
-    \label{fig:PulseScheme}
+    \label{figPulseScheme}
 \end{figure}
 
 
@@ -156,7 +208,7 @@ Acknowledgements in here; funding sources etc
 
 \appendix
 \section{Derivation of single mode squeezing formula}
-\label{appendixSMderivation}
+\label{appendixTwoModeDerivation}
 
 \section*{References}
 \begin{thebibliography}{10}
