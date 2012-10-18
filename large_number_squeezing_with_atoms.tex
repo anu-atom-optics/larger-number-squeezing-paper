@@ -1,0 +1,108 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    INSTITUTE OF PHYSICS PUBLISHING                                   %
+%                                                                      %
+%   `Preparing an article for publication in an Institute of Physics   %
+%    Publishing journal using LaTeX'                                   %
+%                                                                      %
+%    LaTeX source code `ioplau2e.tex' used to generate `author         %
+%    guidelines', the documentation explaining and demonstrating use   %
+%    of the Institute of Physics Publishing LaTeX preprint files       %
+%    `iopart.cls, iopart12.clo and iopart10.clo'.                      %
+%                                                                      %
+%    `ioplau2e.tex' itself uses LaTeX with `iopart.cls'                %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% First we have a character check
+%
+% ! exclamation mark    " double quote  
+% # hash                ` opening quote (grave)
+% & ampersand           ' closing quote (acute)
+% $ dollar              % percent       
+% ( open parenthesis    ) close paren.  
+% - hyphen              = equals sign
+% | vertical bar        ~ tilde         
+% @ at sign             _ underscore
+% { open curly brace    } close curly   
+% [ open square         ] close square bracket
+% + plus sign           ; semi-colon    
+% * asterisk            : colon
+% < open angle bracket  > close angle   
+% , comma               . full stop
+% ? question mark       / forward slash 
+% \ backslash           ^ circumflex
+%
+% ABCDEFGHIJKLMNOPQRSTUVWXYZ 
+% abcdefghijklmnopqrstuvwxyz 
+% 1234567890
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\documentclass[12pt]{iopart}
+%\newcommand{\gguide}{{\it Preparing graphics for IOP journals}}
+%Uncomment next line if AMS fonts required
+%\usepackage{iopams}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Iconic representations of molluscs through the ages}
+
+\author{Mattias T Johnsson$^1$, Graham R Dennis$^2$ and Joseph J Hope$^1$}
+
+\address{$^1$Department of Quantum Science, The Australian National University, Canberra ACT 0200, Australia}
+\address{$^2$Research School of Physics and Engineering, The Australian National University, Canberra ACT 0200, Australia}
+\ead{mattias.johnsson@anu.edu.au}
+
+\begin{abstract}
+More squeezing than you can shake a stick at.
+
+\end{abstract}
+
+%Uncomment for PACS numbers title message
+%\pacs{00.00, 20.00, 42.10}
+% Keywords required only for MST, PB, PMB, PM, JOA, JOB? 
+%\vspace{2pc}
+%\noindent{\it Keywords}: Article preparation, IOP journals
+% Uncomment for Submitted to journal title message
+%\submitto{\JPA}
+% Comment out if separate title page not required
+\maketitle
+
+\section{Introduction}
+Wibble.
+
+\subsection{Subsection}
+This is a subsection
+
+\section{Model and single mode solutions}
+Mollusc mollusc.
+\begin{figure}
+    \centering
+    \includegraphics[width=8cm]{figures/pulse_scheme.eps}
+    \caption{Mollusc mollusc}
+    \label{fig:PulseScheme}
+\end{figure}
+
+\section{Conclusion}
+
+
+
+\clearpage
+
+\appendix
+\section{Derivation of single mode squeezing formula}
+\label{appendixSMderivation}
+
+\section*{References}
+\begin{thebibliography}{10}
+\bibitem{gross2010} Gross C, Zibold T, Est{\`{e}}ve J and Oberthaler M K 2010 Nonlinear atom interferometer surpasses classical
+precision limit {\it Nature} {\bf 464} 1165--1169
+\bibitem{dennis2013} Dennis G R, Hope J J and Johnsson M T 2013 XMDS2: Fast, scalable simulation of coupled stochastic partial
+differential equations {\it Comput. Phys. Commun.} {\bf 184} 201--208
+
+\end{thebibliography}
+
+\end{document}
+
