@@ -22,9 +22,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="321.03707"
-     inkscape:cy="543.88952"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="392.91428"
+     inkscape:cy="810.10587"
      inkscape:document-units="px"
      inkscape:current-layer="svg2"
      showgrid="true"
@@ -438,4 +438,30 @@
          x="465.71429"
          y="391.64789"
          style="font-size:14px" /></flowRegion><flowPara
-       id="flowPara4639-7-7-9">Mode |b&gt;</flowPara></flowRoot></svg>
+       id="flowPara4639-7-7-9">Mode |b&gt;</flowPara></flowRoot>  <text
+     xml:space="preserve"
+     style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+     x="100.35506"
+     y="280.34976"
+     id="text3096"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3098"
+       x="100.35506"
+       y="280.34976"
+       dy="0 3.5355339 -7.0710678"
+       style="font-size:18px">Nb(t)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+     x="81.450317"
+     y="98.890671"
+     id="text3096-6"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3098-1"
+       x="81.450317"
+       y="98.890671"
+       dy="0 3.5355339 -3.5355339"
+       style="font-size:18px">Na(t)</tspan></text>
+</svg>
