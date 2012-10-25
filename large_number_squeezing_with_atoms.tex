@@ -92,6 +92,8 @@ More squeezing than you can shake a stick at.
 
 As our goal is to describe the number squeezing possibilities of a two component BEC, we begin by considering a simplified version of the problem, consisting of a two-mode system, with the modes corresponding to the two states of the condensate. In the full problem, each of the components will include many spacial modes; our two mode system makes the assumption that only one of these spacial modes is relevant for each of the condensate's components.
 
+{\bf{Maybe expand on the link between a full BEC in a trap and a the following hamiltonian?}}
+
 We allow the atoms to interact via a standard Kerr-type nonlinearity arising from atom-atom interactions, as well as allowing a linear coupling between the two modes. Denoting the two modes by $|a\rangle$ and $|b\rangle$, the Hamiltonian governing this system is given by
 \begin{equation}
 \hat{H} = \hbar \omega \hat{a}^{\dagger} \hat{a} +  \hbar \omega \hat{b}^{\dagger} \hat{b} 
@@ -110,6 +112,8 @@ At time $t=0$ the coupling $\Omega$ is switched on and applied until time $t=t_1
 The coupling $\Omega$ is then switched off until time $t_2$. During this period the atoms interact solely through the nonlinear terms, with no population being transferred. Due to the form of the Hamiltonian, the number variance remains unchanged, but the quadrature variances in the two modes change over time, which can lead to quadrature squeezing \cite{xxx}.
 
 After this hold time $\tau_{\mathrm{hold}} = t_2 - t_1 $, the coupling $\Omega$ is switched back on until time $t_3$, with a phase shift $\phi$ compared to it's first application. During this last stage, the two modes exchange population and the quadrature variance is converted into number variance, in the same way homodyne measurements are used in quantum optics to convert quadrature squeezing (which cannot be directly measured) into number squeezing (which can). In this interpretation, $\phi$ is the relative phase of the strong local oscillator, which allows specific phase angles of quadrature squeezing to be examined.
+
+In another interpretation, the sequence of pulses results in a Ramsey interferometer, with a final beam splitter phase of $\phi$.
 
 The entire sequence of pulses and the resulting populations are shown schematically in Figure~\ref{figPulseScheme}.
 
@@ -148,7 +152,18 @@ N_b(t_3) &=& n_a s^2 + n_b c^2 - i c s D \\
        && + 4 i c s (c^2 - s^2) (n_a e^{-i(\lambda_{aa} - \lambda_{ab})} A B^* - n_a e^{i(\lambda_{aa} - \lambda_{ab})} A^* B 
                      + n_b e^{-i(\lambda_{bb} - \lambda_{ab})} A^* B - n_b e^{i(\lambda_{bb} - \lambda_{ab})} A B^*)
 \end{eqnarray}
+In the case where all the nonlinearities are equal, such that $\chi_{aa} = \chi_{ab} = \chi_{bb}$, the number variances all reduce to those of a coherent state, e.g. ${\mathrm{Var}}[N_a]=N_a$, an no number squeezing is possible. 
 
+There are three independent nonlinearities $\chi_{ij}$ in the Hamiltonian (\ref{eqTwoModeHamiltonian}). In the expressions for the number variances, however, the nonlinearities only appear in the cyclic combinations $\chi_{aa}-\chi_{ab}$, $\chi_{bb}-\chi_{ab}$ and $\chi_{aa}-\chi_{bb}$, meaning that number squeezing is parameterized by only two independent quantities which will be linear combinations of the nonlinearities. For example, since $\chi_{bb}-\chi_{ab} = (\chi_{aa}-\chi_{ab}) - (\chi_{aa}-\chi_{bb})$ it is possible to parameterize the number squeezing entirely in terms of the nonlinear differences $\chi_{aa}-\chi_{ab}$ and $\chi_{aa}-\chi_{bb}$.
+
+{\bf{There seems to be this bogus rule of thumb in the literature that the amount of squeezing you can get is related to $\chi_{11}+\chi_{22}-2\chi_{12}$. Is it worth pointing out that this is wrong?}}
+
+While the analytic expressions for the number variances are not particularly transparent, it is easy to evaluate and plot them for any given set of parameters. As an example, in Figure \ref{figxxx} we plot the solution for the normalized number variance in mode $|a\rangle$ for a particular set of nonlinearities, choosing a number of different values of $\phi$. The plots illustrate the basic features of the problem: During the final coupling period, the number variance undergoes cyclic variation, with a series of minima. It is necessary to choose both the correct phase $\phi$ as well as the correct length of time for the coupling to be applied in order to obtain optimum squeezing.
+
+
+
+
+%Can Uaa + Ubb - 2Uab be zero and still get squeezing? Yep, Uaa=0.03, Ubb=0.01, Uab=0.2 gives squeezing for all quantities of interest
 
 
 
@@ -174,7 +189,7 @@ N_b(t_3) &=& n_a s^2 + n_b c^2 - i c s D \\
 \begin{itemize}
   \item Point out that different densities have phases that evolve at different rates
   \item This leads to poor mode matching when recombining if two states have different nonlinearity*number values 
-  \item give a plot of the mode in |a> and |b> at the beginning and end of the hold time to show mismatch
+  \item give a plot of the mode in $|a\rangle$ and $|b\rangle$ at the beginning and end of the hold time to show mismatch
   \item This means constant density is good since mode shape doesn't change
   \item Plot of squeezing for given set of params for gaussian, TF, constant density, show it get steadily better
   \item Say we can use a pi pulse to swap the populations half way through, so if the states have different nonlinearities we still end up with the same mode shapes when we recombine. The fact that this works will be clear from the SM equations for a(t), b(t) when the beam splitter is on
