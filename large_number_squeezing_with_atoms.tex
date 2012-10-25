@@ -215,6 +215,60 @@ While the analytic expressions for the number variances are not particularly tra
   \item Show derivation for what physical situations are needed to freeze out 1, 2 and 3 dimensions. In general we need small number, which makes it hard since we want large number squeezing. Large number requirement leads to implausible geometry in 1D (i.e. a tube with a ridiculous aspect ratio), but going from 3D down to 2D is probably do-able
   \end{itemize}
 
+In order to reduce the number of modes available, we can attempt to make our system single mode in one or more dimensions. To do this we need to ensure that that any excitation along that dimension is energetically impossible, so we always stay in the ground state. This in turn means we need the harmonic oscillator energy per particle to be greater than the nonlinear energy per particle. {\bf{*** Not happy with this explanation. Make it better ***}}.
+
+The criteria we need to accomplish this depends on the number of dimensions we want to freeze out, so investigate the cases where we reduce a 3D system to an effective 0D, 1D, and 2D system seperately. In all cases we assume we have a box potential with length $L$ in the dimension(s) that aren't frozen out, and tight harmonic trapping potential of frequency $\omega$ in the frozen dimensions.
+
+Reduction from 3D to 0D: Here we have tight trapping along all three dimensions, so we have a harmonic oscillator wavefunction along all dimensions. With $N$ particles in the system, the density is given by
+\begin{equation}
+|\psi|^2 = N \left( \frac{m \omega}{\pi \hbar} \right)^{3/2} \exp \left[ -\frac{m \omega} {\hbar} (x^2 +y^2+z^2) \right] .
+\end{equation}
+In this system, the nonlinear energy per particle is
+\begin{eqnarray}
+E_{NL} &=& \frac{U}{2N} \int |\psi({\mathbf{r}})|^4 dx \, dy \, dz \\
+       &=& \frac{U N}{4 \sqrt{2}} \left( \frac{m \omega}{\pi \hbar} \right)^{3/2}
+\end{eqnarray}
+where $U = \pi \hbar^2 a/m$ and $a$ is the s-wave scattering length of the particles. The criterion $\hbar \omega > E_{NL}$ thus becomes
+\begin{equation}
+%N < \frac{1}{a} \sqrt{2 \pi \hbar}{m \omega}.
+\sqrt{\frac{\hbar}{m \omega}} > \frac{aN}{\sqrt{2 \pi}}.
+\end{equation}
+Assuming Rubidium atoms, typical scattering lengths ($a\sim$10nm) and large particle numbers (say $N\sim 10^6$), we require a harmonic oscillator length $\sqrt{\hbar/ m \omega}>4$mm.  A BEC that's more than a centimetre across isn't particularly feasible.
+
+Reduction from 3D to 1D: Here we have tight trapping along $x$ and $y$, with a box potential along $z$. With $N$ particles in the system, the density is given by
+\begin{equation}
+|\psi|^2 = \frac{N}{L} \frac{m \omega}{\pi \hbar} \exp \left[ -\frac{m \omega} {\hbar}  (x^2 +y^2) \right] .
+\end{equation}
+In this system, the nonlinear energy per particle is
+\begin{eqnarray}
+E_{NL} &=& \frac{U}{2N} \int |\psi({\mathbf{r}})|^4 dx \, dy \, dz \\
+       &=& \frac{U N m \omega}{4 \pi \hbar L}
+\end{eqnarray}
+The criterion $\hbar \omega > E_{NL}$ thus becomes
+\begin{equation}
+L > a N / \pi.
+\end{equation}
+Assuming Rubidium atoms, typical scattering lengths ($a\sim$10nm) and large particle numbers (say $N\sim 10^6$) we need a BEC that's a few millimeters long, which isn't particularly feasible.
+
+Reduction from 3D to 2D: Here we have tight trapping along $z$, with a box potential along $x$ and $y$. With $N$ particles in the system, the density is given by
+\begin{equation}
+|\psi|^2 = \frac{N}{L^2} \left( {\frac{m \omega}{\pi \hbar}} \right) ^{1/2} \exp \left[ -\frac{m \omega} {\hbar} z^2  \right]
+\end{equation}
+In this system, the nonlinear energy per particle is
+\begin{eqnarray}
+E_{NL} &=& \frac{U}{2N} \int |\psi({\mathbf{r}})|^4 dx \, dy \, dz \\
+       &=& \frac{m \omega U N}{4 \pi \hbar L^2}
+\end{eqnarray}
+The criterion $\hbar \omega > E_{NL}$ thus becomes
+\begin{equation}
+\omega > \frac{8 \pi a^2 N^2 \hbar}{m L^4}.
+\end{equation}
+Once again taking a Rubidium atom and considering typical parameters, say $a\sim$10nm, $N\sim 10^6$, $L\sim 200\mu$m, we see that we need $\omega > 2\pi\times 190$Hz, which is feasible.
+
+The takeaway point is that dimensional reduction to 0D and 1D is possible in the case where we have low particle numbers, which is how Oberthaler got his 6dB (or 8dB depending how you count) of squeezing. He only had 400 atoms, so could reduce his problem to 0D and freeze out any multimode dynamics. But if we're interested in large number squeezing, the best we can really do is reduction from 3D to 2D.
+
+
+
 \section{Conclusion}
 \label{sectionConclusion}
 \begin{itemize}
