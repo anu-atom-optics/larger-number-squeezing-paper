@@ -314,42 +314,162 @@ In order to have more compact expressions we will use the notation
 \hat{b}(t_j) &=& \hat{b}_j.
 \end{eqnarray}
 
-Beginning with the Hamiltonian $H_3$, during the period $(t_2, t_3)$ mode $|a\rangle$ will evolve as
+Beginning with the Hamiltonian $H_1$, during the period $(0, t_1)$ mode $\hat{a}$ will evolve as
 \begin{equation}
-\hat{a}_3 = e^{ i H_3 t/ \hbar} \, \hat{a}_2 \, e^{-i H_3 t/ \hbar}.
+\hat{a}_1 = e^{ i H_1 t/ \hbar} \, \hat{a}_0 \, e^{-i H_1 t/ \hbar}.
 \end{equation}
 Utilizing the Hadamard lemma
 \begin{equation}
 e^X Y e^{-X} = Y + [X,Y] + \frac{1}{2!}[X,[X,Y]] + \frac{1}{3!}[X,[X,[X,Y]]] + \ldots
+\label{eqHadamard}
 \end{equation}
-we obtain
+we obtain 
 \begin{eqnarray}
-\hat{a}_3 &=& \hat{a}_2 - i e^{i\phi} \Omega \tau \hat{b}_2 + \frac{(i \Omega \tau)^2}{2!} \hat{a}_2 - \frac{(i \Omega \tau)^3}{3!}e^{i\phi} \hat{b}_2 + \frac{(i \Omega \tau)^4}{4!} \hat{a}_2 - \ldots \nonumber \\
-          &=& \cos (\Omega \tau) \hat{a}_2 -i e^{i\phi} \sin (\Omega\tau) \hat{b}_2
+\hat{a}_1 &=& \hat{a}_0 - i \Omega t_1 \hat{b}_0 + \frac{(i \Omega t_1)^2}{2!} \hat{a}_0 - \frac{(i \Omega t_1)^3}{3!} \hat{b}_0 + \frac{(i \Omega t_1)^4}{4!} \hat{a}_2 - \ldots \nonumber \\
+          &=& \cos (\Omega t_1) \hat{a}_0 -i \sin (\Omega t_1) \hat{b}_0
+\label{eqa1}
 \end{eqnarray}
-where $\tau=t_3-t_2$ is the period for which the coupling is applied. Similarly, we find
+Similarly, we find
 \begin{equation}
-\hat{b}_3 = \cos (\Omega \tau) \hat{b}_2 -i e^{-i\phi} \sin (\Omega\tau) \hat{a}_2.
+\hat{b}_1 = \cos (\Omega t_1) \hat{b}_0 - i \sin (\Omega t_1) \hat{a}_0.
+\label{eqb1}
+\end{equation}
+From the form of (\ref{eqa1}) and (\ref{eqb1}) it is clear that as both modes $\hat{a}$ and $\hat{b}$ began in coherent states, they will remain in coherent states, with only their amplitudes changing. Specifically, at time $t_1$ the system is in a product of coherent states, which we denote $|\alpha, \beta\rangle$ with $\alpha=\sqrt{n_a}$ and $\beta=-i\sqrt{n_b}$.
+
+Next we consider evolution under $H_2$. Taking mode $\hat{a}$ first, we note that as it commutes with the $\hat{b}^{\dagger} \hat{b}^{\dagger} \hat{b} \hat{b}$ term, and since $\hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}$ commutes with $\hat{a}^{\dagger} \hat{a} \hat{b}^{\dagger} \hat{b}$ we have
+\begin{equation}
+\hat{a}_2 = e^{i \lambda_{ab} \hat{a}_1^{\dagger} \hat{a}_1 \hat{b}_1^{\dagger} \hat{b}_1 } 
+          e^{ i \frac{\lambda_{aa}} {2} \hat{a}_1^{\dagger} \hat{a}_1^{\dagger} \hat{a}_1 \hat{a}_1}\, \hat{a}_1 \,  
+          e^{ -i \frac{\lambda_{aa}}{2} \hat{a}_1^{\dagger} \hat {a}_1^{\dagger} \hat{a}_1 \hat{a}_1 }
+          e^{-i \lambda_{ab} \hat{a}_1^{\dagger} \hat{a}_1 \hat{b}_1^{\dagger} \hat{b}_1}.
+\label{eqa2evolution}
+\end{equation}
+where we have defined $\lambda_{ij} = \chi_{ij} (t_2-t_1)/\hbar$. Utilizing (\ref{eqHadamard}) to move $\hat{a}_1$ through the exponential, with some algebra one can show that
+\begin{eqnarray}
+e^{ i \frac{\lambda_{aa}} {2} \hat{a}_1^{\dagger} \hat{a}_1^{\dagger} \hat{a}_1 \hat{a}_1} \hat{a}_1 
+         e^{ -i \frac{\lambda_{aa}} {2} \hat{a}_1^{\dagger} \hat{a}_1^{\dagger} \hat{a}_1 \hat{a}_1} &=& \left[ \sum_{n=0} (-i \lambda_{aa})^n (\hat{a}_1^{\dagger} \hat{a}_1)^n \right] \hat{a}_1 \nonumber \nonumber \\
+   &=& \exp[-i \lambda_{aa} \hat{a}_1^{\dagger} \hat{a}_1] \hat{a}_1
+\end{eqnarray}
+To handle the cross-nonlinearity term in (\ref{eqa2evolution}) we use the identity \cite{louisell}
+\begin{equation}
+e^{x \hat{a}^{\dagger} \hat{a}} f(\hat{a}, \hat{a}^{\dagger}) e^{-x \hat{a}^{\dagger} \hat{a}} = f(\hat{a}e^{-x}, \hat{a}^{\dagger} e^{x})
+\label{eqefeidentity}
+\end{equation}
+to obtain
+\begin{eqnarray}
+\hat{a}_2 &=& e^{i \lambda_{ab} \hat{a}_1^{\dagger} \hat{a}_1 \hat{b}_1^{\dagger} \hat{b}_1 } 
+          e^{-i \lambda_{aa} \hat{a}_1^{\dagger} \hat{a}_1} \, \hat{a}_1 \,
+          e^{-i \lambda_{ab} \hat{a}_1^{\dagger} \hat{a}_1 \hat{b}_1^{\dagger} \hat{b}_1} \nonumber \\
+%
+          &=& e^{-i \lambda_{aa} \hat{a}_1^{\dagger} \hat{a}_1} 
+              e^{i \lambda_{ab} \hat{a}_1^{\dagger} \hat{a}_1 \hat{b}_1^{\dagger} \hat{b}_1 } \, \hat{a}_1 \,
+          e^{-i \lambda_{ab} \hat{a}_1^{\dagger} \hat{a}_1 \hat{b}_1^{\dagger} \hat{b}_1} \nonumber \\
+%
+          &=& e^{-i \lambda_{aa} \hat{a}_1^{\dagger} \hat{a}_1} e^{-i \lambda_{ab} \hat{b}_1^{\dagger} \hat{b}_1} \, \hat{a}_1
+\label{eqa2}
+\end{eqnarray}
+Similarly, from permutation symmetry, we have
+\begin{equation}
+\hat{b}_2 = e^{-i \lambda_{bb} \hat{b}_1^{\dagger} \hat{b}_1} e^{-i \lambda_{ab} \hat{a}_1^{\dagger} \hat{a}_1} \, \hat{b}_1.     
+\label{eqb2}
+\end{equation}
+Finally, to obtain $\hat{a}_3$ and $\hat{b}_3$ we utilize (\ref{eqa1}) and (\ref{eqb1}) with the phase factor attached to the $\hat{b}$ operator to obtain
+\begin{eqnarray}
+\hat{a}_3 &=& \cos (\Omega (t_3-t_2)) \hat{a}_2 -i e^{i\phi} \sin (\Omega (t_3-t_2)) \hat{b}_2 \label{eqa3} \\
+\hat{b}_3 &=& \cos (\Omega (t_3-t_2)) \hat{b}_2 - i e^{-i\phi} \sin (\Omega (t_3-t_2)) \hat{a}_2 \label{eqb3}
+\end{eqnarray} 
+We are now in a position to evaluate the number variance of the system throughout period of the final coupling. We first consider the number variance of the $\hat{a}$ field, which is defined as
+\begin{equation}
+{\mathrm{Var}}[N_a] = \langle \hat{a}^{\dagger}_3 \hat{a}_3 \hat{a}^{\dagger}_3 \hat{a}_3 \rangle - \langle \hat{a}^{\dagger}_3 \hat{a}_3 \rangle ^2.
+\label{eqNavariance}
+\end{equation}
+Making use of (\ref{eqa3}) and using the shorthand notation 
+\begin{eqnarray}
+s &=& \sin[\Omega (t_3 - t_2)] \\
+c &=& \cos[\Omega (t_3 - t_2)]
+\end{eqnarray}
+we have
+\begin{eqnarray}
+\hat{a}^{\dagger}_3 \hat{a}_3 &=& \hat{a}^{\dagger}_2 \hat{a}_2 c^2 +  \hat{b}^{\dagger}_2 \hat{b}_2 s^2 + i c s e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 - i c s e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 \\
+%
+\hat{a}^{\dagger}_3 \hat{a}_3 \hat{a}^{\dagger}_3 \hat{a}_3 &=& \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}^{\dagger}_2 \hat{a}_2 c^4 + \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}^{\dagger}_2 \hat{b}_2 s^4 \nonumber \\
+%
+&& + c^2 s^2 [ \hat{a}^{\dagger}_2 \hat{a}_2 + \hat{b}^{\dagger}_2 \hat{b}_2 + 4 \hat{a}^{\dagger}_2 \hat{a}_2 \hat{b}^{\dagger}_2 \hat{b}_2 -e^{-2 i \phi} \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 -e^{-2 i \phi} \hat{b}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{a}_2 ] \nonumber \\
+%
+&& + i c^3 s [2 e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}_2 - 2 e^{i \phi} \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{a}_2 \hat{b}_2 + e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 - e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 ] \nonumber \\
+%
+&& + i c s^3 [2 e^{-i \phi} \hat{b}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{b}_2 - 2 e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}_2 + e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 - e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 ] 
+\end{eqnarray}
+Clearly, to calculate (\ref{eqNavariance}) we will need the expectation values of terms quartic and quadratic in $\hat{a}_2$ and ${\hat{b}_2}$. Specifically, we require $\langle \hat{a}^{\dagger}_2 \hat{a}_2 \rangle$, $\langle \hat{b}^{\dagger}_2 \hat{b}_2 \rangle$,  $\langle \hat{a}^{\dagger}_2 \hat{b}_2 \rangle$, $\langle \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}^{\dagger}_2 \hat{a}_2 \rangle$, $\langle \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \rangle$ , $\langle \hat{a}^{\dagger}_2 \hat{a}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \rangle$, $\langle \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle$, $\langle \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{a}_2 \rangle$, and $\langle \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle$, as well as their Hermitian conjugates.
+
+As $\hat{a}^{\dagger}_1 \hat{a}_1$ and $\hat{b}^{\dagger}_1 \hat{b}_1$ commute with the Hamiltonian $H_2$, they are constants of motion so we have
+\begin{equation}
+\langle \hat{a}^{\dagger}_2 \hat{a}_2 \rangle = \langle \hat{a}^{\dagger}_1 \hat{a}_1 \rangle = \langle \alpha, \beta | \hat{a}^{\dagger}_1 \hat{a}_1 |\alpha, \beta \rangle = |\alpha|^2 = n_a
+\end{equation}
+%
+\begin{equation}
+\langle \hat{b}^{\dagger}_2 \hat{b}_2 \rangle = \langle \hat{b}^{\dagger}_1 \hat{b}_1 \rangle = \langle \alpha, \beta | \hat{b}^{\dagger}_1 \hat{b}_1 |\alpha, \beta \rangle = |\beta|^2 = n_b
+\end{equation}
+%
+\begin{equation}
+\langle \hat{a}^{\dagger}_2 \hat{a}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \rangle = \langle \hat{a}^{\dagger}_1 \hat{a}_1 \hat{b}^{\dagger}_1 \hat{b}_1 \rangle = \langle \alpha, \beta | \hat{a}^{\dagger}_1 \hat{a}_1 \hat{b}^{\dagger}_1 \hat{b}_1 |\alpha, \beta \rangle = |\alpha|^2 |\beta|^2 = n_a n_b
+\end{equation}
+Furthermore, $\hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}^{\dagger}_2 \hat{a}_2$ and $\hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}^{\dagger}_2 \hat{b}_2$ also commute with $H_2$, giving
+\begin{equation}
+\langle \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}^{\dagger}_2 \hat{a}_2 \rangle = \langle \hat{a}^{\dagger}_1 \hat{a}_1 \hat{a}^{\dagger}_1 \hat{a}_1 \rangle = \langle \alpha, \beta | \hat{a}^{\dagger}_1 \hat{a}^{\dagger}_1 \hat{a}_1 \hat{a}_1 + \hat{a}^{\dagger}_1 \hat{a}_1 |\alpha, \beta \rangle = n_a^2 + n_a
+\end{equation}
+%
+\begin{equation}
+\langle \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \rangle = \langle \hat{b}^{\dagger}_1 \hat{b}_1 \hat{b}^{\dagger}_1 \hat{b}_1 \rangle = \langle \alpha, \beta | \hat{b}^{\dagger}_1 \hat{b}^{\dagger}_1 \hat{b}_1 \hat{b}_1 + \hat{b}^{\dagger}_1 \hat{b}_1 |\alpha, \beta \rangle = n_b^2 + n_b
+\end{equation}
+The remaining terms are not constants of motion, so we proceed by making use of (\ref{eqa2}) and (\ref{eqb2}). For $\langle \hat{a}^{\dagger}_2 \hat{b}_2 \rangle$ we have
+\begin{equation}
+\hat{a}^{\dagger}_2 \hat{b}_2 = \hat{a}^{\dagger}_1 e^{-i (\lambda_{bb} - \lambda_{ab}) \hat{b}^{\dagger}_1 \hat{b}_1} e^{i (\lambda_{aa} - \lambda_{ab}) \hat{a}^{\dagger}_1 \hat{a}_1} \hat{b}_1 
+\end{equation}
+To calculate the expectation value of this expression, the creation and annihilation operators must be normally ordered. Making use of the identity \cite{louisell}
+\begin{equation}
+e^{x \hat{a}^{\dagger} \hat{a}} = \sum_{n=0}^{\infty} \frac{(e^x - 1)^n} {n!} (\hat{a}^{\dagger})^n (\hat{a})^n
+\end{equation}
+allows us to compute expectation values of coherent states of the form
+\begin{eqnarray}
+\langle \alpha | e^{x \hat{a}^{\dagger} \hat{a}} |\alpha \rangle &=& \sum_{n=0}^{\infty} \frac{(e^x - 1)^n} {n!} |\alpha|^{2n} \nonumber \\
+%
+&=& \exp[|\alpha|^2(e^x -1)] \label{eqExpectationValueOfExponential}
+\end{eqnarray}
+This gives
+\begin{eqnarray}
+\langle \hat{a}^{\dagger}_2 \hat{b}_2 \rangle &=& \langle \alpha, \beta | \hat{a}^{\dagger}_1 e^{-i (\lambda_{bb} - \lambda_{ab}) \hat{b}^{\dagger}_1 \hat{b}_1} e^{i (\lambda_{aa} - \lambda_{ab}) \hat{a}^{\dagger}_1 \hat{a}_1} \hat{b}_1 | \alpha, \beta \rangle \nonumber \\
+%
+&=& \alpha^* \beta \exp[|\alpha|^2(e^{i (\lambda_{aa} - \lambda_{ab})} -1)] \exp[|\beta|^2 (e^{-i (\lambda_{bb} - \lambda_{ab})} -1)]
+\end{eqnarray}
+
+Next we tackle $\langle \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle$. Using (\ref{eqa2}) and (\ref{eqb2}) and the fact that $\hat{a}$ and $\hat{b}$ commute, we have
+\begin{eqnarray}
+\hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 &=& \hat{a}^{\dagger}_1 
+  e^{i (\lambda_{aa}-\lambda_{ab}) \hat{a}^{\dagger}_1 \hat{a}_1}
+  \hat{b}_1 \hat{a}^{\dagger_1}
+  e^{i (\lambda_{ab}-\lambda_{bb}) \hat{b}^{\dagger}_1 \hat{b}_1}
+  e^{i (\lambda_{aa}-\lambda_{ab}) \hat{a}^{\dagger}_1 \hat{a}_1}
+  \hat{b}_1 \\
+%
+&=& \hat{a}^{\dagger}_1 \hat{a}^{\dagger}_1 
+    e^{2i (\lambda_{aa}-\lambda_{ab}) \hat{a}^{\dagger}_1 \hat{a}_1}
+    e^{2i (\lambda_{ab}-\lambda_{bb}) \hat{b}^{\dagger}_1 \hat{b}_1}
+    \hat{b}_1 \hat{b}_1 e^{i(\lambda_{aa}-\lambda_{bb})}
+\end{eqnarray}
+where we have made multiple uses of the identity 
+\begin{equation}
+\hat{a} e^{i x \hat{a}^{\dagger} \hat{a}} = e^{i x \hat{a}^{\dagger} \hat{a}} \hat{a} e^{ix}
+\end{equation}
+which follows from (\ref{eqefeidentity}). Finally, applying (\ref{eqExpectationValueOfExponential}) we obtain
+\begin{equation}
+\langle \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle = \alpha^{*2} \beta^2 e^{i(\lambda_{aa}-\lambda_{bb})} \exp[|\alpha|^2(e^{2i (\lambda_{aa} - \lambda_{bb})} -1)] \exp[|\beta|^2(e^{-2i (\lambda_{bb} - \lambda_{bb})} -1)] 
 \end{equation}
 
-(1) Find $\hat{a}_2$, $\hat{a}_2$ in terms of $\hat{a}_1$, $\hat{b}_1$.
-
-(2) Derive 1631.5 and explain we need expectation values of the bilinear, trilinear and quartic terms. We can use result of previous step to do them, provided we normally order everything
-
-(3) Take each set of terms from 1631.5 individually, normal order them, and evaluate
-
-(4) Plug list of expectation values back into 1631.5
 
 
-\begin{eqnarray}
-s &=& \sin(\Omega (t_3 - t_2)) \\
-c &=& \cos(\Omega (t_3 - t_2)) \\
-\lambda_{ij} &=& \chi_{ij} \tau_{\mathrm{hold}} / \hbar \\
-A &=& \sqrt{n_a} \exp [n_a (e^{-i(\lambda_{aa}-\lambda_{ab})} - 1 )] \\
-A_2 &=& n_a \exp [n_a (e^{-2i(\lambda_{aa}-\lambda_{ab})} - 1 )] \\
-B &=& -i e^{i \phi}\sqrt{n_b} \exp [n_b (e^{-i(\lambda_{bb}-\lambda_{ab})} - 1 )] \\
-B_2 &=& -n_b e^{2i\phi} \exp [n_b (e^{-2i(\lambda_{bb}-\lambda_{ab})} - 1 )]
-\end{eqnarray}
+
+
 then the expectation values for number and number squared at time $t=t_3$ are given by
 \begin{eqnarray}
 \langle \hat{a}^{\dagger}(t_3) \hat{a}(t_3) \rangle &=& n_a c^2 + n_b s^2 + i c s (A B^* - A^* B) \\
@@ -393,7 +513,7 @@ then the expectation values for number and number squared at time $t=t_3$ are gi
 precision limit {\it Nature} {\bf 464} 1165--1169
 \bibitem{dennis2013} Dennis G R, Hope J J and Johnsson M T 2013 XMDS2: Fast, scalable simulation of coupled stochastic partial
 differential equations {\it Comput. Phys. Commun.} {\bf 184} 201--208
-
+\bibitem{louisell} Louisell Quantum Statistical Properties of Radiation
 \end{thebibliography}
 
 \end{document}
