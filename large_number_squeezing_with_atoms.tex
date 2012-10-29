@@ -121,14 +121,14 @@ The entire sequence of pulses and the resulting populations are shown schematica
 This system can be solved analytically, and expressions for quadrature, absolute and relative number squeezing can be derived. We present the solutions here; the full derivation can be found in \ref{appendixTwoModeDerivation}.
 If we define
 \begin{eqnarray}
-s &=& \sin(\Omega (t_3 - t_2)) \\
+s &=& \sin(\Omega (t_3 - t_2)) \label{eqsDef} \\
 c &=& \cos(\Omega (t_3 - t_2)) \\
 \lambda_{ij} &=& \chi_{ij} \tau_{\mathrm{hold}} / \hbar \\
 A &=& \sqrt{n_a} \exp [n_a (e^{-i(\lambda_{aa}-\lambda_{ab})} - 1 )] \\
 A_2 &=& n_a \exp [n_a (e^{-2i(\lambda_{aa}-\lambda_{ab})} - 1 )] \\
 B &=& -i e^{i \phi}\sqrt{n_b} \exp [n_b (e^{-i(\lambda_{bb}-\lambda_{ab})} - 1 )] \\
 B_2 &=& -n_b e^{2i\phi} \exp [n_b (e^{-2i(\lambda_{bb}-\lambda_{ab})} - 1 )] \\
-D &=& AB^* - A^*B
+D &=& AB^* - A^*B \label{eqDDef}
 \end{eqnarray}
 then the expectation values for number, number variance, and number difference variance after appling the final coupling field for a time $\tau = t_3-t_2$ are given by
 \begin{eqnarray}
@@ -151,7 +151,7 @@ N_b(t_3) &=& n_a s^2 + n_b c^2 - i c s D \\
 {\mathrm{Var}} [ N_a - N_b](t_3) &=& n_a + n_b + 4 i c s D (n_a - n_b)(s^2 - c^2) \nonumber \\
        && + 4 c^2 s^2 (2 n_a n_b +D^2 - e^{i(\lambda_{aa} - \lambda_{bb})} A_2^* B_2 - e^{-i(\lambda_{aa} - \lambda_{bb})} A_2 B_2^* ) \nonumber \\
        && + 4 i c s (c^2 - s^2) (n_a e^{-i(\lambda_{aa} - \lambda_{ab})} A B^* - n_a e^{i(\lambda_{aa} - \lambda_{ab})} A^* B 
-                     + n_b e^{-i(\lambda_{bb} - \lambda_{ab})} A^* B - n_b e^{i(\lambda_{bb} - \lambda_{ab})} A B^*)
+                     + n_b e^{-i(\lambda_{bb} - \lambda_{ab})} A^* B - n_b e^{i(\lambda_{bb} - \lambda_{ab})} A B^*) \label{eqNumDiffVariance}
 \end{eqnarray}
 In the case where all the nonlinearities are equal, such that $\chi_{aa} = \chi_{ab} = \chi_{bb}$, the number variances all reduce to those of a coherent state, e.g. ${\mathrm{Var}}[N_a]=N_a$, an no number squeezing is possible. 
 
@@ -378,11 +378,13 @@ Finally, to obtain $\hat{a}_3$ and $\hat{b}_3$ we utilize (\ref{eqa1}) and (\ref
 \hat{a}_3 &=& \cos (\Omega (t_3-t_2)) \hat{a}_2 -i e^{i\phi} \sin (\Omega (t_3-t_2)) \hat{b}_2 \label{eqa3} \\
 \hat{b}_3 &=& \cos (\Omega (t_3-t_2)) \hat{b}_2 - i e^{-i\phi} \sin (\Omega (t_3-t_2)) \hat{a}_2 \label{eqb3}
 \end{eqnarray} 
-We are now in a position to evaluate the number variance of the system throughout period of the final coupling. We first consider the number variance of the $\hat{a}$ field, which is defined as
-\begin{equation}
-{\mathrm{Var}}[N_a] = \langle \hat{a}^{\dagger}_3 \hat{a}_3 \hat{a}^{\dagger}_3 \hat{a}_3 \rangle - \langle \hat{a}^{\dagger}_3 \hat{a}_3 \rangle ^2.
-\label{eqNavariance}
-\end{equation}
+We are now in a position to evaluate the number variance of the system throughout the period of the final coupling. The number variances of the fields are defined as
+\begin{eqnarray}
+{\mathrm{Var}}[N_a] &=& \langle \hat{a}^{\dagger}_3 \hat{a}_3 \hat{a}^{\dagger}_3 \hat{a}_3 \rangle - \langle \hat{a}^{\dagger}_3 \hat{a}_3 \rangle ^2 \label{eqNavariance} \\
+%
+{\mathrm{Var}}[N_b] &=& \langle \hat{b}^{\dagger}_3 \hat{b}_3 \hat{b}^{\dagger}_3 \hat{b}_3 \rangle - \langle \hat{b}^{\dagger}_3 \hat{b}_3 \rangle ^2
+\label{eqNbvariance}
+\end{eqnarray}
 Making use of (\ref{eqa3}) and using the shorthand notation 
 \begin{eqnarray}
 s &=& \sin[\Omega (t_3 - t_2)] \\
@@ -392,15 +394,28 @@ we have
 \begin{eqnarray}
 \hat{a}^{\dagger}_3 \hat{a}_3 &=& \hat{a}^{\dagger}_2 \hat{a}_2 c^2 +  \hat{b}^{\dagger}_2 \hat{b}_2 s^2 + i c s e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 - i c s e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 \\
 %
+%
 \hat{a}^{\dagger}_3 \hat{a}_3 \hat{a}^{\dagger}_3 \hat{a}_3 &=& \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}^{\dagger}_2 \hat{a}_2 c^4 + \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}^{\dagger}_2 \hat{b}_2 s^4 \nonumber \\
 %
 && + c^2 s^2 [ \hat{a}^{\dagger}_2 \hat{a}_2 + \hat{b}^{\dagger}_2 \hat{b}_2 + 4 \hat{a}^{\dagger}_2 \hat{a}_2 \hat{b}^{\dagger}_2 \hat{b}_2 -e^{-2 i \phi} \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 -e^{-2 i \phi} \hat{b}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{a}_2 ] \nonumber \\
 %
 && + i c^3 s [2 e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}_2 - 2 e^{i \phi} \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{a}_2 \hat{b}_2 + e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 - e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 ] \nonumber \\
 %
-&& + i c s^3 [2 e^{-i \phi} \hat{b}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{b}_2 - 2 e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}_2 + e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 - e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 ] 
+&& + i c s^3 [2 e^{-i \phi} \hat{b}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{b}_2 - 2 e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}_2 + e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 - e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 ]
 \end{eqnarray}
-Clearly, to calculate (\ref{eqNavariance}) we will need the expectation values of terms quartic and quadratic in $\hat{a}_2$ and ${\hat{b}_2}$. Specifically, we require $\langle \hat{a}^{\dagger}_2 \hat{a}_2 \rangle$, $\langle \hat{b}^{\dagger}_2 \hat{b}_2 \rangle$,  $\langle \hat{a}^{\dagger}_2 \hat{b}_2 \rangle$, $\langle \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}^{\dagger}_2 \hat{a}_2 \rangle$, $\langle \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \rangle$ , $\langle \hat{a}^{\dagger}_2 \hat{a}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \rangle$, $\langle \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle$, $\langle \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{a}_2 \rangle$, and $\langle \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle$, as well as their Hermitian conjugates.
+\begin{eqnarray}
+\hat{b}^{\dagger}_3 \hat{b}_3 &=& \hat{b}^{\dagger}_2 \hat{b}_2 c^2 +  \hat{a}^{\dagger}_2 \hat{a}_2 s^2 + i c s e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 - i c s e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 \\
+%
+%
+\hat{b}^{\dagger}_3 \hat{b}_3 \hat{b}^{\dagger}_3 \hat{b}_3 &=& \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}^{\dagger}_2 \hat{b}_2 c^4 + \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}^{\dagger}_2 \hat{a}_2 s^4 \nonumber \\
+%
+&& + c^2 s^2 [ \hat{b}^{\dagger}_2 \hat{b}_2 + \hat{a}^{\dagger}_2 \hat{a}_2 + 4 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{a}^{\dagger}_2 \hat{a}_2 - e^{2 i \phi} \hat{b}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{a}_2 -e^{2 i \phi} \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 ] \nonumber \\
+%
+&& + i c^3 s [2 e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}_2 - 2 e^{-i \phi} \hat{b}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{a}_2 + e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 - e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 ] \nonumber \\
+%
+&& + i c s^3 [2 e^{i \phi} \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{a}_2 - 2 e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}_2 + e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 - e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 ] 
+\end{eqnarray}
+Clearly, to calculate (\ref{eqNavariance}) and (\ref{eqNbvariance}) we will need the expectation values of terms quartic and quadratic in $\hat{a}_2$ and ${\hat{b}_2}$. Specifically, we require $\langle \hat{a}^{\dagger}_2 \hat{a}_2 \rangle$, $\langle \hat{b}^{\dagger}_2 \hat{b}_2 \rangle$,  $\langle \hat{a}^{\dagger}_2 \hat{b}_2 \rangle$, $\langle \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}^{\dagger}_2 \hat{a}_2 \rangle$, $\langle \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \rangle$ , $\langle \hat{a}^{\dagger}_2 \hat{a}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \rangle$, $\langle \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle$, $\langle \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{a}_2 \rangle$, and $\langle \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle$, as well as their Hermitian conjugates.
 
 As $\hat{a}^{\dagger}_1 \hat{a}_1$ and $\hat{b}^{\dagger}_1 \hat{b}_1$ commute with the Hamiltonian $H_2$, they are constants of motion so we have
 \begin{equation}
@@ -465,12 +480,13 @@ which follows from (\ref{eqefeidentity}). Finally, applying (\ref{eqExpectationV
 \begin{equation}
 \langle \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle = \alpha^{*2} \beta^2 e^{i(\lambda_{aa}-\lambda_{bb})} \exp[|\alpha|^2(e^{2i (\lambda_{aa} - \lambda_{bb})} -1)] \exp[|\beta|^2(e^{-2i (\lambda_{bb} - \lambda_{bb})} -1)] 
 \end{equation}
-
-
-
-
-
-then the expectation values for number and number squared at time $t=t_3$ are given by
+Using the same techniques one can show that
+\begin{eqnarray}
+\langle \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{a}_2 \rangle &=& |\alpha|^2 \alpha \beta^* e^{-i(\lambda_{aa}-\lambda_{ab})} \exp[|\alpha|^2(e^{-i (\lambda_{aa} - \lambda_{ab})} -1)] \exp[|\beta|^2(e^{i (\lambda_{bb} - \lambda_{ab})} -1)] \\
+%
+\langle \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle &=& |\beta|^2 \alpha^{*} \beta e^{-i(\lambda_{bb}-\lambda_{ab})} \exp[|\alpha|^2(e^{i (\lambda_{aa} - \lambda_{ab})} -1)] \exp[|\beta|^2(e^{-i (\lambda_{bb} - \lambda_{ab})} -1)].
+\end{eqnarray}
+Employing the definitions (\ref{eqsDef})--(\ref{eqDDef}) we obtain
 \begin{eqnarray}
 \langle \hat{a}^{\dagger}(t_3) \hat{a}(t_3) \rangle &=& n_a c^2 + n_b s^2 + i c s (A B^* - A^* B) \\
 %
@@ -486,25 +502,12 @@ then the expectation values for number and number squared at time $t=t_3$ are gi
 && + i c^3 s [2 n_b e^{-i(\lambda_{bb}-\lambda_{ab})}] A^* B - 2 n_b e^{i(\lambda_{bb}-\lambda_{ab})} A B^* - A^* B + A B^*] \nonumber \\
 && + i c s^3 [2 n_a e^{i(\lambda_{aa}-\lambda_{ab})}] A^* B - 2 n_a e^{-i(\lambda_{aa}-\lambda_{ab})} A B^* - A^* B + A B^*] 
 \end{eqnarray}
+When substituted into (\ref{eqNbvariance}) and (\ref{eqNbvariance}) these expecation values give the absolute number variances stated in Section \ref{secTwoModeAnalytic}. To calculate the number difference variance, we note
+\begin{equation}
+{\mathrm{Var}}[N_a-N_b] = {\mathrm{Var}}[N_a] + {\mathrm{Var}}[N_b] - 2\langle \hat{a}^{\dagger}_2 \hat{a}_2 \hat{b}^{\dagger}_2 \hat{b}_2\rangle + 2\langle \hat{a}^{\dagger}_2  \hat{a}_2 \rangle \langle \hat{b}^{\dagger}_2 \hat{b}_2\rangle \label{eqNumDiffVarianceAppendix}.
+\end{equation}
+Substituting the expectation values calculated earlier in this Appendix into (\ref{eqNumDiffVarianceAppendix}) and simplifying yields the expression (\ref{eqNumDiffVariance}) given in Section \ref{secTwoModeAnalytic}.
 
-\begin{eqnarray}
-\langle \hat{a}^{\dagger}(t_3) \hat{a}(t_3) \hat{a}^{\dagger}(t_3)  \hat{a}(t_3) \rangle &-& \langle \hat{a}^{\dagger}(t_3) \hat{a}(t_3) \rangle^2 \nonumber \\
-%
-&=& \langle \hat{a}^{\dagger}(t_3) \hat{a}(t_3) \hat{a}^{\dagger}(t_3)  \hat{a}(t_3) \rangle \\
-&-& n_a^2 c^4 + n_b^2 s^4 - c^2 s^2 (A B^* - A^* B)^2 + 2 i n_a c^3 s (A B^* - A^* B) + 2 i n_b c s^3 (A B^* - A^* B) + n_a n_b c^2 s^2 \\
-%
-\langle \hat{b}^{\dagger}(t_3) \hat{b}(t_3) \rangle &=& n_a s^2 + n_b c^2 - i c s (A B^* - A^* B) \\
-%
-\langle \hat{a}^{\dagger}(t_3)  \hat{a}^{\dagger}(t_3) \hat{a}(t_3) \hat{a}(t_3) \rangle &=& (n_a^2 + n_a) c^4 + (n_b^2 + n_b) s^4 \nonumber \\
-&& + c^2 s^2 [n_a +n_b +4 n_a n_b - e^{i(\lambda_{aa}-\lambda_{bb})} B_2 A_2^* - e^{-i(\lambda_{aa}-\lambda_{bb})} B_2^* A_2] \nonumber \\
-&& + i c^3 s [2 n_a e^{-i(\lambda_{aa}-\lambda_{ab})}] A B^* - 2 n_a e^{i(\lambda_{aa}-\lambda_{ab})} A^* B + A B^* - A^* B] \nonumber \\
-&& + i c s^3 [2 n_b e^{i(\lambda_{bb}-\lambda_{ab})}] A B^* - 2 n_b e^{-i(\lambda_{bb}-\lambda_{ab})} A^* B + A B^* - A^* B] \\
-%
-\langle \hat{b}^{\dagger}(t_3)  \hat{b}^{\dagger}(t_3) \hat{b}(t_3) \hat{b}(t_3) \rangle &=& (n_b^2 + n_b) c^4 + (n_a^2 + n_a) s^4 \nonumber \\
-&& + c^2 s^2 [n_a +n_b +4 n_a n_b - e^{-i(\lambda_{aa}-\lambda_{bb})} B_2^* A_2 - e^{i(\lambda_{aa}-\lambda_{bb})} B_2 A_2^*] \nonumber \\
-&& + i c^3 s [2 n_b e^{-i(\lambda_{bb}-\lambda_{ab})}] A^* B - 2 n_b e^{i(\lambda_{bb}-\lambda_{ab})} A B^* + A^* B - A B^*] \nonumber \\
-&& + i c s^3 [2 n_a e^{i(\lambda_{aa}-\lambda_{ab})}] A^* B - 2 n_a e^{-i(\lambda_{aa}-\lambda_{ab})} A B^* + A^* B - A B^*] 
-\end{eqnarray}
 
 
 \section*{References}
