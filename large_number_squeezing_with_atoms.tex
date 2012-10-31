@@ -302,7 +302,7 @@ until time $t=t_1$. From time $t_1$ until time $t=t_2$ the coupling is turned of
 Finally, from time $t_2$ until time $t=t_3$, the coupling is once again applied with a phase offset of $\phi$ relative to the first time, and the system evolves via
 \begin{equation}
 \hat{H_3} = \hbar \omega \hat{a}^{\dagger} \hat{a} +  \hbar \omega \hat{b}^{\dagger} \hat{b}
-          + \Omega (e^{i\phi} \hat{a}^{\dagger} \hat{b} + e^{-i\phi} \hat{b}^{\dagger} \hat{a} )
+          + \Omega (e^{i\phi} \hat{a}^{\dagger} \hat{b} + e^{-i\phi} \hat{b}^{\dagger} \hat{a} ).
 \end{equation}
 It is clear that the linear self-energy terms proportional to $\omega$ result in a constant phase rotation of the fields $\hat{a}$ and $\hat{b}$. As this system is self-contained and global phase is unmeasurable, all phase measurements can only rely on the difference in phase between the two modes. This phase rotation is therefore irrelevent and will be ignored in the following analysis.
 
@@ -326,7 +326,7 @@ e^X Y e^{-X} = Y + [X,Y] + \frac{1}{2!}[X,[X,Y]] + \frac{1}{3!}[X,[X,[X,Y]]] + \
 we obtain 
 \begin{eqnarray}
 \hat{a}_1 &=& \hat{a}_0 - i \Omega t_1 \hat{b}_0 + \frac{(i \Omega t_1)^2}{2!} \hat{a}_0 - \frac{(i \Omega t_1)^3}{3!} \hat{b}_0 + \frac{(i \Omega t_1)^4}{4!} \hat{a}_2 - \ldots \nonumber \\
-          &=& \cos (\Omega t_1) \hat{a}_0 -i \sin (\Omega t_1) \hat{b}_0
+          &=& \cos (\Omega t_1) \hat{a}_0 -i \sin (\Omega t_1) \hat{b}_0.
 \label{eqa1}
 \end{eqnarray}
 Similarly, we find
@@ -341,14 +341,14 @@ Next we consider evolution under $H_2$. Taking mode $\hat{a}$ first, we note tha
 \hat{a}_2 = e^{i \lambda_{ab} \hat{a}_1^{\dagger} \hat{a}_1 \hat{b}_1^{\dagger} \hat{b}_1 } 
           e^{ i \frac{\lambda_{aa}} {2} \hat{a}_1^{\dagger} \hat{a}_1^{\dagger} \hat{a}_1 \hat{a}_1}\, \hat{a}_1 \,  
           e^{ -i \frac{\lambda_{aa}}{2} \hat{a}_1^{\dagger} \hat {a}_1^{\dagger} \hat{a}_1 \hat{a}_1 }
-          e^{-i \lambda_{ab} \hat{a}_1^{\dagger} \hat{a}_1 \hat{b}_1^{\dagger} \hat{b}_1}.
+          e^{-i \lambda_{ab} \hat{a}_1^{\dagger} \hat{a}_1 \hat{b}_1^{\dagger} \hat{b}_1}
 \label{eqa2evolution}
 \end{equation}
 where we have defined $\lambda_{ij} = \chi_{ij} (t_2-t_1)/\hbar$. Utilizing (\ref{eqHadamard}) to move $\hat{a}_1$ through the exponential, with some algebra one can show that
 \begin{eqnarray}
 e^{ i \frac{\lambda_{aa}} {2} \hat{a}_1^{\dagger} \hat{a}_1^{\dagger} \hat{a}_1 \hat{a}_1} \hat{a}_1 
          e^{ -i \frac{\lambda_{aa}} {2} \hat{a}_1^{\dagger} \hat{a}_1^{\dagger} \hat{a}_1 \hat{a}_1} &=& \left[ \sum_{n=0} (-i \lambda_{aa})^n (\hat{a}_1^{\dagger} \hat{a}_1)^n \right] \hat{a}_1 \nonumber \nonumber \\
-   &=& \exp[-i \lambda_{aa} \hat{a}_1^{\dagger} \hat{a}_1] \hat{a}_1
+   &=& \exp[-i \lambda_{aa} \hat{a}_1^{\dagger} \hat{a}_1] \hat{a}_1.
 \end{eqnarray}
 To handle the cross-nonlinearity term in (\ref{eqa2evolution}) we use the identity \cite{louisell}
 \begin{equation}
@@ -382,7 +382,7 @@ We are now in a position to evaluate the number variance of the system throughou
 \begin{eqnarray}
 {\mathrm{Var}}[N_a] &=& \langle \hat{a}^{\dagger}_3 \hat{a}_3 \hat{a}^{\dagger}_3 \hat{a}_3 \rangle - \langle \hat{a}^{\dagger}_3 \hat{a}_3 \rangle ^2 \label{eqNavariance} \\
 %
-{\mathrm{Var}}[N_b] &=& \langle \hat{b}^{\dagger}_3 \hat{b}_3 \hat{b}^{\dagger}_3 \hat{b}_3 \rangle - \langle \hat{b}^{\dagger}_3 \hat{b}_3 \rangle ^2
+{\mathrm{Var}}[N_b] &=& \langle \hat{b}^{\dagger}_3 \hat{b}_3 \hat{b}^{\dagger}_3 \hat{b}_3 \rangle - \langle \hat{b}^{\dagger}_3 \hat{b}_3 \rangle ^2.
 \label{eqNbvariance}
 \end{eqnarray}
 Making use of (\ref{eqa3}) and using the shorthand notation 
@@ -392,7 +392,7 @@ c &=& \cos[\Omega (t_3 - t_2)]
 \end{eqnarray}
 we have
 \begin{eqnarray}
-\hat{a}^{\dagger}_3 \hat{a}_3 &=& \hat{a}^{\dagger}_2 \hat{a}_2 c^2 +  \hat{b}^{\dagger}_2 \hat{b}_2 s^2 + i c s e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 - i c s e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 \\
+\hat{a}^{\dagger}_3 \hat{a}_3 &=& \hat{a}^{\dagger}_2 \hat{a}_2 c^2 +  \hat{b}^{\dagger}_2 \hat{b}_2 s^2 + i c s (e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 - e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2) \\
 %
 %
 \hat{a}^{\dagger}_3 \hat{a}_3 \hat{a}^{\dagger}_3 \hat{a}_3 &=& \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}^{\dagger}_2 \hat{a}_2 c^4 + \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}^{\dagger}_2 \hat{b}_2 s^4 \nonumber \\
@@ -404,7 +404,7 @@ we have
 && + i c s^3 [2 e^{-i \phi} \hat{b}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{b}_2 - 2 e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}_2 + e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 - e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 ]
 \end{eqnarray}
 \begin{eqnarray}
-\hat{b}^{\dagger}_3 \hat{b}_3 &=& \hat{b}^{\dagger}_2 \hat{b}_2 c^2 +  \hat{a}^{\dagger}_2 \hat{a}_2 s^2 + i c s e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 - i c s e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 \\
+\hat{b}^{\dagger}_3 \hat{b}_3 &=& \hat{b}^{\dagger}_2 \hat{b}_2 c^2 +  \hat{a}^{\dagger}_2 \hat{a}_2 s^2 + i c s ( e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 - e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2) \\
 %
 %
 \hat{b}^{\dagger}_3 \hat{b}_3 \hat{b}^{\dagger}_3 \hat{b}_3 &=& \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}^{\dagger}_2 \hat{b}_2 c^4 + \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}^{\dagger}_2 \hat{a}_2 s^4 \nonumber \\
@@ -439,7 +439,7 @@ Furthermore, $\hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}^{\dagger}_2 \hat{a}_2$ and $
 \end{equation}
 The remaining terms are not constants of motion, so we proceed by making use of (\ref{eqa2}) and (\ref{eqb2}). For $\langle \hat{a}^{\dagger}_2 \hat{b}_2 \rangle$ we have
 \begin{equation}
-\hat{a}^{\dagger}_2 \hat{b}_2 = \hat{a}^{\dagger}_1 e^{-i (\lambda_{bb} - \lambda_{ab}) \hat{b}^{\dagger}_1 \hat{b}_1} e^{i (\lambda_{aa} - \lambda_{ab}) \hat{a}^{\dagger}_1 \hat{a}_1} \hat{b}_1 
+\hat{a}^{\dagger}_2 \hat{b}_2 = \hat{a}^{\dagger}_1 e^{-i (\lambda_{bb} - \lambda_{ab}) \hat{b}^{\dagger}_1 \hat{b}_1} e^{i (\lambda_{aa} - \lambda_{ab}) \hat{a}^{\dagger}_1 \hat{a}_1} \hat{b}_1. 
 \end{equation}
 To calculate the expectation value of this expression, the creation and annihilation operators must be normally ordered. Making use of the identity \cite{louisell}
 \begin{equation}
@@ -449,13 +449,13 @@ allows us to compute expectation values of coherent states of the form
 \begin{eqnarray}
 \langle \alpha | e^{x \hat{a}^{\dagger} \hat{a}} |\alpha \rangle &=& \sum_{n=0}^{\infty} \frac{(e^x - 1)^n} {n!} |\alpha|^{2n} \nonumber \\
 %
-&=& \exp[|\alpha|^2(e^x -1)] \label{eqExpectationValueOfExponential}
+&=& \exp[|\alpha|^2(e^x -1)]. \label{eqExpectationValueOfExponential}
 \end{eqnarray}
 This gives
 \begin{eqnarray}
 \langle \hat{a}^{\dagger}_2 \hat{b}_2 \rangle &=& \langle \alpha, \beta | \hat{a}^{\dagger}_1 e^{-i (\lambda_{bb} - \lambda_{ab}) \hat{b}^{\dagger}_1 \hat{b}_1} e^{i (\lambda_{aa} - \lambda_{ab}) \hat{a}^{\dagger}_1 \hat{a}_1} \hat{b}_1 | \alpha, \beta \rangle \nonumber \\
 %
-&=& \alpha^* \beta \exp[|\alpha|^2(e^{i (\lambda_{aa} - \lambda_{ab})} -1)] \exp[|\beta|^2 (e^{-i (\lambda_{bb} - \lambda_{ab})} -1)]
+&=& \alpha^* \beta \exp[|\alpha|^2(e^{i (\lambda_{aa} - \lambda_{ab})} -1)] \exp[|\beta|^2 (e^{-i (\lambda_{bb} - \lambda_{ab})} -1)].
 \end{eqnarray}
 
 Next we tackle $\langle \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle$. Using (\ref{eqa2}) and (\ref{eqb2}) and the fact that $\hat{a}$ and $\hat{b}$ commute, we have
@@ -478,7 +478,7 @@ where we have made multiple uses of the identity
 \end{equation}
 which follows from (\ref{eqefeidentity}). Finally, applying (\ref{eqExpectationValueOfExponential}) we obtain
 \begin{equation}
-\langle \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle = \alpha^{*2} \beta^2 e^{i(\lambda_{aa}-\lambda_{bb})} \exp[|\alpha|^2(e^{2i (\lambda_{aa} - \lambda_{bb})} -1)] \exp[|\beta|^2(e^{-2i (\lambda_{bb} - \lambda_{bb})} -1)] 
+\langle \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle = \alpha^{*2} \beta^2 e^{i(\lambda_{aa}-\lambda_{bb})} \exp[|\alpha|^2(e^{2i (\lambda_{aa} - \lambda_{bb})} -1)] \exp[|\beta|^2(e^{-2i (\lambda_{bb} - \lambda_{bb})} -1)].
 \end{equation}
 Using the same techniques one can show that
 \begin{eqnarray}
@@ -500,13 +500,13 @@ Employing the definitions (\ref{eqsDef})--(\ref{eqDDef}) we obtain
 \langle \hat{b}^{\dagger}(t_3)  \hat{b}(t_3) \hat{b}^{\dagger}(t_3)  \hat{b}(t_3) \rangle &=& (n_b^2 + n_b) c^4 + (n_a^2 + n_a) s^4 \nonumber \\
 && + c^2 s^2 [n_a +n_b +4 n_a n_b - e^{-i(\lambda_{aa}-\lambda_{bb})} B_2^* A_2 - e^{i(\lambda_{aa}-\lambda_{bb})} B_2 A_2^*] \nonumber \\
 && + i c^3 s [2 n_b e^{-i(\lambda_{bb}-\lambda_{ab})}] A^* B - 2 n_b e^{i(\lambda_{bb}-\lambda_{ab})} A B^* - A^* B + A B^*] \nonumber \\
-&& + i c s^3 [2 n_a e^{i(\lambda_{aa}-\lambda_{ab})}] A^* B - 2 n_a e^{-i(\lambda_{aa}-\lambda_{ab})} A B^* - A^* B + A B^*] 
+&& + i c s^3 [2 n_a e^{i(\lambda_{aa}-\lambda_{ab})}] A^* B - 2 n_a e^{-i(\lambda_{aa}-\lambda_{ab})} A B^* - A^* B + A B^*]. 
 \end{eqnarray}
-When substituted into (\ref{eqNbvariance}) and (\ref{eqNbvariance}) these expecation values give the absolute number variances stated in Section \ref{secTwoModeAnalytic}. To calculate the number difference variance, we note
+When substituted into (\ref{eqNavariance}) and (\ref{eqNbvariance}) these expecation values give the absolute number variances stated in Section \ref{secTwoModeAnalytic}. To calculate the number difference variance, we note
 \begin{equation}
-{\mathrm{Var}}[N_a-N_b] = {\mathrm{Var}}[N_a] + {\mathrm{Var}}[N_b] - 2\langle \hat{a}^{\dagger}_2 \hat{a}_2 \hat{b}^{\dagger}_2 \hat{b}_2\rangle + 2\langle \hat{a}^{\dagger}_2  \hat{a}_2 \rangle \langle \hat{b}^{\dagger}_2 \hat{b}_2\rangle \label{eqNumDiffVarianceAppendix}.
+{\mathrm{Var}}[N_a-N_b] = {\mathrm{Var}}[N_a] + {\mathrm{Var}}[N_b] - 2\langle \hat{a}^{\dagger}_3 \hat{a}_3 \hat{b}^{\dagger}_3 \hat{b}_3\rangle + 2\langle \hat{a}^{\dagger}_3  \hat{a}_3 \rangle \langle \hat{b}^{\dagger}_3 \hat{b}_3\rangle \label{eqNumDiffVarianceAppendix}.
 \end{equation}
-Substituting the expectation values calculated earlier in this Appendix into (\ref{eqNumDiffVarianceAppendix}) and simplifying yields the expression (\ref{eqNumDiffVariance}) given in Section \ref{secTwoModeAnalytic}.
+We write (\ref{eqNumDiffVarianceAppendix}) in terms of $\hat{a}_2$ and $\hat{b}_2$ by using using (\ref{eqa3}) and (\ref{eqb3}), and then use the expectation values calculated earlier in this Appendix. After some algebra we obtain the expression (\ref{eqNumDiffVariance}) given in Section \ref{secTwoModeAnalytic}.
 
 
 
