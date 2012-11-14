@@ -44,10 +44,11 @@
 %Uncomment next line if AMS fonts required
 %\usepackage{iopams}
 \usepackage{graphicx}
+\usepackage{ulem}
 
 \begin{document}
 
-\title{Iconic representations of molluscs through the ages}
+\title{Large squeezing in multicomponent trapped Bose-Einstein condensates}
 
 \author{Mattias T Johnsson$^1$, Graham R Dennis$^2$ and Joseph J Hope$^1$}
 
@@ -56,8 +57,7 @@
 \ead{mattias.johnsson@anu.edu.au}
 
 \begin{abstract}
-More squeezing than you can shake a stick at.
-
+We examine the feasibility of creating and measuring large relative number squeezing in multicomponent trapped Bose-Einstein condensates.  In the absence of multimode effects, this squeezing can be arbitrarily large, but a range of processes limit the measurable squeezing in realistic trap configurations.  We conclude that high levels of squeezing with large numbers of atoms can only be achieved in one-dimensional traps with very even density profiles.
 \end{abstract}
 
 %Uncomment for PACS numbers title message
@@ -155,18 +155,12 @@ N_b(t_3) &=& n_a s^2 + n_b c^2 - i c s D \\
 \end{eqnarray}
 In the case where all the nonlinearities are equal, such that $\chi_{aa} = \chi_{ab} = \chi_{bb}$, the number variances all reduce to those of a coherent state, e.g. ${\mathrm{Var}}[N_a]=N_a$, an no number squeezing is possible. 
 
-There are three independent nonlinearities $\chi_{ij}$ in the Hamiltonian (\ref{eqTwoModeHamiltonian}). In the expressions for the number variances, however, the nonlinearities only appear in the cyclic combinations $\chi_{aa}-\chi_{ab}$, $\chi_{bb}-\chi_{ab}$ and $\chi_{aa}-\chi_{bb}$, meaning that number squeezing is parameterized by only two independent quantities which will be linear combinations of the nonlinearities. For example, since $\chi_{bb}-\chi_{ab} = (\chi_{aa}-\chi_{ab}) - (\chi_{aa}-\chi_{bb})$ it is possible to parameterize the number squeezing entirely in terms of the nonlinear differences $\chi_{aa}-\chi_{ab}$ and $\chi_{aa}-\chi_{bb}$.
+While there are three independent nonlinearities $\chi_{ij}$ in the Hamiltonian (\ref{eqTwoModeHamiltonian}), the expressions for the number variances only depend on differences.  This means that number squeezing is parameterised by only two independent quantities, for example $\chi_{aa}-\chi_{ab}$ and $\chi_{aa}-\chi_{bb}$.
 
-{\bf{There seems to be this bogus rule of thumb in the literature that the amount of squeezing you can get is related to $\chi_{11}+\chi_{22}-2\chi_{12}$. Is it worth pointing out that this is wrong?}}
-
-While the analytic expressions for the number variances are not particularly transparent, it is easy to evaluate and plot them for any given set of parameters. As an example, in Figure \ref{figxxx} we plot the solution for the normalized number variance in mode $|a\rangle$ for a particular set of nonlinearities, choosing a number of different values of $\phi$. The plots illustrate the basic features of the problem: During the final coupling period, the number variance undergoes cyclic variation, with a series of minima. It is necessary to choose both the correct phase $\phi$ as well as the correct length of time for the coupling to be applied in order to obtain optimum squeezing.
-
-
-
-
+{\bf{There seems to be this bogus rule of thumb in the literature that the amount of squeezing you can get is related to $\chi_{11}+\chi_{22}-2\chi_{12}$. Is it worth pointing out that this is wrong?  Joe:  Absolutely, but this might be true in some kind of weak squeezing limit, so we should check for some reference to this in the literature.}}
 %Can Uaa + Ubb - 2Uab be zero and still get squeezing? Yep, Uaa=0.03, Ubb=0.01, Uab=0.2 gives squeezing for all quantities of interest
 
-
+While the analytic expressions for the number variances are not particularly edifying, it is easy to evaluate and plot them for any given set of parameters. As an example, in Figure \ref{figxxx} we plot the solution for the normalized number variance in mode $|a\rangle$ for a particular set of nonlinearities, choosing a number of different values of $\phi$. The plots illustrate the basic features of the problem: During the final coupling period, the number variance undergoes cyclic variation, with a series of minima. It is necessary to choose both the correct phase $\phi$ as well as the correct length of time for the coupling to be applied in order to obtain optimum squeezing.
 
 \begin{figure}
     \centering
@@ -176,28 +170,28 @@ While the analytic expressions for the number variances are not particularly tra
 \end{figure}
 
 
-\section{Multimode background section}
+\section{Multimode analysis of squeezing}
+
+The two-mode model suggests that arbitrarily high squeezing can be achieved using the intrinsic nonlinearities in a BEC, but it ignores the existence of multiple spatial modes.  The non-zero spatial dimensionality causes issues even when the modes do not interact.  A brief inspection of the two-mode model shows that the wait time for optimal squeezing is highly number dependent.  In a multimode environment, this means that the optimal wait time will be density-dependent.  Furthermore, the phases of areas with different density will evolve at different rates, so there will be poor mode matching when recombining a field with significant density variation.  
+
+\textbf{give a plot of the mode in $|a\rangle$ and $|b\rangle$ at the beginning and end of the hold time to show mismatch}
+
+We might speculate therefore that trap geometries that lead to near-constant density profiles for the BEC would enable higher squeezing.  We cannot make strong conclusions without also considering the effects of coupling between spatial modes, however.  An analytic solution to the higher dimensional problem is intractable, so we must use a numerical solution.  Semiclassical approximations Without a semiclassical, umerical 
+
+
+
 \begin{itemize}
-  \item Motivate why MM analysis is necessary
-  \item Brief recap why MM QFT is hard
+  \item \sout{Brief recap why MM QFT is hard}
   \item Say how great phase space methods are, quick overview of how they work, say only wigner works here, can probably crib some explanation and formulae from our fully quantum multimode atom laser paper
   \item Talk about all the checks I've done to make sure Wigner holds over the parameters we've simulated despite the fact that TWA is an uncontrolled approximation
   \item Cite XMDS, and say we're amazing at doing QFT sims, send money
   Derive link between mode shape, nonlinearity U, and the SM equivalent nonlinearity, so we can always compare a given high-dimensional multimode sim against the equivalent ideal analytic single mode case
-\end{itemize}
-
-\section{Meanfield multimode problems}
-\begin{itemize}
-  \item Point out that different densities have phases that evolve at different rates
-  \item This leads to poor mode matching when recombining if two states have different nonlinearity*number values 
-  \item give a plot of the mode in $|a\rangle$ and $|b\rangle$ at the beginning and end of the hold time to show mismatch
-  \item This means constant density is good since mode shape doesn't change
   \item Plot of squeezing for given set of params for gaussian, TF, constant density, show it get steadily better
   \item Say we can use a pi pulse to swap the populations half way through, so if the states have different nonlinearities we still end up with the same mode shapes when we recombine. The fact that this works will be clear from the SM equations for a(t), b(t) when the beam splitter is on
   \item show some plots of squeezing with and without the pi pulse
 \end{itemize}
 
-\section{Mean field quantum statistical results}
+\section{The effects of dimensionality on squeezing}
   \begin{itemize}
   \item Two issues. 1) as we add dimensions results get worse (maybe point out how cool we are for being able to do multimode 3D simulations). 2) As our volume increases results get worse.
   \item To gain insight into this we do a bog analysis
@@ -206,6 +200,9 @@ While the analytic expressions for the number variances are not particularly tra
   \item Plot some bog results v MM sims for increasing box sizes, and increasing dimensions
   \item Can we put some numbers on how bad 3D is compared to 2D, in order to motivate tight trapping?
   \end{itemize}
+
+
+
 
 \section{Mitigating multimode quantum statistical effects}
   \begin{itemize}
