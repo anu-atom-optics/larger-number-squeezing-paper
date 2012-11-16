@@ -183,13 +183,23 @@ The two-mode model suggests that arbitrarily high squeezing can be achieved usin
 
 \textbf{give a plot of the mode in $|a\rangle$ and $|b\rangle$ at the beginning and end of the hold time to show mismatch}
 
-We might speculate therefore that trap geometries that lead to near-constant density profiles for the BEC would enable higher squeezing.  We cannot make strong conclusions without also considering the effects of coupling between spatial modes, however.  An analytic solution to the higher dimensional problem is intractable, so we must use a numerical solution.  Semiclassical approximations Without a semiclassical, umerical 
+We might speculate therefore that trap geometries that lead to near-constant density profiles for the BEC would enable higher squeezing.  We cannot make strong conclusions without also considering the effects of coupling between spatial modes, however.  An analytic solution to the higher dimensional problem is intractable, so we must use a numerical solution.  
 
+We use stochastic methods based on phase space representations to simulate the dynamics of the multimode quantum fields.  These methods alleviate the problem of directly simulating elements of the Hilbert space, which increases exponentially with the number of spatial modes \cite{stochasticRefs}.  They do this by finding a sufficiently well-behaved quasi-probability representation for the density matrix, which can then be simulated as the average behaviour of a number of low-dimensional samples.  These sample objects are the same size as the equivalent classical field.  In our case, the only tractable phase space representation in widespread usage is the functional Wigner representation, which is well behaved when the quantum field is approximately Gaussian, as it is for coherent and squeezed states.  Stochastic methods based on the functional Wigner representation have been used to model atom laser behaviour \cite{atomLaserWigner}, example2 \cite{example2Wigner}, and example3 \cite{example3Wigner}.
+
+The Hamiltonian for a pair of coupled atomic internal modes is the integral of the Hamiltonian density, which is given by:
+\begin{equation}
+\hat{\mathcal{H}} = \sum_j \hat{\psi}_j^{\dagger}\left(-\frac{\hbar}{2 m}\nabla^2+V_j(\mathbf{x})\right)\hat{\psi}_j 
+          + \sum_{i j}\frac{U_{i j}}{2} \hat{\psi}_i^{\dagger} \hat{\psi}_j^{\dagger} \hat{\psi}_j \hat{\psi}_i
+          + \Omega (\hat{\psi}_a^{\dagger} \hat{\psi}_b + \hat{\psi}_b^{\dagger}  \hat{\psi}_a )
+\label{eqFieldHamiltonian}
+\end{equation}
+where $\psi_j(\mathbf{x})$ is the annihilation field operator for a particle at position $\mathbf{x}$ and in internal state $|j\rangle$, $m$ is the mass of the atoms, $V_j(\mathbf{x})$ is the trapping potential for atoms in internal state $|j\rangle$, $U_{ij}$ describe the various inter- and intra-mode nonlinearities, and $\Omega$ couples the two modes and allows for population transfer between them.
 
 
 \begin{itemize}
   \item \sout{Brief recap why MM QFT is hard}
-  \item Say how great phase space methods are, quick overview of how they work, say only wigner works here, can probably crib some explanation and formulae from our fully quantum multimode atom laser paper
+  \item \sout{Say how great phase space methods are, quick overview of how they work, say only wigner works here, can probably crib some explanation and formulae from our fully quantum multimode atom laser paper}
   \item Talk about all the checks I've done to make sure Wigner holds over the parameters we've simulated despite the fact that TWA is an uncontrolled approximation
   \item Cite XMDS, and say we're amazing at doing QFT sims, send money
   Derive link between mode shape, nonlinearity U, and the SM equivalent nonlinearity, so we can always compare a given high-dimensional multimode sim against the equivalent ideal analytic single mode case
