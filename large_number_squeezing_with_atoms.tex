@@ -58,7 +58,7 @@
 \ead{mattias.johnsson@anu.edu.au}
 
 \begin{abstract}
-We examine the feasibility of creating and measuring large relative number squeezing in multicomponent trapped Bose-Einstein condensates.  In the absence of multimode effects, this squeezing can be arbitrarily large, but a range of processes limit the measurable squeezing in realistic trap configurations.  We conclude that high levels of squeezing with large numbers of atoms can only be achieved in one-dimensional traps with very even density profiles.
+We examine the feasibility of creating and measuring large relative number squeezing in multicomponent trapped Bose-Einstein condensates.  In the absence of multimode effects, this squeezing can be arbitrarily large, but a range of processes limit the measurable squeezing in realistic trap configurations.  We conclude that high levels of squeezing with large numbers of atoms can only be achieved in one-dimensional traps with very even density profiles.  We introduce a method of maximising the measurable squeezing by using a pi-pulse during the process to improve spatial mode-matching.
 \end{abstract}
 
 %Uncomment for PACS numbers title message
@@ -156,7 +156,7 @@ N_b(t_3) &=& n_a s^2 + n_b c^2 - i c s D \\
 \end{eqnarray}
 In the case where all the nonlinearities are equal, such that $\chi_{aa} = \chi_{ab} = \chi_{bb}$, the number variances all reduce to those of a coherent state, e.g. ${\mathrm{Var}}[N_a]=N_a$, an no number squeezing is possible. 
 
-While there are three independent nonlinearities $\chi_{ij}$ in the Hamiltonian (\ref{eqTwoModeHamiltonian}), the expressions for the number variances only depend on differences.  This means that number squeezing is parameterised by only two independent quantities, for example $\chi_{aa}-\chi_{ab}$ and $\chi_{aa}-\chi_{bb}$.
+While there are three independent nonlinearities $\chi_{ij}$ in the Hamiltonian (\ref{eqTwoModeHamiltonian}), the expressions for the number variances only depend on differences.  This means that number squeezing is parameterised by only two independent quantities, for example $\chi_{aa}-\chi_{ab}$ and $\chi_{aa}-\chi_{bb}$.  
 
 {\bf{There seems to be this bogus rule of thumb in the literature that the amount of squeezing you can get is related to $\chi_{11}+\chi_{22}-2\chi_{12}$. Is it worth pointing out that this is wrong?  Joe:  Absolutely, but this might be true in some kind of weak squeezing limit, so we should check for some reference to this in the literature.}}
 %Can Uaa + Ubb - 2Uab be zero and still get squeezing? Yep, Uaa=0.03, Ubb=0.01, Uab=0.2 gives squeezing for all quantities of interest
@@ -180,7 +180,7 @@ While the analytic expressions for the number variances are not particularly edi
 
 \section{Multimode analysis of squeezing}
 
-The two-mode model suggests that arbitrarily high squeezing can be achieved using the intrinsic nonlinearities in a BEC, but it ignores the existence of multiple spatial modes.  The non-zero spatial dimensionality causes issues even when the modes do not interact.  A brief inspection of the two-mode model shows that the wait time for optimal squeezing is highly number dependent.  In a multimode environment, this means that the optimal wait time will be density-dependent.  Furthermore, the phases of areas with different density will evolve at different rates, so there will be poor mode matching when recombining a field with significant density variation.  
+The two-mode model suggests that arbitrarily high squeezing can be achieved using the intrinsic nonlinearities in a BEC, but it ignores the existence of multiple spatial modes.  The non-zero spatial dimensionality causes issues even when the modes do not interact.  A brief inspection of the two-mode model shows that the wait time for optimal squeezing is highly number dependent.  In a multimode environment, this means that the optimal wait time will be density-dependent.  Furthermore, the phases of areas with different density will evolve at different rates, so there will be poor mode-matching when recombining a field with significant density variation.  
 
 \textbf{give a plot of the mode in $|a\rangle$ and $|b\rangle$ at the beginning and end of the hold time to show mismatch}
 
@@ -222,7 +222,7 @@ We integrate equation (\ref{eqStochasticEquations}) numerically in one, two and 
   \item Plot of squeezing for given set of params for gaussian, TF, constant density, show it get steadily better
 \end{itemize}
 
-\section{Using a $\pi$ pulse to improve mode-matching
+\section{Using a $\pi$ pulse to improve mode-matching}
 \begin{itemize}
   \item Say we can use a pi pulse to swap the populations half way through, so if the states have different nonlinearities we still end up with the same mode shapes when we recombine. The fact that this works will be clear from the SM equations for a(t), b(t) when the beam splitter is on
   \item show some plots of squeezing with and without the pi pulse
