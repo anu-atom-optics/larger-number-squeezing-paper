@@ -45,6 +45,7 @@
 %\usepackage{iopams}
 \usepackage{graphicx}
 \usepackage{ulem}
+\usepackage{amssymb}
 
 \begin{document}
 
@@ -185,30 +186,49 @@ The two-mode model suggests that arbitrarily high squeezing can be achieved usin
 
 We might speculate therefore that trap geometries that lead to near-constant density profiles for the BEC would enable higher squeezing.  We cannot make strong conclusions without also considering the effects of coupling between spatial modes, however.  An analytic solution to the higher dimensional problem is intractable, so we must use a numerical solution.  
 
-We use stochastic methods based on phase space representations to simulate the dynamics of the multimode quantum fields.  These methods alleviate the problem of directly simulating elements of the Hilbert space, which increases exponentially with the number of spatial modes \cite{stochasticRefs}.  They do this by finding a sufficiently well-behaved quasi-probability representation for the density matrix, which can then be simulated as the average behaviour of a number of low-dimensional samples.  These sample objects are the same size as the equivalent classical field.  In our case, the only tractable phase space representation in widespread usage is the functional Wigner representation, which is well behaved when the quantum field is approximately Gaussian, as it is for coherent and squeezed states.  Stochastic methods based on the functional Wigner representation have been used to model atom laser behaviour \cite{atomLaserWigner}, example2 \cite{example2Wigner}, and example3 \cite{example3Wigner}.
+We use stochastic methods based on phase space representations to simulate the dynamics of the multimode quantum fields.  These methods alleviate the problem of directly simulating elements of the Hilbert space, the size of which increases exponentially with the number of spatial modes \cite{stochasticRefs}.  Stochastic methods achieve this by finding a sufficiently well-behaved quasi-probability representation for the density matrix, which can then be simulated as the average behaviour of a number of low-dimensional samples.  These sample objects are the same size as the equivalent classical field.  In our case, the only tractable phase space representation is the functional Wigner representation, which is well behaved when the quantum field is approximately Gaussian, as it is for coherent and squeezed states.  Stochastic methods based on the functional Wigner representation have been used to model atom laser behaviour \cite{atomLaserWigner}, example2 \cite{example2Wigner}, and example3 \cite{example3Wigner}.
 
 The Hamiltonian for a pair of coupled atomic internal modes is the integral of the Hamiltonian density, which is given by:
 \begin{equation}
-\hat{\mathcal{H}} = \sum_j \hat{\psi}_j^{\dagger}\left(-\frac{\hbar}{2 m}\nabla^2+V_j(\mathbf{x})\right)\hat{\psi}_j 
+\hat{\mathcal{H}} = \sum_{j} \hat{\psi}_j^{\dagger}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_j(\mathbf{x})\right)\hat{\psi}_j 
           + \sum_{i j}\frac{U_{i j}}{2} \hat{\psi}_i^{\dagger} \hat{\psi}_j^{\dagger} \hat{\psi}_j \hat{\psi}_i
-          + \Omega (\hat{\psi}_a^{\dagger} \hat{\psi}_b + \hat{\psi}_b^{\dagger}  \hat{\psi}_a )
+          + \Omega \hat{\psi}_a^{\dagger} \hat{\psi}_b + \Omega^* \hat{\psi}_b^{\dagger}  \hat{\psi}_a
 \label{eqFieldHamiltonian}
 \end{equation}
-where $\psi_j(\mathbf{x})$ is the annihilation field operator for a particle at position $\mathbf{x}$ and in internal state $|j\rangle$, $m$ is the mass of the atoms, $V_j(\mathbf{x})$ is the trapping potential for atoms in internal state $|j\rangle$, $U_{ij}$ describe the various inter- and intra-mode nonlinearities, and $\Omega$ couples the two modes and allows for population transfer between them.
+where $\hat{\psi}_j(\mathbf{x})$ is the annihilation field operator for a particle at position $\mathbf{x}$ and in internal state $|j\rangle$, $m$ is the mass of the atoms, $V_j(\mathbf{x})$ is the trapping potential for atoms in internal state $|j\rangle$, $U_{ij}$ describe the various inter- and intra-mode nonlinearities, and $\Omega$ couples the two modes and allows for population transfer between them.  This Hamiltonian defines the equation of motion for the density matrix, and thereby the functional Wigner distribution of the system, with which it has a one-to-one correspondence.  The equation of motion for the functional Wigner distribution contains derivatives of third order which we assume to be negligible.  This uncontrolled approximation is called the Truncated Wigner Approximation (TWA), and while it has been used widely on ultracold gases \cite{atomlaserWigner,orOtherUCGWigner}, care must be taken that the simulation remains valid.  \textbf{Here we insert "all the checks I've done to make sure Wigner holds over the parameters we've simulated"}
 
+Under the TWA, the equation of motion for the functional Wigner distribution is a Fokker-Planck equation, and can therefore be sampled by a set of stochastic equations, as described in \cite{GardinerQuantumNoise}.  These stochastic fields $\phi(\mathbf{x})$ are related to field operator expectation values by  
+\begin{equation}
+\langle :\hat{\psi}^\dagger(\mathbf{x_1})\cdots\hat{\psi}^\dagger(\mathbf{x_n})\hat{\psi}(\mathbf{y_1})\cdots\hat{\psi}(\mathbf{y_m}):_{\mbox{sym}}\rangle = \mathbb{E}\left[\phi^*(\mathbf{x_1})\cdots\phi^*(\mathbf{x_n})\phi(\mathbf{y_1})\cdots\phi(\mathbf{y_m})\right]
+\label{eqExpectationRelations}
+\end{equation}
+%
+where $:\cdot:_{\mbox{sym}}$ denotes symmetric ordering of the operators, and $\mathbb{E}$ denotes a stochastic average over the variables $\phi(\mathbf{x})$.  While we see below that the evolution of these fields is deterministic, the initial state still requires a random element, so multiple realisations are required.  When approximating these equations on a discrete grid, the magnitude of initial noise, the relationship between stochastic averages and the expectation values, and the equations of motion all become grid-dependent.  This is less concerning as it may at first appear, as the Hamiltonian in Eq.~(\ref{eqFieldHamiltonian}) assumes a contact potential between the atoms, and this is not correct below a length scale that can probe the details of the true potentials.  Furthermore, well before that regime is reached, the different elements of grid dependence cancel out to give grid-independent predictions for physical observables.
 
+These stochastic equations take the form:
+\begin{eqnarray}
+\frac{d \phi_a}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_a(\mathbf{x}) + U_{a a} \left|\phi_{a}\right|^2 + \frac{U_{a b}}{2} \left|\phi_b\right|^2\right)\phi_a   + \Omega \phi_b  \nonumber \\
+\frac{d \phi_b}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_b(\mathbf{x}) + U_{b b} \left|\phi_{b}\right|^2 + \frac{U_{a b}}{2} \left|\phi_a\right|^2\right)\phi_b   + \Omega^* \phi_a
+  \label{eqStochasticEquations}
+\end{eqnarray}
+\textbf{I believe we have some rotation terms to include and explain.  Explanation can link to paragraph above}.
+
+\textbf{Note the initial state we use, and the equations.}
+
+We integrate equation (\ref{eqStochasticEquations}) numerically in one, two and three spatial dimensions using the numerical package XMDS \cite{Dennis2012}.  The dimensional reduction is achieved by \textbf{Derive link between mode shape, nonlinearity U, and the SM equivalent nonlinearity, so we can always compare a given high-dimensional multimode sim against the equivalent ideal analytic single mode case}
+
+\section{Effects of trap geometries on squeezing in 1D}
 \begin{itemize}
-  \item \sout{Brief recap why MM QFT is hard}
-  \item \sout{Say how great phase space methods are, quick overview of how they work, say only wigner works here, can probably crib some explanation and formulae from our fully quantum multimode atom laser paper}
-  \item Talk about all the checks I've done to make sure Wigner holds over the parameters we've simulated despite the fact that TWA is an uncontrolled approximation
-  \item Cite XMDS, and say we're amazing at doing QFT sims, send money
-  Derive link between mode shape, nonlinearity U, and the SM equivalent nonlinearity, so we can always compare a given high-dimensional multimode sim against the equivalent ideal analytic single mode case
   \item Plot of squeezing for given set of params for gaussian, TF, constant density, show it get steadily better
+\end{itemize}
+
+\section{Using a $\pi$ pulse to improve mode-matching
+\begin{itemize}
   \item Say we can use a pi pulse to swap the populations half way through, so if the states have different nonlinearities we still end up with the same mode shapes when we recombine. The fact that this works will be clear from the SM equations for a(t), b(t) when the beam splitter is on
   \item show some plots of squeezing with and without the pi pulse
 \end{itemize}
 
-\section{The effects of dimensionality on squeezing}
+\section{Squeezing in 2D and 3D}
   \begin{itemize}
   \item Two issues. 1) as we add dimensions results get worse (maybe point out how cool we are for being able to do multimode 3D simulations). 2) As our volume increases results get worse.
   \item To gain insight into this we do a bog analysis
