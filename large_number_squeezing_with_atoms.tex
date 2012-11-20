@@ -173,14 +173,26 @@ While the analytic expressions for the number variances are not particularly edi
 \begin{figure}
     \centering
     \includegraphics[width=10cm]{figures/analytic_two_mode_examples.eps}
-    \caption{Normalized number variance Var$[N_a]/N_a$ in mode $\hat{a}$ as a function of final recombination time plotted on a logarithmic scale, using four different mixing angles $\phi$. Parameters: $n_a = n_b =5 \times 10^5$, $\chi_{aa}=0.04 \hbar, \chi_{ab}=0, \chi_{bb}=0.01\hbar, \tau_{\mathrm{hold}}=4\times 10^{-4}$s. Solid line, $\phi=0.10$; dash-dotted line, $\phi=1.42$; dashed line, $\phi=3.24$; dotted line, $\phi=4.71$.} 
+    \caption{Normalized number variance Var$[N_a]/N_a$ in mode $\hat{a}$ as a function of final recombination time plotted on a logarithmic scale, using four different mixing angles $\phi$. Parameters: $n_a = n_b =5 \times 10^5$, $\chi_{aa}=0.04 \hbar, \chi_{ab}=0, \chi_{bb}=0.01\hbar, \tau_{\mathrm{hold}}=4\times 10^{-4}$s. Solid line, $\phi=0.10$; dash-dotted line, $\phi=1.42$; dashed line, $\phi=3.24$; dotted line, $\phi=4.71$. These particular parameters yield 21dB of number squeezing for the $\phi=0.1$ and $\phi=1.42$ cases.} 
     \label{figTwoModeAnalyticExamples}
 \end{figure}
 
 
 \section{Multimode analysis of squeezing}
 
-The two-mode model suggests that arbitrarily high squeezing can be achieved using the intrinsic nonlinearities in a BEC, but it ignores the existence of multiple spatial modes.  The non-zero spatial dimensionality causes issues even when the modes do not interact.  A brief inspection of the two-mode model shows that the wait time for optimal squeezing is highly number dependent.  In a multimode environment, this means that the optimal wait time will be density-dependent.  Furthermore, the phases of areas with different density will evolve at different rates, so there will be poor mode-matching when recombining a field with significant density variation.  
+The zero-dimensional, two-mode model described in the previous section shows that arbitrarily high squeezing can be achieved using the intrinsic nonlinearities in a BEC, but it ignores the existence of multiple spatial modes. 
+
+If we allow the problem to have multiple spacial modes, there are a number of effects that prevent us from achieving the levels of number squeezing predicted by the zero-dimensional, two-mode analytic model. In this section we consider the two problems caused by the fact that the density in a spatially multimode problem will not be constant.
+
+The source of the first problem can be seen in the two-mode model. It shows that the parameters required to obtain best squeezing are number-dependent. That is, the optimum hold time $\tau_{\mathrm{hold}}$ depends on the number of atoms in the mode, as does the recombination phase $\phi$. In a multimode environment, this means that the optimal value of these parameters, rather than being number dependent, will be density-dependent, or, more precisely, dependent on the product of the local density and the strength of the nonlinearity in that mode. If the particle density is not constant across the spatial mode, different regions will squeeze at different rates (each region has a different optimum $\tau_{\mathrm{hold}}$) and each region will have a different optimum recombination phase $\phi$. This means that best we can do is choose values of $\tau_{\mathrm{hold}}$ and $\phi$ that, averaged across the range of densities, result in an overall lowest possible total number variance.
+
+The second problem arises from the fact that, due to the nonlinear term in the Hamiltonian, the local phase evolution of the atomic field is density dependent. If we write the order parameter of the atomic field as $\psi_i = \sqrt{\rho({\mathbf{r}})} \exp (i\varphi)$, where $j$ denotes one of the two states of our atomic field, the local phase evolution is given by
+\begin{equation}
+\frac{d \varphi}{dt} = \frac{U_{ii} \rho({\mathbf{r}})} {2 \hbar}.
+\end{equation}
+Consequently the mode shape of the atomic field changes depending on the nonlinearity-density product, which means that unless $U_{aa}|\psi_a({\mathbf{r}})|^2 = U_{bb}|\psi_b({\mathbf{r}})|^2$ for all ${\mathbf{r}}$, the mode shapes of will not overlap perfectly during the final coupling pulse. This degraded mode-matching will result in lower efficiency in converting the quadrature squeezing to number squeezing. We show an example of this effect in Figure~\ref{figXXX}.
+
+
 
 \textbf{give a plot of the mode in $|a\rangle$ and $|b\rangle$ at the beginning and end of the hold time to show mismatch}
 
