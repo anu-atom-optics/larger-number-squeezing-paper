@@ -233,13 +233,43 @@ We integrate equation (\ref{eqStochasticEquations}) numerically in one, two and 
 \begin{itemize}
   \item Plot of squeezing for given set of params for gaussian, TF, constant density, show it get steadily better
 \end{itemize}
-This is shown in Figure~\ref{figModalSqueezingEffects1D}
+To compare the effects of mode shape on squeezing, and to compare how close the a multimode system can get to the ideal two-mode system, it is necessary to have some method of mapping the multimode Hamiltonian to the two-mode Hamiltonian. We can do this by explicitly writing the multimode atomic field operator $\hat{\Psi} (x,t)$ in terms of a set of basis functions
+\begin{equation}
+\hat{\Psi}({\mathbf{r}},t) = \sum_n u_i({\mathbf{r}}) \hat{a}_i(t)
+\end{equation}
+where the $u_i$ are normalized mode functions. With this expansion the nonlinear terms in the multimode Hamiltonian becomes
+\begin{equation}
+\hat{H} = U \int  \sum_{ijkl} u_i^* u_j^* u_k u_l \, \hat{a}^{\dagger}_i \hat{a}^{\dagger}_j \hat{a}_k \hat{a}_l \, dV
+\end{equation}
+Ideally the system will remain predominantly in one mode, i.e. only one of the $u_i$ is significantly greater than zero. In this case we can make an equivalence between the multimode Hamiltonian and the two-mode Hamiltonian $\hat{H} = \chi \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}$ via
+\begin{equation}
+\chi = \int dV |u_i|^4  = \frac{1}{N^2} \int |\Psi|^4 \, dV
+\label{eqChiUequivalence}
+\end{equation}
+where $N$ is the number particles in the mode.
+
+Some common mode shapes are the groundstates of a harmonic trap with negligible nonlinearity (a gaussian), a harmonic trap with strong nonlinearity (Thomas-Fermi), and a constant potential (constant density). Using (\ref{eqChiUequivalence}) we find the following equivalences
+\begin{eqnarray}
+\chi &=& U \sqrt{\frac{m^3 \omega_x \omega_y \omega_z}{8 \pi^3 \hbar^3}} \,\,\,\, ({\textrm{Gaussian}}) \\
+%
+\chi &=& \frac{4}{7} \left( \frac{15 U \omega_x \omega_y \omega_z}{16 \pi \sqrt{2}} \right)^{2/5} \left( \frac{m}{N} \right)^{3/5} \,\,\,\, ({\textrm{Thomas-Fermi}}) \\
+%
+\chi &=& \frac{U}{V} \,\,\,\, {\textrm{(constant density)}}
+\end{eqnarray}
+Choosing parameters where the mode shape of the multimode system doesn't change much during the evolution allows us to compare the effect of mode shape on the best squeezing that can be attained relative to the two mode system. An example in shown in Figure~\ref{figModalSqueezingEffects1D}. Clearly the closer the mode shape is to constant density, the better.
+
 \begin{figure}
     \centering
     \includegraphics[width=8cm]{figures/modal_squeezing_effects_1D.eps}
     \caption{Effects of mode shape on squeezing. The plot shows the normalized number variance in mode $\hat{a}$ as a function of the time the final coupling pulse is applied. Thick red line, analytic two-mode solution; solid blue line, constant density mode; dashed line, Thomas-Fermi mode; dash-dotted line, gaussian mode. The nonlinearities of the various 1D simulations have been adjusted for their mode shape so that they are equivalent to that of the 0D, two-mode mode nonlinearity. Parameters: $n_a = n_b =1 \times 10^5$, $\chi_{aa}=0.03 \hbar, \chi_{ab}=\chi_{bb}=0, \tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=4.0$. }
     \label{figModalSqueezingEffects1D}
 \end{figure}
+
+As it can be difficult to engineer specific mode shapes, another alternative is to post-select a mode. For example, rather than considering the variance in the total number of atoms in a mode, it may be possible to only count, say the atoms in the central portion of the atomic cloud. For example, suppose one had a gaussian atomic distribution, but one considers a mode that only includes the atoms within $p$ standard deviations of the centre. For low $p$, this mode shape is considerably closer to the constant density case than a standard gaussian. The equivalence between the single mode case and this mode is given by
+\begin{equation}
+\chi = U \frac{{\mathrm{Erf}} (\sqrt{2p})^3}{{\mathrm{Erf}}(p)^6} \sqrt{\frac{m^3 \omega_x \omega_y \omega_z}{8 \pi^3 \hbar^3}}
+\end{equation}
+And example comparing the best attainable squeezing for this mode compared to a single gaussian is shown in Figure~\ref{XXX}.
 
 
 \section{Using a $\pi$ pulse to improve mode-matching}
