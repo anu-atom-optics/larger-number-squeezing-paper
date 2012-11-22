@@ -107,8 +107,21 @@ We allow the atoms to interact via a standard Kerr-type nonlinearity arising fro
 \end{equation}
 where the $\chi_{ij}$ describe the various inter- and intra-mode nonlinearities, and $\Omega$ couples the two modes and allows for population transfer between them.
 
-The system is prepared with all the population in $|a\rangle$, and vacuum in $|b\rangle$. $|a\rangle$ is well-described by a coherent state {\bf *** Justify this. ***} with average number $\langle \hat{a}^{\dagger} \hat{a} \rangle = N$, where $N$ is the total particle number in our system.
-
+The system is prepared with all the population in $|a\rangle$, and vacuum in $|b\rangle$. We choose state $|a\rangle$ to be occupied as a coherent state with average number $\langle \hat{a}^{\dagger} \hat{a} \rangle = N$, where $N$ is the total particle number in our system.  As our simulation and experiment are insensitive to the initial phase of the coherent state, this is equivalent to a mixture of coherent states of uncertain phase, which is also equivalent to mixture of Poissonian-distributed number states.  This state is consistent with BEC coherence experiments \cite{Hadzibabic2004}.  
+%@article{Hadzibabic2004,
+%  title = {Interference of an Array of Independent Bose-Einstein Condensates},
+%  author = {Hadzibabic, Zoran and Stock, Sabine and Battelier, Baptiste and Bretin, Vincent and Dalibard, Jean},
+%  journal = {Phys. Rev. Lett.},
+%  volume = {93},
+%  issue = {18},
+%  pages = {180403},
+%  numpages = {4},
+%  year = {2004},
+%  month = {Oct},
+%  doi = {10.1103/PhysRevLett.93.180403},
+%  url = {http://link.aps.org/doi/10.1103/PhysRevLett.93.180403},
+%  publisher = {American Physical Society}
+%}
 At time $t=0$ the coupling $\Omega$ is switched on and applied until time $t=t_1$, at which point it is turned off, resulting in a portion of the population being transferred into mode $|a\rangle$. As the initial state was a coherent state in both modes, after the population transfer both $|a\rangle$ and $|b\rangle$ are described by coherent states, with mean number $\langle \hat{a}^{\dagger} \hat{a} \rangle = n_a$ and $\langle \hat{b}^{\dagger} \hat{b} \rangle = n_b$ respectively.
 
 The coupling $\Omega$ is then switched off until time $t_2$. During this period the atoms interact solely through the nonlinear terms, with no population being transferred. Due to the form of the Hamiltonian, the number variance remains unchanged, but the quadrature variances in the two modes change over time, which can lead to quadrature squeezing \cite{xxx}.
@@ -180,25 +193,21 @@ While the analytic expressions for the number variances are not particularly edi
 
 \section{Multimode analysis of squeezing}
 
-The zero-dimensional, two-mode model described in the previous section shows that arbitrarily high squeezing can be achieved using the intrinsic nonlinearities in a BEC, but it ignores the existence of multiple spatial modes. 
+The zero-dimensional, two-mode model described in the previous section shows that arbitrarily high squeezing can be achieved using the intrinsic nonlinearities in a BEC, but it ignores the existence of multiple spatial modes.  There are three problems caused by the existence of multiple modes, and these will limit the achievable squeezing.
 
-If we allow the problem to have multiple spatial modes, there are a number of effects that prevent us from achieving the levels of number squeezing predicted by the zero-dimensional, two-mode analytic model. In this section we consider the two problems caused by the fact that the density in a spatially multimode problem will not be constant.
+The first problem is present even if the multiple spatial modes are uncoupled.  The two-mode model shows that the parameters required to obtain best squeezing are dependent on the strength of the nonlinearity.  This nonlinearity is proportional to the product of the mode shape and the number of atoms in that mode.  The optimum hold time $\tau_{\mathrm{hold}}$ depends on this product, as does the recombination phase $\phi$.  Different modes in a multimode environment will typically varying products of nonlinearity and therefore squeeze at different rates, with each mode having a different optimum $\tau_{\mathrm{hold}}$ and optimum recombination phase $\phi$.  This means that best squeezing will be achieved by choosing values of $\tau_{\mathrm{hold}}$ and $\phi$ that, averaged across the range of densities, result in an overall lowest possible total number variance.  
 
-The source of the first problem can be seen in the two-mode model. It shows that the parameters required to obtain best squeezing are number-dependent. That is, the optimum hold time $\tau_{\mathrm{hold}}$ depends on the number of atoms in the mode, as does the recombination phase $\phi$. In a multimode environment, this means that the optimal value of these parameters, rather than being number dependent, will be density-dependent, or, more precisely, dependent on the product of the local density and the strength of the nonlinearity in that mode. If the particle density is not constant across the spatial mode, different regions will squeeze at different rates (each region has a different optimum $\tau_{\mathrm{hold}}$) and each region will have a different optimum recombination phase $\phi$. This means that best we can do is choose values of $\tau_{\mathrm{hold}}$ and $\phi$ that, averaged across the range of densities, result in an overall lowest possible total number variance.
-
-The second problem arises from the fact that, due to the nonlinear term in the Hamiltonian, the local phase evolution of the atomic field is density dependent. If we write the order parameter of the atomic field as $\psi_i = \sqrt{\rho({\mathbf{r}})} \exp (i\varphi)$, where $j$ denotes one of the two states of our atomic field, the local phase evolution is given by
+The second problem is one of the number-dependent dynamics of the spatial modes, which is observable even in a semiclassical simulation.  Due to the nonlinear term in the Hamiltonian, the local phase evolution of the atomic field is density dependent. If we write the order parameter of the atomic field as $\psi_i = \sqrt{\rho({\mathbf{r}})} \exp (i\varphi)$, where $j$ denotes one of the two states of our atomic field, the local phase evolution is given by
 \begin{equation}
-\frac{d \varphi}{dt} = \frac{U_{ii} \rho({\mathbf{r}})} {2 \hbar}.
+\frac{d \varphi({\mathbf{r}})}{dt} = \frac{U_{ii} \rho({\mathbf{r}})} {2 \hbar}.
 \end{equation}
 Consequently the mode shape of the atomic field changes depending on the nonlinearity-density product, which means that unless $U_{aa}|\psi_a({\mathbf{r}})|^2 = U_{bb}|\psi_b({\mathbf{r}})|^2$ for all ${\mathbf{r}}$, the mode shapes of will not overlap perfectly during the final coupling pulse. This degraded mode-matching will result in lower efficiency in converting the quadrature squeezing to number squeezing. We show an example of this effect in Figure~\ref{figXXX}.
 
-
-
 \textbf{give a plot of the mode in $|a\rangle$ and $|b\rangle$ at the beginning and end of the hold time to show mismatch}
 
-We might speculate therefore that trap geometries that lead to near-constant density profiles for the BEC would enable higher squeezing.  We cannot make strong conclusions without also considering the effects of coupling between spatial modes, however.  An analytic solution to the higher dimensional problem is intractable, so we must use a numerical solution.  
+We might speculate that the effects of these first two problems would be lessened by trap geometries that lead to near-constant density profiles for the BEC.  This should enable higher squeezing.  We cannot make strong conclusions without also considering the effects of coupling between spatial modes, however.  The third potential problem is that coupling between modes is inevitable in the presence of a nonlinearity.  Coupling between modes will disturb mode-matching, and mix fields with different phase evolution, which can rapidly destroy squeezing.  
 
-We use stochastic methods based on phase space representations to simulate the dynamics of the multimode quantum fields.  These methods alleviate the problem of directly simulating elements of the Hilbert space, the size of which increases exponentially with the number of spatial modes \cite{stochasticRefs}.  Stochastic methods achieve this by finding a sufficiently well-behaved quasi-probability representation for the density matrix, which can then be simulated as the average behaviour of a number of low-dimensional samples.  These sample objects are the same size as the equivalent classical field.  In our case, the only tractable phase space representation is the functional Wigner representation, which is well behaved when the quantum field is approximately Gaussian, as it is for coherent and squeezed states.  Stochastic methods based on the functional Wigner representation have been used to model atom laser behaviour \cite{atomLaserWigner}, example2 \cite{example2Wigner}, and example3 \cite{example3Wigner}.
+An analytic solution to the higher dimensional problem is intractable, so we must use a numerical solution.  We use stochastic methods based on phase space representations to simulate the dynamics of the multimode quantum fields.  These methods alleviate the problem of directly simulating elements of the Hilbert space, the size of which increases exponentially with the number of spatial modes \cite{stochasticRefs}.  Stochastic methods achieve this by finding a sufficiently well-behaved quasi-probability representation for the density matrix, which can then be simulated as the average behaviour of a number of low-dimensional samples.  These sample objects are the same size as the equivalent classical field.  In our case, the only tractable phase space representation is the functional Wigner representation, which is well behaved when the quantum field is approximately Gaussian, as it is for coherent and squeezed states.  Stochastic methods based on the functional Wigner representation have been used to model atom laser behaviour \cite{atomLaserWigner}, example2 \cite{example2Wigner}, and example3 \cite{example3Wigner}.
 
 The Hamiltonian for a pair of coupled atomic internal modes is the integral of the Hamiltonian density, which is given by:
 \begin{equation}
