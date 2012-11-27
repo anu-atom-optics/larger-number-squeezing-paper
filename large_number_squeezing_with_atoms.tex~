@@ -91,15 +91,27 @@ We examine the feasibility of creating and measuring large relative number squee
   \item Maybe point out it agrees with Oberthaler, or save that for discussion on MM effects?
   \item Point out that number *difference* squeezing can often be considerably higher than absolute number squeezing in a single state
 \end{itemize}
-
-As our goal is to describe the number squeezing possibilities of a two component BEC, we begin by considering a simplified version of the problem, consisting of a two-mode system, with the modes corresponding to the two states of the condensate. In the full problem, each of the components will include many spatial modes; our two mode system makes the assumption that only one of these spatial modes is relevant for each of the condensate's components.
-
-{\bf{Maybe expand on the link between a full BEC in a trap and a the following hamiltonian?}}
-
-We allow the atoms to interact via a standard Kerr-type nonlinearity arising from atom-atom interactions, as well as allowing a linear coupling between the two modes. Denoting the two modes by $|a\rangle$ and $|b\rangle$, the Hamiltonian governing this system is given by
+Our goal is to describe the number squeezing possibilities of a BEC comprising two relevant internal states denoted by $|a\rangle$ and $|b\rangle$.  The Hamiltonian for a pair of coupled atomic internal modes is the spatial integral of the Hamiltonian density, which is given by:
 \begin{equation}
-\hat{H} = \hbar \omega \hat{a}^{\dagger} \hat{a} +  \hbar \omega \hat{b}^{\dagger} \hat{b} 
-          + \frac{\chi_{aa}}{2} \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}
+\hat{\mathcal{H}} = \sum_{j} \hat{\psi}_j^{\dagger}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_j\right)\hat{\psi}_j 
+          + \sum_{i j}\frac{U_{i j}}{2} \hat{\psi}_i^{\dagger} \hat{\psi}_j^{\dagger} \hat{\psi}_j \hat{\psi}_i
+          + \kappa \hat{\psi}_a^{\dagger} \hat{\psi}_b + \kappa^* \hat{\psi}_b^{\dagger}  \hat{\psi}_a
+\label{eqFieldHamiltonian}
+\end{equation}
+where $\hat{\psi}_j(\mathbf{x})$ is the annihilation field operator for a particle at position $\mathbf{x}$ and in internal state $|j\rangle$, $m$ is the mass of the atoms, $V_j(\mathbf{x})$ is the trapping potential for atoms in internal state $|j\rangle$, $U_{ij}$ describe the various inter- and intra-mode nonlinearities, and $\kappa$ describes the induced coupling between the two modes.  
+
+We begin by considering a simplified version of the problem, assuming that only one of these spatial modes is relevant for each of the condensate's components.  This is done by writing the multimode atomic field operators in terms of a set of basis functions $\hat{\psi}_a({\mathbf{r}},t) = \sum_n u_{n j}({\mathbf{r}}) \hat{a}_{n}(t)$ and $\hat{\psi}_b({\mathbf{r}},t) = \sum_n u_{n}({\mathbf{r}}) \hat{b}_{n}(t)$, where $\hat{a}_{n}$ and $\hat{b}_{n}$ annihilate a particle with normalised spatial mode $u_n$ and internal state $|a\rangle$ or $|b\rangle$ respectively. With this expansion, the first nonlinear term in the multimode Hamiltonian becomes
+\begin{equation}
+\hat{H} = \frac{U_{aa}}{2} \int dV \sum_{nmpq} u_n^* u_m^* u_p u_q \, \hat{a}^{\dagger}_{n} \hat{a}^{\dagger}_{m} \hat{a}_{p} \hat{a}_{q} 
+\end{equation}
+When the system remains predominantly in one mode, we can approximate this sum as the single term $\hat{H} = \frac{\chi_{aa}}{2} \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}$ where
+\begin{equation}
+\chi_{aa} = U_{aa} \int |u_i|^4 \, dV.
+\label{eqChiUequivalence}
+\end{equation}
+We proceed similarly for the other terms.  In the parameter regimes we are interested in, the detuning between the two spatial modes will be irrelevant, so setting our zero of energy appropriately, we are left with only a standard Kerr-type nonlinearity arising from atom-atom interactions, as well as a linear coupling between the two modes.  The Hamiltonian governing this reduced system is given by
+\begin{equation}
+\hat{H} = \frac{\chi_{aa}}{2} \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}
           + \chi_{ab} \hat{a}^{\dagger} \hat{a} \hat{b}^{\dagger} \hat{b}
           + \frac{\chi_{bb}}{2} \hat{b}^{\dagger} \hat{b}^{\dagger} \hat{b} \hat{b}
           + \Omega (\hat{a}^{\dagger} \hat{b} + \hat{b}^{\dagger}  \hat{a} )
@@ -126,11 +138,16 @@ At time $t=0$ the coupling $\Omega$ is switched on and applied until time $t=t_1
 
 The coupling $\Omega$ is then switched off until time $t_2$. During this period the atoms interact solely through the nonlinear terms, with no population being transferred. Due to the form of the Hamiltonian, the number variance remains unchanged, but the quadrature variances in the two modes change over time, which can lead to quadrature squeezing \cite{xxx}.
 
-After this hold time $\tau_{\mathrm{hold}} = t_2 - t_1 $, the coupling $\Omega$ is switched back on until time $t_3$, with a phase shift $\phi$ compared to it's first application. During this last stage, the two modes exchange population and the quadrature variance is converted into number variance, in the same way homodyne measurements are used in quantum optics to convert quadrature squeezing (which cannot be directly measured) into number squeezing (which can). In this interpretation, $\phi$ is the relative phase of the strong local oscillator, which allows specific phase angles of quadrature squeezing to be examined.
-
-In another interpretation, the sequence of pulses results in a Ramsey interferometer, with a final beam splitter phase of $\phi$.
+After this hold time $\tau_{\mathrm{hold}} = t_2 - t_1 $, the coupling $\Omega$ is switched back on until time $t_3$, with a phase shift $\phi$ compared to it's first application. During this last stage, the two modes exchange population and the quadrature variance is converted into number variance, in the same way homodyne measurements are used in quantum optics to convert quadrature squeezing into number squeezing, which can be directly measured. In this interpretation, $\phi$ is the relative phase of the strong local oscillator, which allows specific phase angles of quadrature squeezing to be examined.  This experiment can also be interpreted as a Ramsey interferometer with a final beam splitter phase of $\phi$.
 
 The entire sequence of pulses and the resulting populations are shown schematically in Figure~\ref{figPulseScheme}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=8cm]{figures/pulse_scheme.eps}
+    \caption{Schematic of the pulse sequence and atomic populations as a function of time.  Typically the coupling sequences at the beginning and end of the sequence are much shorter than the hold time, $\tau_{\mathrm{hold}} = t_2 - t_1 $, which is where the majority of the squeezing occurs. \textbf{Unless I just lied}.}
+    \label{figPulseScheme}
+\end{figure}
 
 This system can be solved analytically, and expressions for quadrature, absolute and relative number squeezing can be derived. We present the solutions here; the full derivation can be found in \ref{appendixTwoModeDerivation}.
 If we define
@@ -167,7 +184,7 @@ N_b(t_3) &=& n_a s^2 + n_b c^2 - i c s D \\
        && + 4 i c s (c^2 - s^2) (n_a e^{-i(\lambda_{aa} - \lambda_{ab})} A B^* - n_a e^{i(\lambda_{aa} - \lambda_{ab})} A^* B 
                      + n_b e^{-i(\lambda_{bb} - \lambda_{ab})} A^* B - n_b e^{i(\lambda_{bb} - \lambda_{ab})} A B^*) \label{eqNumDiffVariance}
 \end{eqnarray}
-In the case where all the nonlinearities are equal, such that $\chi_{aa} = \chi_{ab} = \chi_{bb}$, the number variances all reduce to those of a coherent state, e.g. ${\mathrm{Var}}[N_a]=N_a$, an no number squeezing is possible. 
+In the case where all the nonlinearities are equal, such that $\chi_{aa} = \chi_{ab} = \chi_{bb}$, the number variances all reduce to those of a coherent state, e.g. ${\mathrm{Var}}[N_a]=N_a$, and no number squeezing is possible. 
 
 While there are three independent nonlinearities $\chi_{ij}$ in the Hamiltonian (\ref{eqTwoModeHamiltonian}), the expressions for the number variances only depend on differences.  This means that number squeezing is parameterised by only two independent quantities, for example $\chi_{aa}-\chi_{ab}$ and $\chi_{aa}-\chi_{bb}$.  
 
@@ -175,13 +192,6 @@ While there are three independent nonlinearities $\chi_{ij}$ in the Hamiltonian 
 %Can Uaa + Ubb - 2Uab be zero and still get squeezing? Yep, Uaa=0.03, Ubb=0.01, Uab=0.2 gives squeezing for all quantities of interest
 
 While the analytic expressions for the number variances are not particularly edifying, it is easy to evaluate and plot them for any given set of parameters. As an example, in Figure \ref{figTwoModeAnalyticExamples} we plot the solution for the normalized number variance in mode $|a\rangle$ for a particular set of nonlinearities, choosing a number of different values of $\phi$. The plots illustrate the basic features of the problem: During the final coupling period, the normalised number variance undergoes cyclic variation with a period $\tau=0.5 \Omega$, and has a series of minima. It is necessary to choose both the correct phase $\phi$ as well as the correct length of time for the coupling to be applied in order to obtain optimum squeezing.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=8cm]{figures/pulse_scheme.eps}
-    \caption{Mollusc mollusc}
-    \label{figPulseScheme}
-\end{figure}
 
 \begin{figure}
     \centering
@@ -205,14 +215,7 @@ We might speculate that the effects of these first two problems would be lessene
 
 An analytic solution to the higher dimensional problem is intractable, so we must use a numerical solution.  We use stochastic methods based on phase space representations to simulate the dynamics of the multimode quantum fields.  These methods alleviate the problem of directly simulating elements of the Hilbert space, the size of which increases exponentially with the number of spatial modes \cite{stochasticRefs}.  Stochastic methods achieve this by finding a sufficiently well-behaved quasi-probability representation for the density matrix, which can then be simulated as the average behaviour of a number of low-dimensional samples.  These sample objects are the same size as the equivalent classical field.  In our case, the only tractable phase space representation is the functional Wigner representation, which is well behaved when the quantum field is approximately Gaussian, as it is for coherent and squeezed states.  Stochastic methods based on the functional Wigner representation have been used to model atom laser behaviour \cite{atomLaserWigner}, example2 \cite{example2Wigner}, and example3 \cite{example3Wigner}.
 
-The Hamiltonian for a pair of coupled atomic internal modes is the integral of the Hamiltonian density, which is given by:
-\begin{equation}
-\hat{\mathcal{H}} = \sum_{j} \hat{\psi}_j^{\dagger}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_j(\mathbf{x})\right)\hat{\psi}_j 
-          + \sum_{i j}\frac{U_{i j}}{2} \hat{\psi}_i^{\dagger} \hat{\psi}_j^{\dagger} \hat{\psi}_j \hat{\psi}_i
-          + \Omega \hat{\psi}_a^{\dagger} \hat{\psi}_b + \Omega^* \hat{\psi}_b^{\dagger}  \hat{\psi}_a
-\label{eqFieldHamiltonian}
-\end{equation}
-where $\hat{\psi}_j(\mathbf{x})$ is the annihilation field operator for a particle at position $\mathbf{x}$ and in internal state $|j\rangle$, $m$ is the mass of the atoms, $V_j(\mathbf{x})$ is the trapping potential for atoms in internal state $|j\rangle$, $U_{ij}$ describe the various inter- and intra-mode nonlinearities, and $\Omega$ couples the two modes and allows for population transfer between them.  This Hamiltonian defines the equation of motion for the density matrix, and thereby the functional Wigner distribution of the system, with which it has a one-to-one correspondence.  The equation of motion for the functional Wigner distribution contains derivatives of third order which we assume to be negligible.  This uncontrolled approximation is called the Truncated Wigner Approximation (TWA), and while it has been used widely on ultracold gases \cite{atomlaserWigner,orOtherUCGWigner}, care must be taken that the simulation remains valid.  \textbf{Here we insert "all the checks I've done to make sure Wigner holds over the parameters we've simulated"}
+The equation of motion for the density matrix is defined by the Hamiltonian in Eq.~(\ref{eqFieldHamiltonian}).  This defines the evolution of the functional Wigner distribution of the system, which has a one-to-one correspondence with the density matrix.  The equation of motion for the functional Wigner distribution contains derivatives of third order which we assume to be negligible.  This uncontrolled approximation is called the Truncated Wigner Approximation (TWA), and while it has been used widely on ultracold gases \cite{atomlaserWigner,orOtherUCGWigner}, care must be taken that the simulation remains valid.  \textbf{Here we insert "all the checks I've done to make sure Wigner holds over the parameters we've simulated"}
 
 Under the TWA, the equation of motion for the functional Wigner distribution is a Fokker-Planck equation, and can therefore be sampled by a set of stochastic equations, as described in \cite{GardinerQuantumNoise}.  These stochastic fields $\phi(\mathbf{x})$ are related to field operator expectation values by  
 \begin{equation}
@@ -220,12 +223,12 @@ Under the TWA, the equation of motion for the functional Wigner distribution is 
 \label{eqExpectationRelations}
 \end{equation}
 %
-where $:\cdot:_{\mbox{sym}}$ denotes symmetric ordering of the operators, and $\mathbb{E}$ denotes a stochastic average over the variables $\phi(\mathbf{x})$.  While we see below that the evolution of these fields is deterministic, the initial state still requires a random element, so multiple realisations are required.  When approximating these equations on a discrete grid, the magnitude of initial noise, the relationship between stochastic averages and the expectation values, and the equations of motion all become grid-dependent.  This is less concerning as it may at first appear, as the Hamiltonian in Eq.~(\ref{eqFieldHamiltonian}) assumes a contact potential between the atoms, and this is not correct below a length scale that can probe the details of the true potentials.  Furthermore, well before that regime is reached, the different elements of grid dependence cancel out to give grid-independent predictions for physical observables.
+where $:\star:_{\mbox{sym}}$ denotes symmetric ordering of the operators, and $\mathbb{E}$ denotes a stochastic average over the variables $\phi(\mathbf{x})$.  While we see below that the evolution of these fields is deterministic, the initial state still requires a random element, so multiple realisations are required.  When approximating these equations on a discrete grid, the magnitude of initial noise, the relationship between stochastic averages and the expectation values, and the equations of motion all become grid-dependent.  This is less concerning as it may at first appear, as the Hamiltonian in Eq.~(\ref{eqFieldHamiltonian}) assumes a contact potential between the atoms, and this is not correct below a length scale that can probe the details of the true potentials.  Furthermore, well before that regime is reached, the different elements of grid dependence cancel out to give grid-independent predictions for physical observables.
 
 These stochastic equations take the form:
 \begin{eqnarray}
-\frac{d \phi_a}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_a(\mathbf{x}) + U_{a a} \left|\phi_{a}\right|^2 + \frac{U_{a b}}{2} \left|\phi_b\right|^2\right)\phi_a   + \Omega \phi_b  \nonumber \\
-\frac{d \phi_b}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_b(\mathbf{x}) + U_{b b} \left|\phi_{b}\right|^2 + \frac{U_{a b}}{2} \left|\phi_a\right|^2\right)\phi_b   + \Omega^* \phi_a
+\frac{d \phi_a}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_a(\mathbf{x}) + U_{a a} \left|\phi_{a}\right|^2 + \frac{U_{a b}}{2} \left|\phi_b\right|^2\right)\phi_a   + \kappa \phi_b  \nonumber \\
+\frac{d \phi_b}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_b(\mathbf{x}) + U_{b b} \left|\phi_{b}\right|^2 + \frac{U_{a b}}{2} \left|\phi_a\right|^2\right)\phi_b   + \kappa^* \phi_a
   \label{eqStochasticEquations}
 \end{eqnarray}
 \textbf{I believe we have some rotation terms to include and explain.  Explanation can link to paragraph above}.
@@ -238,20 +241,6 @@ We integrate equation (\ref{eqStochasticEquations}) numerically in one, two and 
 \begin{itemize}
   \item Plot of squeezing for given set of params for gaussian, TF, constant density, show it get steadily better
 \end{itemize}
-To compare the effects of mode shape on squeezing, and to compare how close the a multimode system can get to the ideal two-mode system, it is necessary to have some method of mapping the multimode Hamiltonian to the two-mode Hamiltonian. We can do this by explicitly writing the multimode atomic field operator $\hat{\Psi} (x,t)$ in terms of a set of basis functions
-\begin{equation}
-\hat{\Psi}({\mathbf{r}},t) = \sum_n u_i({\mathbf{r}}) \hat{a}_i(t)
-\end{equation}
-where the $u_i$ are normalized mode functions. With this expansion the nonlinear terms in the multimode Hamiltonian becomes
-\begin{equation}
-\hat{H} = U \int  \sum_{ijkl} u_i^* u_j^* u_k u_l \, \hat{a}^{\dagger}_i \hat{a}^{\dagger}_j \hat{a}_k \hat{a}_l \, dV
-\end{equation}
-Ideally the system will remain predominantly in one mode, i.e. only one of the $u_i$ is significantly greater than zero. In this case we can make an equivalence between the multimode Hamiltonian and the two-mode Hamiltonian $\hat{H} = \chi \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}$ via
-\begin{equation}
-\chi = \int dV |u_i|^4  = \frac{1}{N^2} \int |\Psi|^4 \, dV
-\label{eqChiUequivalence}
-\end{equation}
-where $N$ is the number particles in the mode.
 
 Some common mode shapes are the groundstates of a harmonic trap with negligible nonlinearity (a gaussian), a harmonic trap with strong nonlinearity (Thomas-Fermi), and a constant potential (constant density). Using (\ref{eqChiUequivalence}) we find the following equivalences
 \begin{eqnarray}
@@ -297,12 +286,12 @@ And example comparing the best attainable squeezing for this mode compared to a 
   \centering
   \begin{subfigure}{.5\textwidth}
     \centering
-    \includegraphics[width=7cm]{figures/dimensional_effects_on_squeezing.eps}
+    \includegraphics[width=7cm]{figures/dimensional_effects_on_squeezing_1.eps}
     \label{figDimensionalSqueezingEffects:sub1}
   \end{subfigure}%
   \begin{subfigure}{.5\textwidth}
     \centering
-    \includegraphics[width=7cm]{figures/dimensional_effects_on_squeezing.eps}
+    \includegraphics[width=7cm]{figures/dimensional_effects_on_squeezing_2.eps}
     \label{figDimensionalSqueezingEffects:sub2}
   \end{subfigure}
 \caption{Effects of dimension on squeezing in two different nonlinear regimes. If two nonlinearities are non-zero, the deleterious effects of higher dimensions on squeezing are exacerbated. Thick red line, analytic two-mode solution; solid blue line, 1D; dashed line, 2D; dash-dotted line, 3D. (a) Parameters: $n_a = n_b =2 \times 10^5$, $\chi_{aa}=\chi_{bb}=0.03\hbar$, $\chi_{ab}=0$, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=3.1$. (b) $n_a = n_b =2 \times 10^5$, $\chi_{aa}=0.03\hbar$, $\chi_{bb}=\chi_{ab}=0$, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=3.1$.}
