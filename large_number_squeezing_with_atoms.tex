@@ -235,14 +235,11 @@ These stochastic equations take the form:
 
 \textbf{Note the initial state we use, and the equations.}
 
-We integrate equation (\ref{eqStochasticEquations}) numerically in one, two and three spatial dimensions using the numerical package XMDS \cite{Dennis2012}.  The dimensional reduction is achieved by \textbf{Derive link between mode shape, nonlinearity U, and the SM equivalent nonlinearity, so we can always compare a given high-dimensional multimode sim against the equivalent ideal analytic single mode case}
+We integrate equation (\ref{eqStochasticEquations}) numerically in one, two and three spatial dimensions using the numerical package XMDS \cite{Dennis2012}.  The dimensional reduction is achieved by estimating the mode shape in three dimensions, and using dimensionally reduced values for $U_{ij}$ that match the zero-dimensional reduction given by Eq.~(\ref{eqChiUequivalence}).  An equivalent process is to match the chemical potentials of the initial states.  
 
 \section{Effects of trap geometries on squeezing in 1D}
-\begin{itemize}
-  \item Plot of squeezing for given set of params for gaussian, TF, constant density, show it get steadily better
-\end{itemize}
 
-Some common mode shapes are the groundstates of a harmonic trap with negligible nonlinearity (a gaussian), a harmonic trap with strong nonlinearity (Thomas-Fermi), and a constant potential (constant density). Using (\ref{eqChiUequivalence}) we find the following equivalences
+A one-dimensional simulation is sufficient to examine the hypothesis that the squeezing will be higher for a BEC where the spatial mode has a more constant density profile.  We compare squeezing for fields starting in the ground states of a harmonic trap with negligible nonlinearity (a Gaussian), a harmonic trap with strong nonlinearity (Thomas-Fermi), and a constant potential (constant density). Using (\ref{eqChiUequivalence}) we find the following equivalences
 \begin{eqnarray}
 \chi &=& U \sqrt{\frac{m^3 \omega_x \omega_y \omega_z}{8 \pi^3 \hbar^3}} \,\,\,\, ({\textrm{Gaussian}}) \\
 %
@@ -250,12 +247,14 @@ Some common mode shapes are the groundstates of a harmonic trap with negligible 
 %
 \chi &=& \frac{U}{V} \,\,\,\, {\textrm{(constant density)}}
 \end{eqnarray}
-Choosing parameters where the mode shape of the multimode system doesn't change much during the evolution allows us to compare the effect of mode shape on the best squeezing that can be attained relative to the two mode system. An example in shown in Figure~\ref{figModalSqueezingEffects1D}. Clearly the closer the mode shape is to constant density, the better.
+\textbf{Choosing parameters where the mode shape of the multimode system doesn't change much during the evolution allows us to compare the effect of mode shape on the best squeezing that can be attained relative to the two mode system.  Joe: We need to be more specific here.} 
+
+The results of this simulation are shown in Figure~\ref{figModalSqueezingEffects1D}, which clearly confirms the hypothesis that . Clearly the closer the mode shape is to constant density, the better.
 
 \begin{figure}
     \centering
     \includegraphics[width=8cm]{figures/modal_squeezing_effects_1D.eps}
-    \caption{Effects of mode shape on squeezing. The plot shows the normalized number variance in mode $\hat{a}$ as a function of the time the final coupling pulse is applied. Thick red line, analytic two-mode solution; solid blue line, constant density mode; dashed line, Thomas-Fermi mode; dash-dotted line, gaussian mode. The nonlinearities of the various 1D simulations have been adjusted for their mode shape so that they are equivalent to that of the 0D, two-mode mode nonlinearity. Parameters: $n_a = n_b =1 \times 10^5$, $\chi_{aa}=0.03 \hbar, \chi_{ab}=\chi_{bb}=0, \tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=4.0$. }
+    \caption{Effects of mode shape on squeezing. The plot shows the normalized number variance in mode $\hat{a}$ as a function of the time the final coupling pulse is applied. Thick red line, analytic two-mode solution; solid blue line, constant density mode; dashed line, Thomas-Fermi mode; dash-dotted line, Gaussian mode. The nonlinearities of the various 1D simulations have been adjusted for their mode shape so that they are equivalent to that of the 0D, two-mode mode nonlinearity. Parameters: $n_a = n_b =1 \times 10^5$, $\chi_{aa}=0.03 \hbar, \chi_{ab}=\chi_{bb}=0, \tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=4.0$. }
     \label{figModalSqueezingEffects1D}
 \end{figure}
 
