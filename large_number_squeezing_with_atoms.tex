@@ -47,6 +47,7 @@
 \usepackage{ulem}
 \usepackage{amssymb}
 \usepackage{caption}
+\captionsetup{compatibility=false}
 \usepackage{subcaption}
 
 \begin{document}
@@ -203,7 +204,7 @@ While the analytic expressions for the number variances are not particularly edi
 \end{figure}
 
 
-\section{Multimode analysis of squeezing}
+\section{Multimode analysis of squeezing} \label{sec:MMdescription}
 
 The zero-dimensional, two-mode model described in the previous section shows that arbitrarily high squeezing can be achieved using the intrinsic nonlinearities in a BEC, but it ignores the existence of multiple spatial modes.  There are three problems caused by the existence of multiple modes, and these will limit the achievable squeezing.
 
@@ -249,34 +250,54 @@ A one-dimensional simulation is sufficient to examine the hypothesis that the sq
 %
 \chi &=& \frac{U}{V} \,\,\,\, {\textrm{(constant density)}}
 \end{eqnarray}
-\textbf{Choosing parameters where the mode shape of the multimode system doesn't change much during the evolution allows us to compare the effect of mode shape on the best squeezing that can be attained relative to the two mode system.  Joe: We need to be more specific here.} 
-
-The results of this simulation are shown in Figure~\ref{figModalSqueezingEffects1D}, which clearly confirms the hypothesis that . Clearly the closer the mode shape is to constant density, the better.
+%
+Choosing parameters such that the evolution is sufficiently fast that the mode shape is reasonably stable over the simulation gives the best squeezing, and allows us to make a fair comparison between the squeezing achievable assuming that mode-matching is near optimal.  The results of this simulation are shown in Figure~\ref{figModalSqueezingEffects1D}, which clearly confirms the hypothesis that maximum squeezing is obtained when the mode shape is closest to constant density.  In practice, this isThis is largely due to the fact that the squeezing rates become non-uniform, but slower dynamics will also lead to issues with mode-matching.
 
 \begin{figure}
     \centering
     \includegraphics[width=8cm]{figures/modal_squeezing_effects_1D.eps}
-    \caption{Effects of mode shape on squeezing. The plot shows the normalized number variance in mode $\hat{a}$ as a function of the time the final coupling pulse is applied. Thick red line, analytic two-mode solution; solid blue line, constant density mode; dashed line, Thomas-Fermi mode; dash-dotted line, Gaussian mode. The nonlinearities of the various 1D simulations have been adjusted for their mode shape so that they are equivalent to that of the 0D, two-mode mode nonlinearity. Parameters: $n_a = n_b =1 \times 10^5$, $\chi_{aa}=0.03 \hbar, \chi_{ab}=\chi_{bb}=0, \tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=4.0$. }
+    \caption{Effects of mode shape on squeezing. The plot shows the normalized number variance in mode $\hat{a}$ as a function of the time the final coupling pulse is applied. Thick red line, analytic two-mode solution; solid blue line, constant density mode; dashed line, Thomas-Fermi mode; dash-dotted line, Gaussian mode. The nonlinearities of the various 1D simulations have been adjusted for their mode shape so that they are equivalent to that of the 0D, two-mode mode nonlinearity. Parameters: $n_a = n_b =1 \times 10^5$, $\chi_{aa}=0.03 \hbar, \chi_{ab}=\chi_{bb}=0, \tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=4.0$.  Clearly, the maximum squeezing is achieved when the atomic density profile is flattest.}
     \label{figModalSqueezingEffects1D}
 \end{figure}
 
-As it can be difficult to engineer specific mode shapes, another alternative is to post-select a mode. For example, rather than considering the variance in the total number of atoms in a mode, it may be possible to only count, say the atoms in the central portion of the atomic cloud. For example, suppose one had a gaussian atomic distribution, but one considers a mode that only includes the atoms within $p$ standard deviations of the centre. For low $p$, this mode shape is considerably closer to the constant density case than a standard gaussian. The equivalence between the single mode case and this mode is given by
+One way to avoid the requirement to engineer and maintain specific atomic modes is to post-select a mode.  Rather than considering the variance in the total number of atoms in a mode, it may be possible to consider only the statistics of a spatially filtered area of the atomic cloud.  For example, suppose the atoms were in a Gaussian atomic distribution, but we consider a mode that only includes the atoms within $p$ standard deviations of the centre. For low $p$, this mode shape is considerably closer to the constant density case than a standard Gaussian. The equivalence between the single mode case and this mode is given by
 \begin{equation}
 \chi = U \frac{{\mathrm{Erf}} (\sqrt{2p})^3}{{\mathrm{Erf}}(p)^6} \sqrt{\frac{m^3 \omega_x \omega_y \omega_z}{8 \pi^3 \hbar^3}}
 \end{equation}
-And example comparing the best attainable squeezing for this mode compared to a single gaussian is shown in Figure~\ref{XXX}.
+A simulations comparing the best attainable squeezing for this mode compared to an unfiltered Gaussian is shown in Figure~\ref{XXX}.  We can see that the squeezing is higher.  One obvious disadvantage to post-selecting modes is that it can severely reduce the effective number of atoms.  This is a serious issue for most applications of squeezed sources, such as interferometry, where the signal to noise scales with the square root of the flux.
 
+\section{Using a $\pi$-pulse to improve mode-matching}
+Modal mismatch is generated by the different atomic potentials seen by the two internal states.  We propose a straightforward method of minimising this effect: using a $\pi$-pulse to swap the internal states after half of the evolution.  In the limit where each state stayed in a single mode (although that mode might change), and where the nonlinear terms did not change with time, this method would produce identical mode shapes for both pulses after the hold time.  In practice, neither of these conditions will hold, particularly when the squeezing is completely removed by multimode effects, but the $\pi$-pulse should produce some improvement in regimes where the squeezing is only moderately reduced.
 
-\section{Using a $\pi$ pulse to improve mode-matching}
 \begin{itemize}
-  \item Say we can use a pi pulse to swap the populations half way through, so if the states have different nonlinearities we still end up with the same mode shapes when we recombine. The fact that this works will be clear from the SM equations for a(t), b(t) when the beam splitter is on
   \item show some plots of squeezing with and without the pi pulse
 \end{itemize}
 
+In Fig.~\ref{piPulseFig} we show the effects of a $\pi$-pulse on the squeezing generated \textbf{by some specific system}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=8cm]{figures/piPulseFig.eps}
+    \caption{This is a picture of a $\pi$-pulse working.}
+    \label{piPulseFig}
+\end{figure}
+
 \section{Squeezing in 2D and 3D}
+The simulations in the previous two sections were one dimensional, and show how having spatially constant density and using a $\pi$-pulse will improve the resultant squeezing.  While these conclusions remain valid for simulations in two or three dimensions, adding each additional dimension results in a degradation of the squeezing.  This is true even when the potential (and the resulting atomic density) is constant across the bulk of the trap.  Furthermore, the expected squeezing goes down as the volume of the trap increases.  This can be seen in Fig.~\ref{1D2D3DworsererFig}, where we show the squeezing generated \textbf{by 1D, 2D and 3D BECs in a box with some parameters}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=8cm]{figures/1D2D3DBox.eps}
+    \caption{Even BECs in a box get worse with both dimension and volume.}
+    \label{1D2D3DworsererFig}
+\end{figure}
+
+This dependence on dimensionality and volume are not explained by our arguments in section \ref{sec:MMdescription}, which focus on the effects of inhomogeneity within the trap.  Fundamentally, this degradation of the squeezing is due to nonlinearity-induced coupling between different spatial modes.  As the dimension and volume increases, the spectral density of available excited modes increases, leading to a reduction in squeezing.  
+
+Excitations of a BEC are described by the Bogoliubov modes...
+
   \begin{itemize}
-  \item Two issues. 1) as we add dimensions results get worse (maybe point out how cool we are for being able to do multimode 3D simulations). 2) As our volume increases results get worse.
-  \item To gain insight into this we do a bog analysis
+  \item Introduce Bog analysis
   \item Do a comparision plot between SM analytic model and Bog to show everything agrees
   \item show that the number of mode available degrades squeezing
   \item Plot some bog results v MM sims for increasing box sizes, and increasing dimensions
@@ -308,19 +329,15 @@ And example comparing the best attainable squeezing for this mode compared to a 
 \end{figure}
 
 
-
 \section{Mitigating multimode quantum statistical effects}
   \begin{itemize}
-  \item One way to approximate constant density is to look at core of BEC, since if we only look at number in the central 1 sigma portion of gaussian it's close to flat; show results compared to single mode equivalent
-
-  \item Another improvement is to put the BEC in a box since then we get constant density, discuss feasibility
   \item 3D still sucks even with box, so point out we can win by freezing out dimensions
   \item Show derivation for what physical situations are needed to freeze out 1, 2 and 3 dimensions. In general we need small number, which makes it hard since we want large number squeezing. Large number requirement leads to implausible geometry in 1D (i.e. a tube with a ridiculous aspect ratio), but going from 3D down to 2D is probably do-able
   \end{itemize}
 
 In order to reduce the number of modes available, we can attempt to make our system single mode in one or more dimensions. To do this we need to ensure that that any excitation along that dimension is energetically impossible, so we always stay in the ground state. This in turn means we need the harmonic oscillator energy per particle to be greater than the nonlinear energy per particle. {\bf{*** Not happy with this explanation. Make it better ***}}.
 
-The criteria we need to accomplish this depends on the number of dimensions we want to freeze out, so investigate the cases where we reduce a 3D system to an effective 0D, 1D, and 2D system seperately. In all cases we assume we have a box potential with length $L$ in the dimension(s) that aren't frozen out, and tight harmonic trapping potential of frequency $\omega$ in the frozen dimensions.
+The criteria we need to accomplish this depends on the number of dimensions we want to freeze out, so investigate the cases where we reduce a 3D system to an effective 0D, 1D, and 2D system separately. In all cases we assume we have a box potential with length $L$ in the dimension(s) that aren't frozen out, and tight harmonic trapping potential of frequency $\omega$ in the frozen dimensions.
 
 Reduction from 3D to 0D: Here we have tight trapping along all three dimensions, so we have a harmonic oscillator wavefunction along all dimensions. With $N$ particles in the system, the density is given by
 \begin{equation}
@@ -371,7 +388,6 @@ Once again taking a Rubidium atom and considering typical parameters, say $a\sim
 The takeaway point is that dimensional reduction to 0D and 1D is possible in the case where we have low particle numbers, which is how Oberthaler got his 6dB (or 8dB depending how you count) of squeezing. He only had 400 atoms, so could reduce his problem to 0D and freeze out any multimode dynamics. But if we're interested in large number squeezing, the best we can really do is reduction from 3D to 2D.
 
 
-
 \section{Conclusion}
 \label{sectionConclusion}
 \begin{itemize}
@@ -383,14 +399,14 @@ The takeaway point is that dimensional reduction to 0D and 1D is possible in the
 \end{itemize}
 
 \ack
-Acknowledgements in here; funding sources etc
+Acknowledgements in here; funding sources etc.  Joe's Future Fellowship.  
 
 \clearpage
 
 \appendix
 \section{Derivation of two mode squeezing formula}
 \label{appendixTwoModeDerivation}
-In this Appendix we derive the equations for the number variances which were earlier stated without proof. We use the model described in Section \ref{secTwoModeAnalytic}, where we consider a two mode system with $N$ particles, initially prepared as a coherent state with all the population in mode $|a\rangle$ at time $t=0$. A coupling pulse is then applied, so that the system evolves under the Hamiltonian
+In this Appendix we derive the equations for the number variances. We use the model described in Section \ref{secTwoModeAnalytic}, where we consider a two mode system with $N$ particles, initially prepared as a coherent state with all the population in mode $|a\rangle$ at time $t=0$. A coupling pulse is then applied, so that the system evolves under the Hamiltonian
 \begin{equation}
 \hat{H_1} = \hbar \omega \hat{a}^{\dagger} \hat{a} +  \hbar \omega \hat{b}^{\dagger} \hat{b} 
           + \Omega (\hat{a}^{\dagger} \hat{b} + \hat{b}^{\dagger} \hat{a} )
