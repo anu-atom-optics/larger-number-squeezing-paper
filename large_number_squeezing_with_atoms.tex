@@ -382,6 +382,14 @@ Once again taking a Rubidium atom and considering typical parameters, say $a\sim
 The takeaway point is that dimensional reduction to 0D and 1D is possible in the case where we have low particle numbers, which is how Oberthaler got his 6dB (or 8dB depending how you count) of squeezing. He only had 400 atoms, so could reduce his problem to 0D and freeze out any multimode dynamics. But if we're interested in large number squeezing, the best we can really do is reduction from 3D to 2D.
 
 
+Taking all the lessons learned, we can get good squeezing for realistic paramters in 3D. Figure \ref{figXXX} shows an example of a full 3D simulation, 10000 paths, box potential in 2d, tight trapping (1500Hz) in the 3rd dimension.
+\begin{figure}
+  \centering
+   \includegraphics[width=7cm]{figures/realistic_3d_squeezing_params.eps}
+\caption{Full 3D simulation of relative number squeezing in state $|a\rangle$ in a system with realistic parameters. Box potential in two dimensions with area 120$\mu$m $\times$ 120$\mu$m, tight harmonic trapping in 3rd dimension with $\omega=1500$Hz. Solid red line, analytic 0D solution; dashed blue line, full 3D multimode simulation. Parameters: Rb$^{85}$ atoms, $n_a = n_b =2 \times 10^5$, $U_{aa}=2.1\times 10^{-50}$ (corresponding to an s-wave scattering length of $-400 a_0$), $U_{bb}=U_{ab}=0$, $\tau_{\mathrm{hold}}=1\times 10^{-3}$s, $\phi=5.3$. Even with all multimode effects present, the number squeezing in the 3D system (13.9dB) approaches that of the ideal 0D case (15.1dB).}
+ \label{figRealistic3DParameters}
+\end{figure}
+
 \section{Conclusion}
 \label{sectionConclusion}
 \begin{itemize}
