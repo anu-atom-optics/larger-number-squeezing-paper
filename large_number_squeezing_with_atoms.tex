@@ -87,13 +87,6 @@ We examine the feasibility of creating and measuring large relative number squee
 
 \section{Model and two mode solutions}
 \label{secTwoModeAnalytic}
-\begin{itemize}
-  \item Lay out the scheme with diagram, define all variable etc
-  \item Present multimode analytic solution, details go into an appendix
-  \item Plot a few solutions to give an idea of what things look like, plausible times and so on
-  \item Maybe point out it agrees with Oberthaler, or save that for discussion on MM effects?
-  \item Point out that number *difference* squeezing can often be considerably higher than absolute number squeezing in a single state
-\end{itemize}
 Our goal is to describe the number squeezing possibilities of a BEC comprising two relevant internal states denoted by $|a\rangle$ and $|b\rangle$.  The Hamiltonian for a pair of coupled atomic internal modes is the spatial integral of the Hamiltonian density, which is given by
 \begin{equation}
 \hat{\mathcal{H}} = \sum_{j} \hat{\psi}_j^{\dagger}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_j\right)\hat{\psi}_j 
@@ -188,6 +181,11 @@ This two-mode analytic model allows arbitrarily good number squeezing, provided 
     \caption{Normalized number variance Var$[N_a]/N_a$ in mode $|a \rangle$ as a function of final recombination time plotted on a logarithmic scale, using four different mixing angles $\phi$. Parameters: $n_a = n_b =5 \times 10^5$, $\chi_{aa}=0.04 \hbar, \chi_{ab}=0, \chi_{bb}=0.01\hbar, \tau_{\mathrm{hold}}=4\times 10^{-4}$s. Solid line, $\phi=0.10$; dash-dotted line, $\phi=1.42$; dashed line, $\phi=3.24$; dotted line, $\phi=4.71$. These particular parameters yield 21dB of number squeezing for the $\phi=0.1$ and $\phi=1.42$ cases.} 
     \label{figTwoModeAnalyticExamples}
 \end{figure}
+
+\begin{itemize}
+  \item Maybe point out it agrees with Oberthaler, or save that for discussion on MM effects?
+  \item Point out that number *difference* squeezing can often be considerably higher than absolute number squeezing in a single state
+\end{itemize}
 
 
 \section{Multimode number squeezing analysis} \label{sec:MMdescription}
@@ -311,60 +309,96 @@ Excitations of a BEC are described by the Bogoliubov modes...
   \item Show derivation for what physical situations are needed to freeze out 1, 2 and 3 dimensions. In general we need small number, which makes it hard since we want large number squeezing. Large number requirement leads to implausible geometry in 1D (i.e. a tube with a ridiculous aspect ratio), but going from 3D down to 2D is probably do-able
   \end{itemize}
 
-In order to reduce the number of modes available, we can attempt to make our system single mode in one or more dimensions. To do this we need to ensure that that any excitation along that dimension is energetically impossible, so we always stay in the ground state. This in turn means we need the harmonic oscillator energy per particle to be greater than the nonlinear energy per particle. {\bf{*** Not happy with this explanation. Make it better ***}}.
+As discussed in the previous section, the existence of a large number of vacuum modes results in the degradation of squeezing due to nonlinear coupling between the modes, and this occurs regards of whether the modes are populated or not. The modes that play a role in this process are those with energies below the chemical potential of the system. In order to mitigate this effect, it is necessary to have as few of these modes as possible.
 
-The criteria we need to accomplish this depends on the number of dimensions we want to freeze out, so investigate the cases where we reduce a 3D system to an effective 0D, 1D, and 2D system separately. In all cases we assume we have a box potential with length $L$ in the dimension(s) that aren't frozen out, and tight harmonic trapping potential of frequency $\omega$ in the frozen dimensions.
+In any confined system, momentum modes will be discretized, with a spacing in a particular dimension given by $\delta k \sim 2\pi/L$.
 
-Reduction from 3D to 0D: Here we have tight trapping along all three dimensions, so we have a harmonic oscillator wavefunction along all dimensions. With $N$ particles in the system, the density is given by
+{\bf *** It occurs to me that I'm about to repeat what Graham will say in previous section, so leave it for now ***}
+
+Consequently, the number of low-lying momentum modes that result in degraded squeezing scales with the power of the dimension of the system. As shown in Figure~\ref{figDimensionalSqueezingEffects}, obtaining large number squeezing from a three-dimensional, multimode system is likely to be untenable. This is unfortunate, as the universe in which we live is unpleasantly three-dimensional.
+
+All is not lost, however, as it is possible to create systems that are effectively lower-dimensional. This is accomplished by having trapping potentials that are tight enough in one or more dimensions such that any dynamics in that dimension are effectively frozen out. Put another way, if the trapping potential is tight enough, then the energy required to excite any mode beyond that of the ground state is unavailable. Conditions required to reach this limit vary on the form of the potential, but, provided we consider a harmonic potential, a simple criterion for ensuring single mode behaviour will be 
 \begin{equation}
-|\psi|^2 = N \left( \frac{m \omega}{\pi \hbar} \right)^{3/2} \exp \left[ -\frac{m \omega} {\hbar} (x^2 +y^2+z^2) \right] .
+\hbar \omega \gg \mu
+\label{eqTightTrappingCriterionMu}
 \end{equation}
-In this system, the nonlinear energy per particle is
+that is, the spacing between energy levels is much greater that that of the chemical potential.
+
+Given that we have shown that constant density profiles result are required for good squeezing, we consider a 3D potential that has tight harmonic trapping in one, two or three dimensions, and a box-like potential in the other dimensions. Our goal is to make this system effectively two-, one- or zero-dimensional respectively.
+
+We assume a trapping frequency $\omega$ in the harmonically trapped dimensions and a confining region of length $L$ in the box potential dimensions. We further assume that we are working in the Thomas-Fermi limit, as this level of nonlinearity is required to obtain good squeezing. This means that the criterion (\ref{eqTightTrappingCriterionMu}) becomes
+\begin{equation}
+\hbar \omega \gg \frac{U}{2N} \int |\psi({\mathbf{r}})|^4 dx \, dy \, dz
+\label{eqTightTrappingCriterionU}
+\end{equation}
+where the factor of $N$ is present because we require the energy per particle, not the total energy.
+
+Due to the Thomas-Fermi limit, the density profile $|\psi({\mathbf{r}})|^2$ will be constant in the box-potential directions, and due to the assumption of tight trapping, close to the harmonic oscillator ground state in the harmonically trapped directions. Evaluating Eq.~(\ref{eqTightTrappingCriterionU}) with these density distributions and using $U=4\pi \hbar^2 a /m$ we obtain
 \begin{eqnarray}
-E_{NL} &=& \frac{U}{2N} \int |\psi({\mathbf{r}})|^4 dx \, dy \, dz \\
-       &=& \frac{U N}{4 \sqrt{2}} \left( \frac{m \omega}{\pi \hbar} \right)^{3/2}
+\sqrt{\frac{\hbar}{m \omega}}  \gg \frac{aN}{\sqrt{2 \pi}} && \,\,\,\, ({\textrm{0D}}) \label{eq0Dreduction} \\
+L  \gg  a N / \pi && \,\,\,\, ({\textrm{1D}}) \label{eq1Dreduction} \\
+\omega  \gg  \frac{8 \pi a^2 N^2 \hbar}{m L^4}  && \,\,\,\, ({\textrm{2D}}) \label{eq2Dreduction}
 \end{eqnarray}
-where $U = \pi \hbar^2 a/m$ and $a$ is the s-wave scattering length of the particles. The criterion $\hbar \omega > E_{NL}$ thus becomes
-\begin{equation}
-%N < \frac{1}{a} \sqrt{2 \pi \hbar}{m \omega}.
-\sqrt{\frac{\hbar}{m \omega}} > \frac{aN}{\sqrt{2 \pi}}.
-\end{equation}
-Assuming Rubidium atoms, typical scattering lengths ($a\sim$10nm) and large particle numbers (say $N\sim 10^6$), we require a harmonic oscillator length $\sqrt{\hbar/ m \omega}>4$mm.  A BEC that's more than a centimetre across isn't particularly feasible.
+as conditions we require to reduce a 3D system to an effective 0D, 1D or 2D system.
 
-Reduction from 3D to 1D: Here we have tight trapping along $x$ and $y$, with a box potential along $z$. With $N$ particles in the system, the density is given by
-\begin{equation}
-|\psi|^2 = \frac{N}{L} \frac{m \omega}{\pi \hbar} \exp \left[ -\frac{m \omega} {\hbar}  (x^2 +y^2) \right] .
-\end{equation}
-In this system, the nonlinear energy per particle is
-\begin{eqnarray}
-E_{NL} &=& \frac{U}{2N} \int |\psi({\mathbf{r}})|^4 dx \, dy \, dz \\
-       &=& \frac{U N m \omega}{4 \pi \hbar L}
-\end{eqnarray}
-The criterion $\hbar \omega > E_{NL}$ thus becomes
-\begin{equation}
-L > a N / \pi.
-\end{equation}
-Assuming Rubidium atoms, typical scattering lengths ($a\sim$10nm) and large particle numbers (say $N\sim 10^6$) we need a BEC that's a few millimeters long, which isn't particularly feasible.
+To determine how feasible this dimensional reduction is, we assume Rubidium atoms, typical scattering lengths ($a\sim$10nm), large particle numbers ($N\sim 10^6$) and a confining length scale of $L\sim 200\mu$m in the box dimensions.
 
-Reduction from 3D to 2D: Here we have tight trapping along $z$, with a box potential along $x$ and $y$. With $N$ particles in the system, the density is given by
-\begin{equation}
-|\psi|^2 = \frac{N}{L^2} \left( {\frac{m \omega}{\pi \hbar}} \right) ^{1/2} \exp \left[ -\frac{m \omega} {\hbar} z^2  \right]
-\end{equation}
-In this system, the nonlinear energy per particle is
-\begin{eqnarray}
-E_{NL} &=& \frac{U}{2N} \int |\psi({\mathbf{r}})|^4 dx \, dy \, dz \\
-       &=& \frac{m \omega U N}{4 \pi \hbar L^2}
-\end{eqnarray}
-The criterion $\hbar \omega > E_{NL}$ thus becomes
-\begin{equation}
-\omega > \frac{8 \pi a^2 N^2 \hbar}{m L^4}.
-\end{equation}
-Once again taking a Rubidium atom and considering typical parameters, say $a\sim$10nm, $N\sim 10^6$, $L\sim 200\mu$m, we see that we need $\omega > 2\pi\times 190$Hz, which is feasible.
+In order to reduce the system to 0D, Eq.~(\ref{eq0Dreduction}) indicates we require a harmonic oscillator length of $\sqrt{\hbar/ m \omega}\gg 4$mm; a BEC several centimeters in diameter is not particularly feasible. Using Eq.~(\ref{eq1Dreduction}) demonstrates reduction to 1D requires a BEC that is $\gg3.2$mm in length; this would also be challenging.
 
-The takeaway point is that dimensional reduction to 0D and 1D is possible in the case where we have low particle numbers, which is how Oberthaler got his 6dB (or 8dB depending how you count) of squeezing. He only had 400 atoms, so could reduce his problem to 0D and freeze out any multimode dynamics. But if we're interested in large number squeezing, the best we can really do is reduction from 3D to 2D.
+Reduction to 2D appears more promising, however. For the parameters given above, we see that we need $\omega \gg 2\pi\times 190$Hz, which is certainly feasible.
+
+We note that the reason our dimensional reduction criteria to obtain effective 0D and 1D systems are so stringent, is entirely due to our requirement of high particle number. For low particle number, the criteria become much more forgiving. An example is the experiment of Gross {\it et al.} which measured a number difference squeezing of 6.9dB in a spherical trap with a trapping frequency of $\omega=2 \pi \times 425$Hz. Due to the low number of atoms in their trap ($\sim 400$), they were able to achieve an effectively 0D trap with single mode behaviour.
 
 
-Taking all the lessons learned, we can get good squeezing for realistic paramters in 3D. Figure \ref{figXXX} shows an example of a full 3D simulation, 10000 paths, box potential in 2d, tight trapping (1500Hz) in the 3rd dimension.
+%Reduction from 3D to 0D: Here we have tight trapping along all three dimensions, so we have a harmonic oscillator wavefunction along all dimensions. With $N$ particles in the system, the density is given by
+%\begin{equation}
+%|\psi|^2 = N \left( \frac{m \omega}{\pi \hbar} \right)^{3/2} \exp \left[ -\frac{m \omega} {\hbar} (x^2 +y^2+z^2) \right] .
+%\end{equation}
+%In this system, the nonlinear energy per particle is
+%\begin{eqnarray}
+%E_{NL} &=& \frac{U}{2N} \int |\psi({\mathbf{r}})|^4 dx \, dy \, dz \\
+%       &=& \frac{U N}{4 \sqrt{2}} \left( \frac{m \omega}{\pi \hbar} \right)^{3/2}
+%\end{eqnarray}
+%where $U = \pi \hbar^2 a/m$ and $a$ is the s-wave scattering length of the particles. The criterion $\hbar \omega > E_{NL}$ thus becomes
+%\begin{equation}
+%%N < \frac{1}{a} \sqrt{2 \pi \hbar}{m \omega}.
+%\sqrt{\frac{\hbar}{m \omega}} > \frac{aN}{\sqrt{2 \pi}}.
+%\end{equation}
+%Assuming Rubidium atoms, typical scattering lengths ($a\sim$10nm) and large particle numbers (say $N\sim 10^6$), we require a harmonic oscillator %length $\sqrt{\hbar/ m \omega}>4$mm.  A BEC that's more than a centimetre across isn't particularly feasible.
+%
+%Reduction from 3D to 1D: Here we have tight trapping along $x$ and $y$, with a box potential along $z$. With $N$ particles in the system, the density is given by
+%\begin{equation}
+%|\psi|^2 = \frac{N}{L} \frac{m \omega}{\pi \hbar} \exp \left[ -\frac{m \omega} {\hbar}  (x^2 +y^2) \right] .
+%\end{equation}
+%In this system, the nonlinear energy per particle is
+%\begin{eqnarray}
+%E_{NL} &=& \frac{U}{2N} \int |\psi({\mathbf{r}})|^4 dx \, dy \, dz \\
+%       &=& \frac{U N m \omega}{4 \pi \hbar L}
+%\end{eqnarray}
+%The criterion $\hbar \omega > E_{NL}$ thus becomes
+%\begin{equation}
+%L > a N / \pi.
+%\end{equation}
+%Assuming Rubidium atoms, typical scattering lengths ($a\sim$10nm) and large particle numbers (say $N\sim 10^6$) we need a BEC that's a few millimeters long, which isn't particularly feasible.
+%
+%Reduction from 3D to 2D: Here we have tight trapping along $z$, with a box potential along $x$ and $y$. With $N$ particles in the system, the density is given by
+%\begin{equation}
+%|\psi|^2 = \frac{N}{L^2} \left( {\frac{m \omega}{\pi \hbar}} \right) ^{1/2} \exp \left[ -\frac{m \omega} {\hbar} z^2  \right]
+%\end{equation}
+%In this system, the nonlinear energy per particle is
+%\begin{eqnarray}
+%E_{NL} &=& \frac{U}{2N} \int |\psi({\mathbf{r}})|^4 dx \, dy \, dz \\
+%       &=& \frac{m \omega U N}{4 \pi \hbar L^2}
+%\end{eqnarray}
+%The criterion $\hbar \omega > E_{NL}$ thus becomes
+%\begin{equation}
+%\omega > \frac{8 \pi a^2 N^2 \hbar}{m L^4}.
+%\end{equation}
+%Once again taking a Rubidium atom and considering typical parameters, say $a\sim$10nm, $N\sim 10^6$, $L\sim 200\mu$m, we see that we need $\omega > 2\pi\times 190$Hz, which is feasible.
+
+We finish this section by considering an example of the sort of number squeezing that is achiveable in a realistic physical system with large particle number. We take a Rb$^{85}$ condensate, which possesses a number of Feschbach resonances that allow us to modify one of the $U_{ij}$ scattering lengths without affecting the others. We assume a box potential in two dimensions with a confinement region $L=120\mu$m$\times 120\mu$m, and a tightly trapped third dimension with a trapping frequency $\omega=2 \pi \times 1500$Hz, resulting in a near 2D system. We take scattering lengths of $U_{aa}=-400 a_0$, $U_{ab}=U_{bb}=0$, a total atom number of $4\times 10^5$, and a hold time of $\tau=1$ms. The results of a full 3D numerical simulation of this system are shown in Figure \ref{figRealistic3DParameters}, where we have ensured all of the potentially troubling Bogoliubov modes are included. This system achieves relative number squeezing of 13.9dB, which compares favourably to the 15.1dB generated in the ideal 0D, two-mode case. The main reason for not approaching the ideal case more closely was that even with a $1500$Hz harmonic trapping potential the system does remain entirely single mode in that dimension; a small admixture of higher-order modes are still excited. 
+
+We also note that configurations with higher squeezing are certainly possible, but on these time scales a full 3D simulation begins to suffer breakdown of the TWA, making numerical results unreliable.
 \begin{figure}
   \centering
    \includegraphics[width=7cm]{figures/realistic_3d_squeezing_params.eps}
@@ -621,11 +655,14 @@ We write (\ref{eqNumDiffVarianceAppendix}) in terms of $\hat{a}_2$ and $\hat{b}_
 
 \bibitem{dennisET2010} Dennis G R and Johnsson M T 2010 Generation of directional coherent matter beams through dynamical instabilities in Bose-Einstein condensates {\it Phys. Rev. A} {\bf 82} 033615
 
-\bibitem{gross2010} Gross C, Zibold T, Est{\`{e}}ve J and Oberthaler M K 2010 Nonlinear atom interferometer surpasses classical
-precision limit {\it Nature} {\bf 464} 1165--1169
+
 \bibitem{dennis2013} Dennis G R, Hope J J and Johnsson M T 2013 XMDS2: Fast, scalable simulation of coupled stochastic partial
 differential equations {\it Comput. Phys. Commun.} {\bf 184} 201--208
 \bibitem{louisell} Louisell Quantum Statistical Properties of Radiation
+
+\bibitem{gross2010} Gross C, Zibold T, Est{\`{e}}ve J and Oberthaler M K 2010 Nonlinear atom interferometer surpasses classical
+precision limit {\it Nature} {\bf 464} 1165--1169
+
 \end{thebibliography}
 
 \end{document}
