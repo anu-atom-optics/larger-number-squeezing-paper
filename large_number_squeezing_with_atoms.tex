@@ -44,11 +44,18 @@
 %Uncomment next line if AMS fonts required
 %\usepackage{iopams}
 \usepackage{graphicx}
+\usepackage{amsmath}
 \usepackage{ulem}
 \usepackage{amssymb}
 \usepackage{caption}
 \captionsetup{compatibility=false}
 \usepackage{subcaption}
+
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\sinc}{sinc}
+\newcommand{\abs}[1]{\ensuremath{\left|#1\right|}}
+\newcommand{\expect}[1]{\ensuremath{\left<#1\right>}}
+\newcommand{\ket}[1]{\ensuremath{\left|#1\right>}}
 
 \begin{document}
 
@@ -263,12 +270,21 @@ These points are illustrated in Fig.~\ref{piPulseFig}, which shows the best sque
 \end{figure}
 
 \section{Squeezing in 2D and 3D}
-The simulations in the previous two sections were one dimensional, and show how having spatially constant density and using a $\pi$-pulse will improve the resultant squeezing.  While these conclusions remain valid for simulations in two or three dimensions, adding each additional dimension results in a degradation of the squeezing.  This is true even when the potential (and the resulting atomic density) is constant across the bulk of the trap.  Furthermore, the expected squeezing goes down as the volume of the trap increases.  This can be seen in Fig.~\ref{figDimensionalSqueezingEffects}, where we show the squeezing generated in 1D, 2D and 3D BECs for two different parameter regimes. In both cases we take the BEC to be trapped in a box potential, which in the Thomas-Fermi limit leads to a constant density profile across the BEC. In Figure~\ref{figDimensionalSqueezingEffects}a we consider the case where $U_{aa}=U_{bb}\neq 0$, $U_{ab}=0$ $U_{aa}\neq 0$, while in Figure~\ref{figDimensionalSqueezingEffects}b we consider the case $U_{aa}\neq 0$, $U_{ab}=U_{bb}=0$. In both cases it is clear that number squeezing is best in lower dimensions, and becomes degraded or non-existent as we move to a three dimensional system; the effect is worse if more than one nonlinearity is non-zero.
+The simulations in the previous two sections were one dimensional, and show how having spatially constant density and using a $\pi$-pulse will improve the resultant squeezing.  While these conclusions remain valid for simulations in two or three dimensions, adding each additional dimension results in a degradation of the squeezing.  This is true even when the potential (and the resulting atomic density) is constant across the bulk of the trap.  Furthermore, the expected squeezing goes down as the volume of the trap increases.  This can be seen in Fig.~\ref{figDimensionalSqueezingEffects}, where we show the squeezing generated in 1D, 2D and 3D BECs for two different parameter regimes. In both cases we take the BEC to be trapped in a box potential, which in the Thomas-Fermi limit leads to a constant density profile across the BEC. In Figure~\ref{figDimensionalSqueezingEffects}a we consider the case where $U_{aa}=U_{bb}\neq 0$, $U_{ab}=0$, while in Figure~\ref{figDimensionalSqueezingEffects}b we consider the case $U_{aa}\neq 0$, $U_{ab}=U_{bb}=0$. In both cases it is clear that number squeezing is best in lower dimensions, and becomes degraded or non-existent as we move to a three dimensional system; the effect is worse if more than one nonlinearity is non-zero.
 
 
 This dependence on dimensionality and volume are not explained by our arguments in section \ref{sec:MMdescription}, which focus on the effects of inhomogeneity within the trap.  Fundamentally, this degradation of the squeezing is due to nonlinearity-induced coupling between different spatial modes.  As the dimension and volume increases, the spectral density of available excited modes increases, leading to a reduction in squeezing.  
 
-Excitations of a BEC are described by the Bogoliubov modes...
+We can understand the origin and scaling of this degradation of squeezing by considering the response of the condensate to small fluctuations about the mean field.  We do this using Bogoliubov theory \cite{PethickSmith}, which considers the first order quantum-mechanical fluctuations about the mean field.  To simplify the analysis we consider the case in which $U_{aa} \neq 0$, $U_{bb}=U_{ab} = 0$ and the condensate has a spatially-constant density in a box of side lengths $L_x$, $L_y$ and $L_z$.  In this limit the squeezing of the $a$ mode at $t_3$ is
+\begin{align}
+  \left.\frac{\Var[N_a](t_3)}{N_a(t_3)}\right|_\text{Bog} &= \frac{\Var[N_a](t_3) + \sum_\mathbf{k} \frac{1}{2} n_a(\mathbf{k}, t_3) \left\{3 + \cos\left[\Omega(t_3-t_2)\right] + 4 n_a(\mathbf{k}, t_3)\right\}}{N_a(t_3) + \sum_\mathbf{k} n_a(\mathbf{k}, t_3)},\\
+  n_a(\mathbf{k}, t_3) &= \left\{n_a \lambda_{aa} \cos\left[\Omega\left(t_3-t_2\right)\right] \sinc\left(\omega_\mathbf{k} \tau_\text{hold}\right) \right\}^2,\\
+  \omega_\mathbf{k} &= \sqrt{\omega^0_\mathbf{k}(\omega^0_\mathbf{k} + 2 \lambda_{aa} n_a)}, \\
+  \omega^0_\mathbf{k} &= \frac{\hbar \mathbf{k}^2}{2 M},
+\end{align}
+where $n_a(\mathbf{k}, t) = \expect{\delta \hat{a}^\dagger(t) \delta\hat{a}(t)}$ is the occupation of momentum mode $\mathbf{k}$, $\Var[N_a](t)$ and $N_a(t)$ are the number variance and mean number of the $\ket{a}$ mode from the single-mode derivation, the sum over $\mathbf{k}$ is a discrete sum over the available momentum modes $\mathbf{k} = n_x/2\pi L_x \hat{\mathbf{x}} + n_y/2\pi L_y\hat{\mathbf{y}} + n_z/2\pi L_z\hat{\mathbf{z}}$, $\omega_\mathbf{k}$ is the frequency of the Bogoliubov mode $\mathbf{k}$ and $\omega^0_\mathbf{k}$ is the frequency of a free particle.
+
+
 
   \begin{itemize}
   \item Introduce Bog analysis
@@ -644,6 +660,23 @@ When substituted into (\ref{eqNavariance}) and (\ref{eqNbvariance}) these expeca
 \end{equation}
 We write (\ref{eqNumDiffVarianceAppendix}) in terms of $\hat{a}_2$ and $\hat{b}_2$ by using using (\ref{eqa3}) and (\ref{eqb3}), and then use the expectation values calculated earlier in this Appendix. After some algebra we obtain the expression (\ref{eqNumDiffVariance}) given in Section \ref{secTwoModeAnalytic}.
 
+\section{Derivation of Bogoliubov squeezing formula}
+\label{appendixBogDerivation}
+
+Here we put some details of the Bog analysis.
+
+\begin{align}
+  S &= \frac{\Var(n_0) + \sum_k \frac{1}{2} n_k (3 + \cos 2\theta + 4 n_k)}{n_0 + \sum_k n_k} \\
+  n_k &= \left[\lambda \cos\theta \sinc(\omega_k \tau)\right]^2 \\
+  \hat{a}(t_3) &= \left[\hat{a}(0) - i \chi \alpha \tau_h\left(\alpha^* \hat{a}(0) + \alpha \hat{a}^\dagger(0) - 2\abs{\alpha}^2\right) \right]\cos(\theta) - i\hat{b}(0) \sin\theta e^{i\phi} \\
+  n_0 &= \left(\alpha ^2+\alpha ^4 \lambda ^2\right) \cos^2\theta + \left(\beta^2 \sin\theta  + 2\alpha\beta\cos\theta\sin\phi\right)\sin\theta\\
+  \begin{split}
+  \Var(n_0) &= \frac{1}{2} \left(\alpha ^2+\beta ^2\right)+\frac{1}{8}\alpha ^4 \left(7+ 2\beta ^2\right) \lambda ^2+ \frac{3}{4} \alpha ^8 \lambda ^4 \\
+  &\phantom{\mathrel{=}}+\frac{1}{2}\left( \alpha ^2-\beta ^2+2 \alpha ^4 \lambda ^2+2 \alpha ^8 \lambda ^4\right) \text{Cos}[2 \theta ] \\
+  &\phantom{\mathrel{=}}+\frac{1}{8}\left(\alpha ^4 \lambda ^2 \left(1-2 \beta ^2+2 \alpha ^4 \lambda ^2\right) \text{Cos}[4 \theta ] \right) \\
+  &\phantom{\mathrel{=}}+\frac{1}{8}\left(4 \alpha  \beta  \left(8 \alpha ^2 \lambda  \text{Cos}[\theta ]^3 \text{Cos}[\phi ] \text{Sin}[\theta ]+\text{Sin}[2 \theta ] \left(2 \text{Sin}[\phi ]+\alpha  \beta  \lambda  \text{Sin}[2 \theta ] \left(\alpha ^2 \lambda  \text{Cos}[2 \phi ]+\text{Sin}[2 \phi ]\right)\right)\right)\right)
+  \end{split}
+\end{align}
 
 
 \section*{References}
@@ -662,6 +695,8 @@ differential equations {\it Comput. Phys. Commun.} {\bf 184} 201--208
 
 \bibitem{gross2010} Gross C, Zibold T, Est{\`{e}}ve J and Oberthaler M K 2010 Nonlinear atom interferometer surpasses classical
 precision limit {\it Nature} {\bf 464} 1165--1169
+
+\bibitem{PethickSmith} C.J.~Pethick and H.~Smith, \emph{Bose-Einstein Condensation in Dilute Gases} (Cambridge University Press, Cambridge, 2002).
 
 \end{thebibliography}
 
