@@ -29,3 +29,19 @@
 figures/pulse_scheme-eps-converted-to.pdf
 
 large_number_squeezing_with_atoms.pdf
+
+figures/volume_effect_on_squeezing-eps-converted-to.pdf
+
+figures/realistic_3d_squeezing_params-eps-converted-to.pdf
+
+figures/pi_pulse-eps-converted-to.pdf
+
+*.watcher_pid
+
+.large_number_squeezing_with_atoms.tex
+
+*.ini
+
+*.fmt
+
+*.fls
