@@ -270,6 +270,24 @@ These points are illustrated in Fig.~\ref{piPulseFig}, which shows the best sque
 \end{figure}
 
 \section{Squeezing in 2D and 3D}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=7cm]{figures/dimensional_effects_on_squeezing_1.eps}
+    \label{figDimensionalSqueezingEffects:sub1}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=7cm]{figures/dimensional_effects_on_squeezing_2.eps}
+    \label{figDimensionalSqueezingEffects:sub2}
+  \end{subfigure}
+\caption{Effects of dimension on squeezing in two different nonlinear regimes. If two nonlinearities are non-zero, the deleterious effects of higher dimensions on squeezing are exacerbated. Thick red line, analytic two-mode solution; solid blue line, 1D; dashed line, 2D; dash-dotted line, 3D. (a) Parameters: $n_a = n_b =2 \times 10^5$, $\chi_{aa}=\chi_{bb}=0.03\hbar$, $\chi_{ab}=0$, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=6.2$. (b) $n_a = n_b =2 \times 10^5$, $\chi_{aa}=0.03\hbar$, $\chi_{bb}=\chi_{ab}=0$, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=3.1$.}
+  \label{figDimensionalSqueezingEffects}
+\end{figure}
+
+
 The simulations in the previous two sections were one dimensional, and show how having spatially constant density and using a $\pi$-pulse will improve the resultant squeezing.  While these conclusions remain valid for simulations in two or three dimensions, adding each additional dimension results in a degradation of the squeezing.  This is true even when the potential (and the resulting atomic density) is constant across the bulk of the trap.  Furthermore, the expected squeezing goes down as the volume of the trap increases.  This can be seen in Fig.~\ref{figDimensionalSqueezingEffects}, where we show the squeezing generated in 1D, 2D and 3D BECs for two different parameter regimes. In both cases we take the BEC to be trapped in a box potential, which in the Thomas-Fermi limit leads to a constant density profile across the BEC. In Figure~\ref{figDimensionalSqueezingEffects}a we consider the case where $U_{aa}=U_{bb}\neq 0$, $U_{ab}=0$, while in Figure~\ref{figDimensionalSqueezingEffects}b we consider the case $U_{aa}\neq 0$, $U_{ab}=U_{bb}=0$. In both cases it is clear that number squeezing is best in lower dimensions, and becomes degraded or non-existent as we move to a three dimensional system; the effect is worse if more than one nonlinearity is non-zero.
 
 
@@ -303,7 +321,7 @@ Squeezing curve showing the two-mode model, Bogoliubov squeezing \eqref{eqBogoli
 
 The Bogoliubov theory used in deriving \eqref{eqBogoliubovSqueezing} is not number-conserving because the depletion of the condensate caused by the occupation of the non-zero momentum modes is neglected.  Therefore when these non-zero momentum modes become sufficiently occupied for $S_a$ to differ from the two-mode model, the Bogoliubov approximation becomes invalid and $S_a$ will not agree with the full quantum-statistical multimode result.  Although the Bogoliubov approximation cannot predict the amount by which squeezing will be degraded compared to the two-mode model, it can predict the regime in which squeezing is reduced and suggest how this problem can be avoided.  Figure~\ref{figBogSqueezingValidation}(a) illustrates the agreement between truncated Wigner simulations and the Bogoliubov theory for the total number of atoms in the non-zero momentum modes $N_{\mathbf{k}\neq 0}$ for parameters where these modes reach ~20\% of the total number of atoms in the system.  Figure~\ref{figBogSqueezingValidation}(b) shows that in this case the squeezing predicted by the Bogoliubov theory in \eqref{eqBogoliubovSqueezing} does not agree with either the two-mode model or the truncated Wigner simulations, but both the Bogoliubov theory and the truncated Wigner simulations show worse squeezing than predicted by the two-mode model.
 
-
+To minimise the damaging effects of the non-zero momentum modes, it is better to operate in a regime where the total occupation of the non-zero momentum modes $N_{\mathbf{k}\neq 0}$ is small.  
 
 
 
@@ -316,21 +334,6 @@ The Bogoliubov theory used in deriving \eqref{eqBogoliubovSqueezing} is not numb
   \item Can we put some numbers on how bad 3D is compared to 2D, in order to motivate tight trapping?
   \end{itemize}
 
-\begin{figure}
-  \centering
-  \begin{subfigure}{.5\textwidth}
-    \centering
-    \includegraphics[width=7cm]{figures/dimensional_effects_on_squeezing_1.eps}
-    \label{figDimensionalSqueezingEffects:sub1}
-  \end{subfigure}%
-  \begin{subfigure}{.5\textwidth}
-    \centering
-    \includegraphics[width=7cm]{figures/dimensional_effects_on_squeezing_2.eps}
-    \label{figDimensionalSqueezingEffects:sub2}
-  \end{subfigure}
-\caption{Effects of dimension on squeezing in two different nonlinear regimes. If two nonlinearities are non-zero, the deleterious effects of higher dimensions on squeezing are exacerbated. Thick red line, analytic two-mode solution; solid blue line, 1D; dashed line, 2D; dash-dotted line, 3D. (a) Parameters: $n_a = n_b =2 \times 10^5$, $\chi_{aa}=\chi_{bb}=0.03\hbar$, $\chi_{ab}=0$, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=6.2$. (b) $n_a = n_b =2 \times 10^5$, $\chi_{aa}=0.03\hbar$, $\chi_{bb}=\chi_{ab}=0$, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=3.1$.}
-  \label{figDimensionalSqueezingEffects}
-\end{figure}
 
 
 \begin{figure}
