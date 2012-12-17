@@ -45,3 +45,5 @@ figures/pi_pulse-eps-converted-to.pdf
 *.fmt
 
 *.fls
+
+.large_number_squeezing_with_atoms.pdf
