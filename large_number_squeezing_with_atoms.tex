@@ -275,14 +275,36 @@ The simulations in the previous two sections were one dimensional, and show how 
 
 This dependence on dimensionality and volume are not explained by our arguments in section \ref{sec:MMdescription}, which focus on the effects of inhomogeneity within the trap.  Fundamentally, this degradation of the squeezing is due to nonlinearity-induced coupling between different spatial modes.  As the dimension and volume increases, the spectral density of available excited modes increases, leading to a reduction in squeezing.  
 
-We can understand the origin and scaling of this degradation of squeezing by considering the response of the condensate to small fluctuations about the mean field.  We do this using Bogoliubov theory \cite{PethickSmith}, which considers the first order quantum-mechanical fluctuations about the mean field.  To simplify the analysis we consider the case in which $U_{aa} \neq 0$, $U_{bb}=U_{ab} = 0$ and the condensate has a spatially-constant density in a box of side lengths $L_x$, $L_y$ and $L_z$.  In this limit the squeezing of the $a$ mode at $t_3$ is
+We can understand the origin and scaling of this degradation of squeezing by considering the response of the condensate to small fluctuations about the mean field.  We do this using Bogoliubov theory \cite{PethickSmith}, which considers the first order quantum-mechanical fluctuations about the mean field.  To simplify the analysis we consider the case in which $U_{aa} \neq 0$, $U_{bb}=U_{ab} = 0$ and the condensate has a spatially-constant density in a box of side lengths $L_x$, $L_y$ and $L_z$.  In this limit the squeezing $S_a = \Var(N_a)/N_a$ of the $a$ mode at the end of the pulse sequence is (see \ref{appendixBogDerivation})
 \begin{align}
-  \left.\frac{\Var[N_a](t_3)}{N_a(t_3)}\right|_\text{Bog} &= \frac{\Var[N_a](t_3) + \sum_\mathbf{k} \frac{1}{2} n_a(\mathbf{k}, t_3) \left\{3 + \cos\left[\Omega(t_3-t_2)\right] + 4 n_a(\mathbf{k}, t_3)\right\}}{N_a(t_3) + \sum_\mathbf{k} n_a(\mathbf{k}, t_3)},\\
-  n_a(\mathbf{k}, t_3) &= \left\{n_a \lambda_{aa} \cos\left[\Omega\left(t_3-t_2\right)\right] \sinc\left(\omega_\mathbf{k} \tau_\text{hold}\right) \right\}^2,\\
-  \omega_\mathbf{k} &= \sqrt{\omega^0_\mathbf{k}(\omega^0_\mathbf{k} + 2 \lambda_{aa} n_a)}, \\
+  S_a(t_3) &= \frac{\Var[N_a](t_3) + \sum_{\mathbf{k}\neq 0} \frac{1}{2} n_a(\mathbf{k}, t_3) \left\{3 + \cos\left[\Omega(t_3-t_2)\right] + 4 n_a(\mathbf{k}, t_3)\right\}}{N_a(t_3) + \sum_{\mathbf{k}\neq 0} n_a(\mathbf{k}, t_3)}, \label{eqBogoliubovSqueezing}\\
+  n_a(\mathbf{k}, t_3) &= \left\{n_a \chi_{aa} \tau_\text{hold} \cos\left[\Omega\left(t_3-t_2\right)\right] \sinc\left(\omega_\mathbf{k} \tau_\text{hold}\right) \right\}^2,\\
+  \omega_\mathbf{k} &= \sqrt{\omega^0_\mathbf{k}(\omega^0_\mathbf{k} + 2 \chi_{aa} n_a)}, \\
   \omega^0_\mathbf{k} &= \frac{\hbar \mathbf{k}^2}{2 M},
 \end{align}
-where $n_a(\mathbf{k}, t) = \expect{\delta \hat{a}^\dagger(t) \delta\hat{a}(t)}$ is the occupation of momentum mode $\mathbf{k}$, $\Var[N_a](t)$ and $N_a(t)$ are the number variance and mean number of the $\ket{a}$ mode from the single-mode derivation, the sum over $\mathbf{k}$ is a discrete sum over the available momentum modes $\mathbf{k} = n_x/2\pi L_x \hat{\mathbf{x}} + n_y/2\pi L_y\hat{\mathbf{y}} + n_z/2\pi L_z\hat{\mathbf{z}}$, $\omega_\mathbf{k}$ is the frequency of the Bogoliubov mode $\mathbf{k}$ and $\omega^0_\mathbf{k}$ is the frequency of a free particle.
+where $n_a(\mathbf{k}, t) = \expect{\hat{a}^\dagger(\mathbf{k}, t) \hat{a}(\mathbf{k}, t)}$ is the occupation of momentum mode $\mathbf{k}$, $\Var[N_a](t)$ and $N_a(t)$ are the number variance and mean number of the $a$ mode from the two-mode model in Section~\ref{secTwoModeAnalytic}, the sum over $\mathbf{k}$ is a discrete sum over the available non-zero momentum modes $\mathbf{k} = (2\pi/L_x) n_x \hat{\mathbf{x}} + (2\pi/L_y) n_y \hat{\mathbf{y}} + (2\pi/L_z) n_z \hat{\mathbf{z}}$ with $n_x$, $n_y$ and $n_z$ arbitrary integers, $\omega_\mathbf{k}$ is the frequency of the Bogoliubov mode $\mathbf{k}$ and $\omega^0_\mathbf{k}$ is the frequency of a free particle.
+
+The squeezing of mode $a$ in \eqref{eqBogoliubovSqueezing} includes the first-order multimode quantum mechanical fluctuations about the mean field and differs from the single-mode squeezing of $\Var[N_a](t_3)/N_a(t_3)$ only by terms involving the occupation of the non-zero momentum modes $n_a(\mathbf{k}, t)$.  The contribution of these terms is always detrimental to squeezing as the contribution to the numerator of \eqref{eqBogoliubovSqueezing} is always at least as large as the contribution to the denominator.  When the occupation of the non-zero momentum modes is a non-negligible fraction of the condensate, the observed squeezing will differ from that predicted by the two-mode model in Section~\ref{secTwoModeAnalytic} (see Fig.~\ref{figBogSqueezingValidation}).  
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{.45\textwidth}
+    \centering
+    Plot of the number occupation of the condensate and non-zero momentum modes as computed by the Bog theory and a simulation.  The simulation agrees with the Bog theory for the occupation of the non-zero momentum modes, but there is significant ~10-20\% depletion of the condensate.  The horizontal axis is the hold time.
+  \end{subfigure}
+  \begin{subfigure}{.45\textwidth}
+    \centering
+Squeezing curve showing the two-mode model, Bogoliubov squeezing \eqref{eqBogoliubovSqueezing} and simulation.  All three disagree, but both the Bog squeezing and simulation are worse than the two-mode model.  The same parameters are used as in the first part of this figure
+  \end{subfigure}%
+\caption{This is not a caption.}
+  \label{figBogSqueezingValidation}
+\end{figure}
+
+
+The Bogoliubov theory used in deriving \eqref{eqBogoliubovSqueezing} is not number-conserving because the depletion of the condensate caused by the occupation of the non-zero momentum modes is neglected.  Therefore when these non-zero momentum modes become sufficiently occupied for $S_a$ to differ from the two-mode model, the Bogoliubov approximation becomes invalid and $S_a$ will not agree with the full quantum-statistical multimode result.  Although the Bogoliubov approximation cannot predict the amount by which squeezing will be degraded compared to the two-mode model, it can predict the regime in which squeezing is reduced and suggest how this problem can be avoided.  Figure~\ref{figBogSqueezingValidation}(a) illustrates the agreement between truncated Wigner simulations and the Bogoliubov theory for the total number of atoms in the non-zero momentum modes $N_{\mathbf{k}\neq 0}$ for parameters where these modes reach ~20\% of the total number of atoms in the system.  Figure~\ref{figBogSqueezingValidation}(b) shows that in this case the squeezing predicted by the Bogoliubov theory in \eqref{eqBogoliubovSqueezing} does not agree with either the two-mode model or the truncated Wigner simulations, but both the Bogoliubov theory and the truncated Wigner simulations show worse squeezing than predicted by the two-mode model.
+
+
+
 
 
 
