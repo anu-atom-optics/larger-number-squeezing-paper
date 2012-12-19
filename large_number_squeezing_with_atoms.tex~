@@ -586,7 +586,7 @@ we have
 %
 \hat{b}^{\dagger}_3 \hat{b}_3 \hat{b}^{\dagger}_3 \hat{b}_3 &=& \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}^{\dagger}_2 \hat{b}_2 c^4 + \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}^{\dagger}_2 \hat{a}_2 s^4 \nonumber \\
 %
-&& + c^2 s^2 [ \hat{b}^{\dagger}_2 \hat{b}_2 + \hat{a}^{\dagger}_2 \hat{a}_2 + 4 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{a}^{\dagger}_2 \hat{a}_2 - e^{-2 i \phi} \hat{b}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{a}_2 -e^{2 i \phi} \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 ] \nonumber \\
+&& + c^2 s^2 [ \hat{b}^{\dagger}_2 \hat{b}_2 + \hat{a}^{\dagger}_2 \hat{a}_2 + 4 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{a}^{\dagger}_2 \hat{a}_2 - e^{2 i \phi} \hat{b}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{a}_2 -e^{2 i \phi} \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 ] \nonumber \\
 %
 && + i c^3 s [2 e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}_2 - 2 e^{-i \phi} \hat{b}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{a}_2 + e^{i \phi} \hat{a}^{\dagger}_2 \hat{b}_2 - e^{-i \phi} \hat{b}^{\dagger}_2 \hat{a}_2 ] \nonumber \\
 %
