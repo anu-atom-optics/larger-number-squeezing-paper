@@ -25,6 +25,7 @@
 *.maf
 *.mtc
 *.mtc0
+.DS_Store
 
 figures/pulse_scheme-eps-converted-to.pdf
 
