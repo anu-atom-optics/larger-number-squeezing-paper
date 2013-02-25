@@ -336,6 +336,50 @@ To minimise the damaging effects of the non-zero momentum modes, it is better to
   \item Can we put some numbers on how bad 3D is compared to 2D, in order to motivate tight trapping?
   \end{itemize}
 
+Some notes on the Bog scaling plots below: Experimentalist's scaling works as follows: V $\rightarrow$ r V; hold time $\rightarrow$ r*(hold time). In order to get enough lattice points to cover the momentum modes up to energy mu, the scaling goes as: 1D lattice$\rightarrow$lattice*$\sqrt{r}$ (1D); lattice$\rightarrow$lattice (2D); lattice$\rightarrow$lattice*$r^{-1/6}$.
+
+The plots show that the experimentalist's scaling increases Bog occupation (i.e. condensate depletion) with volume in 1D, is constant in 2D, and decreases it in 3D. This means squeezing gets worse with volume in 1D, is constant with volume in 2D, and gets better with volume in 3D. We can't actually show squeezing getting better in 3D due to TWA breakdown, but we do show bog mode occupation decreasing.
+
+The jaggedness of the line in 3D is due to the fact that we're only dealing with 10-20 lattice points in each dimension, and the lattice cutoff is often part way between two integer numbers, so we have to round up or down as we change the scaling factor.
+
+Jaggedness of squeezing line in 2D is due to stochastic nature of simulations.
+
+
+\begin{figure}
+  \centering
+   \includegraphics[width=7cm]{figures/1D_squeezing_scaling.eps}
+\caption{1D experimentalist's scaling. $N=1\times 10^5$, $L=100\mu$m.}
+ \label{fig1D_squeezing_scaling}
+\end{figure}
+
+\begin{figure}
+  \centering
+   \includegraphics[width=7cm]{figures/1D_Bog_mode_occupation_scaling.eps}
+\caption{1D experimentalist's scaling. $N=1\times 10^5$, $L=100\mu$m.}
+ \label{fig1D_Bog_mode_occupation_scaling}
+\end{figure}
+
+\begin{figure}
+  \centering
+   \includegraphics[width=7cm]{figures/2D_squeezing_scaling.eps}
+\caption{2D experimentalist's scaling. $N=1\times 10^5$, $L=100\mu$m.}
+ \label{fig2D_squeezing_scaling}
+\end{figure}
+
+\begin{figure}
+  \centering
+   \includegraphics[width=7cm]{figures/2D_Bog_mode_occupation_scaling.eps}
+\caption{2D experimentalist's scaling. $N=1\times 10^5$, $L=100\mu$m.}
+ \label{fig2D_Bog_mode_occupation_scaling}
+\end{figure}
+
+\begin{figure}
+  \centering
+   \includegraphics[width=7cm]{figures/3D_Bog_mode_occupation_scaling.eps}
+\caption{3D experimentalist's scaling. $N=1\times 10^4$, $L=20\mu$m.}
+ \label{fig3D_Bog_mode_occupation_scaling}
+\end{figure}
+
 
 
 \begin{figure}
