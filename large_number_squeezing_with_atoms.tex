@@ -360,12 +360,6 @@ In Fig.~\ref{fig:3DBogScaling} we see that the number of accessible states for t
 
 This scaling of the estimated Bogoliubov fraction in 3D suggests that strong squeezing may actually be found in very large, weakly trapped condensates, provided the trapping potentials are box-like.  This can be confirmed with a TWA simulation, although systematic analysis of squeezing across a wide range of large 3D traps and interaction strengths is impossible due to the breakdown of the TWA method.  Fig.~\ref{figVolumeSqueezingEffects} shows a result of 15dB of squeezing achievable in \textbf{some parameter regime}.  This system produces an extremely low non-condensed fraction of $0.0004$, as expected from the Bogoliubov calculations, and squeezing that is 150\% better than Bogoliubov lower bound.  
 
-\begin{figure}
-  \centering
-   \includegraphics[width=7cm]{figures/volume_effect_on_squeezing.eps}
-\caption{\textbf{This figure is not yet the 'winner winner chicken dinner' result. } Demonstration of high squeezing from a large volume, 3D trap.  \textbf{Simulation parameters.}}
- \label{figVolumeSqueezingEffects}
-\end{figure}
 
 %Simulating a 3D BEC in a box with the same parameters as the experimental paper works well. Bog mode fraction is around 4e-4, and we get squeezing of around 0.026. This is assuming we can set two scattering lengths to zero, and have the third equal to that of Rb87.
 %Interestingly, Graham's bog theory predicts squeezing of 0.0398 (assuming I'm doing it correctly), but both the single-mode analytic answer and the simulation give 0.026.
@@ -422,19 +416,18 @@ In order to have more compact expressions we will use the notation
 
 Beginning with the Hamiltonian $H_1$, during the period $(0, t_1)$ mode $\hat{a}$ will evolve as
 \begin{equation}
-\hat{a}_1 = e^{ i H_1 t/ \hbar} \, \hat{a}_0 \, e^{-i H_1 t/ \hbar}.
+\hat{a}_1 = e^{ i \hat{H}_1 t/ \hbar} \, \hat{a}_0 \, e^{-i \hat{H}_1 t/ \hbar}.
 \end{equation}
 Utilizing the Hadamard lemma
 \begin{equation}
-e^X Y e^{-X} = Y + [X,Y] + \frac{1}{2!}[X,[X,Y]] + \frac{1}{3!}[X,[X,[X,Y]]] + \ldots
+e^{\hat{X}} \hat{Y} e^{-\hat{X}} = \hat{Y} + [\hat{X},\hat{Y}] + \frac{1}{2!}[\hat{X},[\hat{X},\hat{Y}]] + \frac{1}{3!}[\hat{X},[\hat{X},[\hat{X},\hat{Y}]]] + \ldots
 \label{eqHadamard}
 \end{equation}
 we obtain 
-\begin{eqnarray}
-\hat{a}_1 &=& \hat{a}_0 - i \Omega t_1 \hat{b}_0 + \frac{(i \Omega t_1)^2}{2!} \hat{a}_0 - \frac{(i \Omega t_1)^3}{3!} \hat{b}_0 + \frac{(i \Omega t_1)^4}{4!} \hat{a}_2 - \ldots \nonumber \\
-          &=& \cos (\Omega t_1) \hat{a}_0 -i \sin (\Omega t_1) \hat{b}_0.
+\begin{equation}
+\hat{a}_1 =  \cos (\Omega t_1) \hat{a}_0 -i \sin (\Omega t_1) \hat{b}_0.
 \label{eqa1}
-\end{eqnarray}
+\end{equation}
 Similarly, we find
 \begin{equation}
 \hat{b}_1 = \cos (\Omega t_1) \hat{b}_0 - i \sin (\Omega t_1) \hat{a}_0.
@@ -523,7 +516,7 @@ we have
 \end{eqnarray}
 Clearly, to calculate (\ref{eqNavariance}) and (\ref{eqNbvariance}) we will need the expectation values of terms quartic and quadratic in $\hat{a}_2$ and ${\hat{b}_2}$. Specifically, we require $\langle \hat{a}^{\dagger}_2 \hat{a}_2 \rangle$, $\langle \hat{b}^{\dagger}_2 \hat{b}_2 \rangle$,  $\langle \hat{a}^{\dagger}_2 \hat{b}_2 \rangle$, $\langle \hat{a}^{\dagger}_2 \hat{a}_2 \hat{a}^{\dagger}_2 \hat{a}_2 \rangle$, $\langle \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \rangle$ , $\langle \hat{a}^{\dagger}_2 \hat{a}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \rangle$, $\langle \hat{a}^{\dagger}_2 \hat{a}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle$, $\langle \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{a}_2 \hat{a}_2 \rangle$, and $\langle \hat{a}^{\dagger}_2 \hat{b}^{\dagger}_2 \hat{b}_2 \hat{b}_2 \rangle$, as well as their Hermitian conjugates.
 
-As $\hat{a}^{\dagger}_1 \hat{a}_1$ and $\hat{b}^{\dagger}_1 \hat{b}_1$ commute with the Hamiltonian $H_2$, they are constants of motion so we have
+As $\hat{a}^{\dagger}_1 \hat{a}_1$ and $\hat{b}^{\dagger}_1 \hat{b}_1$ commute with the Hamiltonian $\hat{H}_2$, they are constants of motion so we have
 \begin{equation}
 \langle \hat{a}^{\dagger}_2 \hat{a}_2 \rangle = \langle \hat{a}^{\dagger}_1 \hat{a}_1 \rangle = \langle \alpha, \beta | \hat{a}^{\dagger}_1 \hat{a}_1 |\alpha, \beta \rangle = |\alpha|^2 = n_a
 \end{equation}
@@ -608,7 +601,7 @@ Employing the definitions (\ref{eqsDef})--(\ref{eqDDef}) we obtain
 && + i c^3 s [2 n_b e^{-i(\lambda_{bb}-\lambda_{ab})}] A^* B - 2 n_b e^{i(\lambda_{bb}-\lambda_{ab})} A B^* - A^* B + A B^*] \nonumber \\
 && + i c s^3 [2 n_a e^{i(\lambda_{aa}-\lambda_{ab})}] A^* B - 2 n_a e^{-i(\lambda_{aa}-\lambda_{ab})} A B^* - A^* B + A B^*]. 
 \end{eqnarray}
-When substituted into (\ref{eqNavariance}) and (\ref{eqNbvariance}) these expecation values give the absolute number variances stated in Section \ref{secTwoModeAnalytic}. To calculate the number difference variance, we note
+When substituted into (\ref{eqNavariance}) and (\ref{eqNbvariance}) these expectation values give the absolute number variances stated in Section \ref{secTwoModeAnalytic}. To calculate the number difference variance, we note
 \begin{equation}
 {\mathrm{Var}}[N_a-N_b] = {\mathrm{Var}}[N_a] + {\mathrm{Var}}[N_b] - 2\langle \hat{a}^{\dagger}_3 \hat{a}_3 \hat{b}^{\dagger}_3 \hat{b}_3\rangle + 2\langle \hat{a}^{\dagger}_3  \hat{a}_3 \rangle \langle \hat{b}^{\dagger}_3 \hat{b}_3\rangle \label{eqNumDiffVarianceAppendix}.
 \end{equation}
