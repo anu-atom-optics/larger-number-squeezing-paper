@@ -109,17 +109,17 @@ We begin by considering a simplified version of the problem, assuming that only 
 \begin{equation}
 \hat{H} = \frac{U_{aa}}{2} \int dV \sum_{nmpq} u_n^* u_m^* u_p u_q \, \hat{a}^{\dagger}_{n} \hat{a}^{\dagger}_{m} \hat{a}_{p} \hat{a}_{q} 
 \end{equation}
-When the system remains predominantly in one mode, we can approximate this sum as the single term $\hat{H} = \chi_{aa} \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}/2$ where
+When the system remains predominantly in one mode, we can approximate this sum as the single term $\hat{H} = \hbar\chi_{aa} \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}/2$ where
 \begin{equation}
-\chi_{aa} = U_{aa} \int |u_{i}({\mathbf{r}})|^4 \, dV.
+\chi_{aa} = \frac{1}{\hbar} U_{aa} \int |u_{i}({\mathbf{r}})|^4 \, dV.
 \label{eqChiUequivalence}
 \end{equation}
 We proceed similarly for the other terms.  In the parameter regimes we are interested in, the detuning between the two spatial modes will be irrelevant, so setting our zero of energy appropriately, we are left with only a standard Kerr-type nonlinearity arising from atom-atom interactions, as well as a linear coupling between the two modes.  The Hamiltonian governing this reduced system is given by
 \begin{equation}
-\hat{H} = \frac{\chi_{aa}}{2} \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}
-          + \chi_{ab} \hat{a}^{\dagger} \hat{a} \hat{b}^{\dagger} \hat{b}
-          + \frac{\chi_{bb}}{2} \hat{b}^{\dagger} \hat{b}^{\dagger} \hat{b} \hat{b}
-          + \Omega (\hat{a}^{\dagger} \hat{b} + \hat{b}^{\dagger}  \hat{a} )
+\hat{H} = \hbar\frac{\chi_{aa}}{2} \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}
+          + \hbar\chi_{ab} \hat{a}^{\dagger} \hat{a} \hat{b}^{\dagger} \hat{b}
+          + \hbar\frac{\chi_{bb}}{2} \hat{b}^{\dagger} \hat{b}^{\dagger} \hat{b} \hat{b}
+          + \hbar\Omega (\hat{a}^{\dagger} \hat{b} + \hat{b}^{\dagger}  \hat{a} )
 \label{eqTwoModeHamiltonian}
 \end{equation}
 where the $\chi_{ij}$ describe the various inter- and intra-mode nonlinearities, and $\Omega$ couples the two modes and allows for population transfer between them.
@@ -146,7 +146,7 @@ If we define
 \begin{eqnarray}
 s &=& \sin(\Omega (t_3 - t_2)) \label{eqsDef} \\
 c &=& \cos(\Omega (t_3 - t_2)) \\
-\lambda_{ij} &=& \chi_{ij} \tau_{\mathrm{hold}} / \hbar \\
+\lambda_{ij} &=& \chi_{ij} \tau_{\mathrm{hold}} \\
 A &=& \sqrt{n_a} \exp [n_a (e^{-i(\lambda_{aa}-\lambda_{ab})} - 1 )] \\
 A_2 &=& n_a \exp [n_a (e^{-2i(\lambda_{aa}-\lambda_{ab})} - 1 )] \\
 B &=& -i e^{i \phi}\sqrt{n_b} \exp [n_b (e^{-i(\lambda_{bb}-\lambda_{ab})} - 1 )] \\
@@ -187,7 +187,7 @@ This two-mode analytic model allows arbitrarily good number squeezing, provided 
 \begin{figure}
     \centering
     \includegraphics[width=10cm]{figures/analytic_two_mode_examples.eps}
-    \caption{Normalized number variance Var$[N_a]/N_a$ in mode $|a \rangle$ as a function of final recombination time plotted on a logarithmic scale, using four different mixing angles $\phi$. Parameters: $n_a = n_b =5 \times 10^5$, $\chi_{aa}=0.04 \hbar, \chi_{ab}=0, \chi_{bb}=0.01\hbar, \tau_{\mathrm{hold}}=4\times 10^{-4}$s. Solid line, $\phi=0.10$; dash-dotted line, $\phi=1.42$; dashed line, $\phi=3.24$; dotted line, $\phi=4.71$. These particular parameters yield 21\,dB of number squeezing for the $\phi=0.1$ and $\phi=1.42$ cases.} 
+    \caption{Normalized number variance Var$[N_a]/N_a$ in mode $|a \rangle$ as a function of final recombination time plotted on a logarithmic scale, using four different mixing angles $\phi$. Parameters: $n_a = n_b =5 \times 10^5$, $\chi_{aa}=0.04\, \text{s}^{-1}, \chi_{ab}=0, \chi_{bb}=0.01\,\text{s}^{-1}, \tau_{\mathrm{hold}}=4\times 10^{-4}$s. Solid line, $\phi=0.10$; dash-dotted line, $\phi=1.42$; dashed line, $\phi=3.24$; dotted line, $\phi=4.71$. These particular parameters yield 21\,dB of number squeezing for the $\phi=0.1$ and $\phi=1.42$ cases.} 
     \label{figTwoModeAnalyticExamples}
 \end{figure}
 
@@ -227,11 +227,11 @@ We integrate equations (\ref{eqStochasticEquations}) numerically in one, two and
 
 A one-dimensional simulation is sufficient to examine the hypothesis that the squeezing will be higher for a BEC where the spatial mode has a more constant density profile.  We compare squeezing for fields starting in the ground states of a harmonic trap with negligible nonlinearity (a Gaussian), a harmonic trap with strong nonlinearity (Thomas-Fermi), and a constant potential (constant density). Using Eq.~(\ref{eqChiUequivalence}) we find the following equivalences
 \begin{eqnarray}
-\chi &=& U \sqrt{\frac{m^3 \omega_x \omega_y \omega_z}{8 \pi^3 \hbar^3}} \,\,\,\, ({\textrm{Gaussian}}) \\
+\hbar \chi &=& U \sqrt{\frac{m^3 \omega_x \omega_y \omega_z}{8 \pi^3 \hbar^3}} \,\,\,\, ({\textrm{Gaussian}}) \\
 %
-\chi &=& \frac{4}{7} \left( \frac{15 U \omega_x \omega_y \omega_z}{16 \pi \sqrt{2}} \right)^{2/5} \left( \frac{m}{N} \right)^{3/5} \,\,\,\, ({\textrm{Thomas-Fermi}}) \\
+\hbar \chi &=& \frac{4}{7} \left( \frac{15 U \omega_x \omega_y \omega_z}{16 \pi \sqrt{2}} \right)^{2/5} \left( \frac{m}{N} \right)^{3/5} \,\,\,\, ({\textrm{Thomas-Fermi}}) \\
 %
-\chi &=& \frac{U}{V} \,\,\,\, {\textrm{(constant density)}}
+\hbar \chi &=& \frac{U}{V} \,\,\,\, {\textrm{(constant density)}}
 \end{eqnarray}
 %
 where $\omega_x$, $\omega_y$, $\omega_z$ are the angular frequencies of the harmonic trap, and $N$ is the number of particles in the mode of interest.
@@ -241,13 +241,13 @@ Choosing parameters such that the squeezing occurs fast enough that the mode sha
 \begin{figure}
     \centering
     \includegraphics[width=8cm]{figures/modal_squeezing_effects_1D.eps}
-    \caption{Effects of mode shape on squeezing. The plot shows the normalized number variance in mode $|a \rangle$ as a function of the time the final coupling pulse is applied. We compare the analytic two-mode solution (thick red), the constant density mode (solid blue), the Thomas-Fermi mode (dashed) and the Gaussian mode (dash-dotted). The nonlinearities of the various 1D simulations have been adjusted for their mode shape so that they are equivalent to that of the 0D, two-mode mode nonlinearity. Parameters used were $n_a = n_b =1 \times 10^5$, $\chi_{aa}=0.03 \hbar, \chi_{ab}=\chi_{bb}=0, \tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=4.0$. Maximum squeezing is achieved when the atomic density profile is the most uniform.}
+    \caption{Effects of mode shape on squeezing. The plot shows the normalized number variance in mode $|a \rangle$ as a function of the time the final coupling pulse is applied. We compare the analytic two-mode solution (thick red), the constant density mode (solid blue), the Thomas-Fermi mode (dashed) and the Gaussian mode (dash-dotted). The nonlinearities of the various 1D simulations have been adjusted for their mode shape so that they are equivalent to that of the 0D, two-mode mode nonlinearity. Parameters used were $n_a = n_b =1 \times 10^5$, $\chi_{aa}=0.03 \text{s}^{-1}, \chi_{ab}=\chi_{bb}=0, \tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=4.0$. Maximum squeezing is achieved when the atomic density profile is the most uniform.}
     \label{figModalSqueezingEffects1D}
 \end{figure}
 
 One way to avoid any requirement to engineer and maintain specific atomic modes is to post-select a spatial mode.  Rather than considering the variance in the total number of atoms in each internal state, it may be possible to consider only the statistics in a spatially filtered area of the atomic cloud.  For example, suppose the atoms were in a Gaussian atomic distribution, but we consider a mode that only includes the atoms within $p$ standard deviations of the centre. For low $p$, this mode shape is considerably closer to the constant density case than a standard Gaussian. The equivalence between the single mode case and this mode is given by
 \begin{equation}
-\chi = U \frac{{\mathrm{Erf}} (\sqrt{2p})^3}{{\mathrm{Erf}}(p)^6} \sqrt{\frac{m^3 \omega_x \omega_y \omega_z}{8 \pi^3 \hbar^3}}.
+\hbar\chi = U \frac{{\mathrm{Erf}} (\sqrt{2p})^3}{{\mathrm{Erf}}(p)^6} \sqrt{\frac{m^3 \omega_x \omega_y \omega_z}{8 \pi^3 \hbar^3}}.
 \end{equation}
 Such spatial filtering can easily produce higher squeezing, but there is the obvious disadvantage that it  significantly reduces the effective number of atoms.  This is a serious issue for most applications of squeezed sources, such as interferometry, where the signal to noise scales with the square root of the flux.  We will focus on methods for producing squeezing with large atomic number.
 
@@ -258,7 +258,7 @@ These points are illustrated in Fig.~\ref{piPulseFig}, which shows the best sque
 \begin{figure}
     \centering
     \includegraphics[width=8cm]{figures/pi_pulse.eps}
-    \caption{Effect of a $\pi$-pulse halfway through the hold time. Common parameters used were $n_a = n_b =2 \times 10^5$, $\chi_{aa}=0.03\hbar$, $\chi_{ab}=\chi_{bb}=0$. Solid red line: Analytic two-mode solution, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=3.0$ (10.9dB squeezing); Solid blue line: no $\pi$-pulse, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=3.0$ (4.9dB squeezing);  Dashed blue line: with $\pi$-pulse, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=3.05$ (5.8dB squeezing); Dash-dotted blue line: with $\pi$-pulse and the longer hold time $\tau_{\mathrm{hold}}=5\times 10^{-4}$s allowed by the application of the pulse, $\phi=3.87$ (7.2dB squeezing).}
+    \caption{Effect of a $\pi$-pulse halfway through the hold time. Common parameters used were $n_a = n_b =2 \times 10^5$, $\chi_{aa}=0.03\,\text{s}^{-1}$, $\chi_{ab}=\chi_{bb}=0$. Solid red line: Analytic two-mode solution, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=3.0$ (10.9dB squeezing); Solid blue line: no $\pi$-pulse, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=3.0$ (4.9dB squeezing);  Dashed blue line: with $\pi$-pulse, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=3.05$ (5.8dB squeezing); Dash-dotted blue line: with $\pi$-pulse and the longer hold time $\tau_{\mathrm{hold}}=5\times 10^{-4}$s allowed by the application of the pulse, $\phi=3.87$ (7.2dB squeezing).}
     \label{piPulseFig}
 \end{figure}
 
@@ -276,7 +276,7 @@ These points are illustrated in Fig.~\ref{piPulseFig}, which shows the best sque
     \includegraphics[width=7cm]{figures/dimensional_effects_on_squeezing_2.eps}
     \label{figDimensionalSqueezingEffects:sub2}
   \end{subfigure}
-\caption{Effects of dimension on squeezing in two different nonlinear regimes, assuming that the chemical potential is constant for all simulations. If two nonlinearities are non-zero, the deleterious effects of higher dimensions on squeezing are exacerbated. Thick red line, analytic two-mode solution; solid blue line, 1D; dashed line, 2D; dash-dotted line, 3D. (a) Parameters: $n_a = n_b =2 \times 10^5$, $\chi_{aa}=\chi_{bb}=0.03\hbar$, $\chi_{ab}=0$, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=6.2$. (b) $n_a = n_b =2 \times 10^5$, $\chi_{aa}=0.03\hbar$, $\chi_{bb}=\chi_{ab}=0$, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=3.1$.}
+\caption{Effects of dimension on squeezing in two different nonlinear regimes, assuming that the chemical potential is constant for all simulations. If two nonlinearities are non-zero, the deleterious effects of higher dimensions on squeezing are exacerbated. Thick red line, analytic two-mode solution; solid blue line, 1D; dashed line, 2D; dash-dotted line, 3D. (a) Parameters: $n_a = n_b =2 \times 10^5$, $\chi_{aa}=\chi_{bb}=0.03\,\text{s}^{-1}$, $\chi_{ab}=0$, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=6.2$. (b) $n_a = n_b =2 \times 10^5$, $\chi_{aa}=0.03\,\text{s}^{-1}$, $\chi_{bb}=\chi_{ab}=0$, $\tau_{\mathrm{hold}}=3\times 10^{-4}$s, $\phi=3.1$.}
   \label{figDimensionalSqueezingEffects}
 \end{figure}
 
@@ -284,13 +284,12 @@ The simulations in the previous two sections were one dimensional, and show how 
 
 To find the trap geometries that produce the best squeezing, it is important to understand the root cause of this loss of squeezing in higher dimensional traps.  The dependence on dimensionality is not explained by the processes described in section \ref{sec:MMdescription}, which focus on the effects of inhomogeneity within the trap.  Fundamentally, this degradation of the squeezing is due to nonlinearity-induced coupling between different spatial modes.  
 
-We can understand the origin and scaling of this degradation of squeezing by considering the response of the condensate to small fluctuations about the mean field.  We do this using Bogoliubov theory \cite{PethickSmith}, which considers the first order quantum-mechanical fluctuations about the mean field.  To simplify the analysis we consider the case in which $U_{aa} \neq 0$, $U_{bb}=U_{ab} = 0$ and the condensate has a spatially-constant density in a box of side lengths $L_x$, $L_y$ and $L_z$.  In this limit the squeezing $S_a = \Var(N_a)/N_a$ of the $|a\rangle$ mode at the end of the pulse sequence is (a derivation is given in \ref{appendixBogDerivation}):
+We can understand the origin and scaling of this degradation of squeezing by considering the response of the condensate to small fluctuations about the mean field.  We do this using Bogoliubov theory \cite{PethickSmith}, which considers the first order quantum-mechanical fluctuations about the mean field.  To simplify the analysis we consider the case in which $U_{aa} \neq 0$, $U_{bb}=U_{ab} = 0$ and the condensate has a spatially-constant density in a box of side lengths $L_x$, $L_y$ and $L_z$.  In this limit the occupation of the non-zero momentum modes in the $\ket{a}$ internal state at the end of the pulse sequence is (a derivation is given in \ref{appendixBogDerivation}):
 \begin{align}
-  S_a(t_3) &= \frac{\Var[N_a](t_3) + \sum_{\mathbf{k}\neq 0} \frac{1}{2} n_a(\mathbf{k}, t_3) \left\{3 + \cos\left[\Omega(t_3-t_2)\right] + 4 n_a(\mathbf{k}, t_3)\right\}}{N_a(t_3) + \sum_{\mathbf{k}\neq 0} n_a(\mathbf{k}, t_3)}, \label{eqBogoliubovSqueezing}\\
-  n_a(\mathbf{k}, t_3) &= \left\{n_a \chi_{aa} \tau_\text{hold} \cos\left[\Omega\left(t_3-t_2\right)\right] \sinc\left(\omega_\mathbf{k} \tau_\text{hold}\right) \right\}^2,\\
-  \omega_\mathbf{k} &= \sqrt{\omega^0_\mathbf{k}(\omega^0_\mathbf{k} + 2 \chi_{aa} n_a)}, \\
-  \omega^0_\mathbf{k} &= \frac{\hbar \mathbf{k}^2}{2 M},
+  n_a(\mathbf{k}, t_3) &= \left\{\frac{1}{\hbar} n_a \chi_{aa} \tau_hold \cos\left[\Omega\left(t_3-t_2\right)\right] \sinc\left(\omega_\mathbf{k} \tau_\text{hold}\right) \right\}^2,
 \end{align}
+where the Bogoliubov mode frequency $\omega_\mathbf{k} = \sqrt{\omega^0_\mathbf{k}(\omega^0_\mathbf{k} + 2 \chi_{aa} n_a)}$, and the free particle frequency is 
+$  \omega^0_\mathbf{k} = \frac{\hbar \mathbf{k}^2}{2 M}, $
 where $n_a(\mathbf{k}, t) = \expect{\hat{a}^\dagger(\mathbf{k}, t) \hat{a}(\mathbf{k}, t)}$ is the occupation of momentum mode $\mathbf{k}$, $\Var[N_a](t)$ and $N_a(t)$ are the number variance and mean number of the $|a\rangle$ mode from the two-mode model in Section~\ref{secTwoModeAnalytic}, the sum over $\mathbf{k}$ is a discrete sum over the available non-zero momentum modes $\mathbf{k} = (2\pi/L_x) n_x \hat{\mathbf{x}} + (2\pi/L_y) n_y \hat{\mathbf{y}} + (2\pi/L_z) n_z \hat{\mathbf{z}}$ with $n_x$, $n_y$ and $n_z$ arbitrary integers, $\omega_\mathbf{k}$ is the frequency of the Bogoliubov mode $\mathbf{k}$ and $\omega^0_\mathbf{k}$ is the frequency of a free particle.
 
 The squeezing of mode $|a\rangle$ in \eqref{eqBogoliubovSqueezing} includes the first-order multimode quantum mechanical fluctuations about the mean field and differs from the single-mode squeezing of $\Var[N_a](t_3)/N_a(t_3)$ only by terms involving the occupation of the non-zero momentum modes $n_a(\mathbf{k}, t)$.  The contribution of these terms is always detrimental to squeezing as the contribution to the numerator of \eqref{eqBogoliubovSqueezing} is always at least as large as the contribution to the denominator.  When the occupation of the non-zero momentum modes is a non-negligible fraction of the condensate, the observed squeezing will differ from that predicted by the two-mode model in Section~\ref{secTwoModeAnalytic} (see Fig.~\ref{figBogSqueezingValidation}).  
@@ -426,18 +425,18 @@ Acknowledgements in here; funding sources etc.  Joe's Future Fellowship.  NCI?
 In this Appendix we derive the equations for the number variances. We use the model described in Section \ref{secTwoModeAnalytic}, where we consider a two mode system with $N$ particles, initially prepared as a coherent state with all the population in mode $|a\rangle$ at time $t=0$. A coupling pulse is then applied, so that the system evolves under the Hamiltonian
 \begin{equation}
 \hat{H_1} = \hbar \omega \hat{a}^{\dagger} \hat{a} +  \hbar \omega \hat{b}^{\dagger} \hat{b} 
-          + \Omega (\hat{a}^{\dagger} \hat{b} + \hat{b}^{\dagger} \hat{a} )
+          + \hbar \Omega (\hat{a}^{\dagger} \hat{b} + \hat{b}^{\dagger} \hat{a} )
 \end{equation}
 until time $t=t_1$. From time $t_1$ until time $t=t_2$ the coupling is turned off, and the system evolves under the Hamiltonian
 \begin{equation}
-\hat{H_2} = \frac{\chi_{aa}}{2} \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}
-          + \chi_{ab} \hat{a}^{\dagger} \hat{a} \hat{b}^{\dagger} \hat{b}
-          + \frac{\chi_{bb}}{2} \hat{b}^{\dagger} \hat{b}^{\dagger} \hat{b} \hat{b}.
+\hat{H_2} = \hbar\frac{\chi_{aa}}{2} \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}
+          + \hbar\chi_{ab} \hat{a}^{\dagger} \hat{a} \hat{b}^{\dagger} \hat{b}
+          + \hbar\frac{\chi_{bb}}{2} \hat{b}^{\dagger} \hat{b}^{\dagger} \hat{b} \hat{b}.
 \end{equation}
 Finally, from time $t_2$ until time $t=t_3$, the coupling is once again applied with a phase offset of $\phi$ relative to the first time, and the system evolves via
 \begin{equation}
 \hat{H_3} = \hbar \omega \hat{a}^{\dagger} \hat{a} +  \hbar \omega \hat{b}^{\dagger} \hat{b}
-          + \Omega (e^{i\phi} \hat{a}^{\dagger} \hat{b} + e^{-i\phi} \hat{b}^{\dagger} \hat{a} ).
+          + \hbar\Omega (e^{i\phi} \hat{a}^{\dagger} \hat{b} + e^{-i\phi} \hat{b}^{\dagger} \hat{a} ).
 \end{equation}
 It is clear that the linear self-energy terms proportional to $\omega$ result in a constant phase rotation of the fields $\hat{a}$ and $\hat{b}$. As this system is self-contained and global phase is unmeasurable, all phase measurements can only rely on the difference in phase between the two modes. This phase rotation is therefore irrelevent and will be ignored in the following analysis.
 
@@ -478,7 +477,7 @@ Next we consider evolution under $H_2$. Taking mode $\hat{a}$ first, we note tha
           e^{-i \lambda_{ab} \hat{a}_1^{\dagger} \hat{a}_1 \hat{b}_1^{\dagger} \hat{b}_1}
 \label{eqa2evolution}
 \end{equation}
-where we have defined $\lambda_{ij} = \chi_{ij} (t_2-t_1)/\hbar$. Utilizing (\ref{eqHadamard}) to move $\hat{a}_1$ through the exponential, with some algebra one can show that
+where we have defined $\lambda_{ij} = \chi_{ij} (t_2-t_1)$. Utilizing (\ref{eqHadamard}) to move $\hat{a}_1$ through the exponential, with some algebra one can show that
 \begin{eqnarray}
 e^{ i \frac{\lambda_{aa}} {2} \hat{a}_1^{\dagger} \hat{a}_1^{\dagger} \hat{a}_1 \hat{a}_1} \hat{a}_1 
          e^{ -i \frac{\lambda_{aa}} {2} \hat{a}_1^{\dagger} \hat{a}_1^{\dagger} \hat{a}_1 \hat{a}_1} &=& \left[ \sum_{n=0} (-i \lambda_{aa})^n (\hat{a}_1^{\dagger} \hat{a}_1)^n \right] \hat{a}_1 \nonumber \nonumber \\
