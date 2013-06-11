@@ -315,24 +315,34 @@ where $\Delta k = 2\pi/L$.  Changing integration variables to $\Phi = \omega^{0}
 \end{align}
 Define $\Lambda_{a} = n_a \chi_{aa} \tau_\text{hold}$ to simplify the expression and we get
 \begin{align}
-  \frac{N^\text{1D}_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{1}{N} \frac{\Lambda_a^2 L \cos^2\theta } {\sqrt{2}\pi\sqrt{\frac{\hbar}{M}\tau_\text{hold}}} f_\text{1D}(\Lambda_a),
+  \frac{N^\text{1D}_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{1}{N} \frac{\Lambda_a^2 L \cos^2\theta } {\sqrt{2}\pi\sqrt{\frac{\hbar}{M}\tau_\text{hold}}} f^\text{1D}(\Lambda_a),
 \end{align}
 where
 \begin{align}
-  f_\text{1D}(\Lambda) &= \int_0^{\infty} \frac{1}{\sqrt{\Phi}}\sinc^2\sqrt{\Phi(\Phi + 2 \Lambda)}\, d\Phi
+  f^\text{1D}(\Lambda) &= \int_0^{\infty} \frac{1}{\sqrt{\Phi}}\sinc^2\sqrt{\Phi(\Phi + 2 \Lambda)}\, d\Phi
 \end{align}
 
 In 2D and 3D you get
 \begin{align}
-  \frac{N^{\text{2D}}_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{1}{N} \frac{\Lambda_a^2 A \cos^2\theta } {4\frac{\hbar}{M}\tau_\text{hold}} f_\text{2D}(\Lambda_a), \\
-  \frac{N^{\text{3D}}_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{1}{N} \frac{\Lambda_a^2 V \cos^2\theta } {\sqrt{2}\pi^2\left(\frac{\hbar}{M}\tau_\text{hold}\right)^{3/2}} f_\text{3D}(\Lambda_a),
+  \frac{N^{\text{2D}}_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{1}{N} \frac{\Lambda_a^2 A \cos^2\theta } {4\frac{\hbar}{M}\tau_\text{hold}} f^\text{2D}(\Lambda_a), \\
+  \frac{N^{\text{3D}}_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{1}{N} \frac{\Lambda_a^2 V \cos^2\theta } {\sqrt{2}\pi^2\left(\frac{\hbar}{M}\tau_\text{hold}\right)^{3/2}} f^\text{3D}(\Lambda_a),
 \end{align}
 where
 \begin{align}
-  f_\text{2D}(\Lambda) &= \int_0^{\infty} \sinc^2\sqrt{\Phi(\Phi + 2 \Lambda)}\, d\Phi\\
-  f_\text{3D}(\Lambda) &= \int_0^{\infty} \sqrt{\Phi} \sinc^2\sqrt{\Phi(\Phi + 2 \Lambda)}\, d\Phi
+  f^\text{2D}(\Lambda) &= \int_0^{\infty} \sinc^2\sqrt{\Phi(\Phi + 2 \Lambda)}\, d\Phi\\
+  f^\text{3D}(\Lambda) &= \int_0^{\infty} \sqrt{\Phi} \sinc^2\sqrt{\Phi(\Phi + 2 \Lambda)}\, d\Phi
 \end{align}
 
+The squeezing predicted by the two-mode model will only be valid in higher dimensions when $N_{\mathbf{k}\neq0}/N \ll 1$, when this condition is violated, the squeezing will be detrimentally affected.  We therefore want to examine the scaling of $N_{\mathbf{k}\neq 0}/N$ with system size in 1D, 2D and 3D.
+
+For constant total number $N$ and occupations of the $\ket{a}$ and $\ket{b}$ states at time $t_1$, the optimum squeezing as determined by the two-mode model will have a particular value of $\tau_\text{hold}$, $\theta$ and $\phi$.  As the dimensions of the system are scaled, $\hbar \chi_{ij} = U^\text{1D}_{ij}/L = U^\text{2D}_{ij}/A = U^\text{3D}_{ij}/V$ will change, but to keep the same squeezing (and the same equivalent two-mode model) $\lambda_{ij} = \chi_{ij} \tau_\text{hold}$ must be kept constant (see Eq.~\eqref{eqsDef}--\eqref{eqNumDiffVariance}).  Therefore $\Lambda_a = n_a\chi_{aa}\tau_\text{hold}$ must also be kept constant. With this in mind, we can write $\tau_\text{hold}$ in terms of the system size and the nonlinearity.  We obtain:
+\begin{align}
+  \frac{N^\text{1D}_{\mathbf{k}\neq 0}(t_3)}{N} &\approx \sqrt{L} \cdot \frac{1}{N} \sqrt{\frac{M U^\text{1D}_{aa} n_a}{2 \hbar^2 \pi^2}} \Lambda_a^{3/2} \cos^2\theta f^\text{1D}(\Lambda_a) &&\propto \sqrt{L} \\
+  \frac{N^\text{2D}_{\mathbf{k}\neq 0}(t_3)}{N} &\approx 1 \cdot \frac{1}{N} \frac{M U^\text{2D}_{aa} n_a }{4 \hbar^2} \Lambda_a \cos^2\theta f^\text{2D}(\Lambda_a) &&\propto \text{constant} \\
+  \frac{N^\text{3D}_{\mathbf{k}\neq 0}(t_3)}{N} &\approx \frac{1}{\sqrt{V}} \cdot \frac{1}{N} \left(\frac{M U^\text{3D}_{aa} n_a}{\hbar^2}\right)^{3/2} \frac{\Lambda_a^{1/2} \cos^2\theta f^\text{3D}(\Lambda_a)}{\sqrt{2} \pi^2} &&\propto \frac{1}{\sqrt{V}}
+\end{align}
+
+In 1D the condensate depletion $N_{\mathbf{k}\neq 0}/N$ increases with increasing system size, in 2D the condensate depletion remains constant, and in 3D the condensate depletion decreases as the system size increases.  This suggests that the best system to use will be a box potential, and the system size can be increased until the condensate depletion becomes negligibly small.
 
 The squeezing of mode $|a\rangle$ in \eqref{eqBogoliubovSqueezing} includes the first-order multimode quantum mechanical fluctuations about the mean field and differs from the single-mode squeezing of $\Var[N_a](t_3)/N_a(t_3)$ only by terms involving the occupation of the non-zero momentum modes $n_a(\mathbf{k}, t)$.  The contribution of these terms is always detrimental to squeezing as the contribution to the numerator of \eqref{eqBogoliubovSqueezing} is always at least as large as the contribution to the denominator.  When the occupation of the non-zero momentum modes is a non-negligible fraction of the condensate, the observed squeezing will differ from that predicted by the two-mode model in Section~\ref{secTwoModeAnalytic} (see Fig.~\ref{figBogSqueezingValidation}).  
 
