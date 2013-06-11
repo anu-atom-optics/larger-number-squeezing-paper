@@ -297,7 +297,7 @@ where the sum over $\mathbf{k} \neq 0$ is taken over the available non-zero mome
 
 Figure~\ref{figBogSqueezingValidation} demonstrates the agreement between truncated Wigner simulations and the Bogoliubov theory for the fractional occupation of the Bogoliubov modes for parameters where the occupation of these modes approach 20\%\footnote{FIXME} of the total occupation of the system.  The disagreement for larger fractional occupations occurs because the Bogoliubov theory used in deriving \eqref{eqCondensateDepletion} is not number-conserving as it neglects the effect of the Bogoliubov modes on the condensate.  
 
-To minimise the damaging effects of the non-zero momentum modes it is better to operate in a regime where the total occupation of the non-zero momentum modes $N_{\mathbf{k}\neq 0}$ is small, which is also fortuitously the regime in which the Bogoliubov theory is a good approximation.  To better understand when $N_{\mathbf{k}\neq 0}/N$ can be expected to be small, we approximate the sum in \eqref{eqCondensateDepletion} with an integral.  In 1D Eq.~\eqref{eqCondensateDepletion} is
+To minimise the damaging effects of the non-zero momentum modes it is better to operate in a regime where the total occupation of the non-zero momentum modes $N_{\mathbf{k}\neq 0}$ is small, which is also fortuitously the regime in which the Bogoliubov theory is a good approximation.  To better understand when $N_{\mathbf{k}\neq 0}/N$ will be small, we approximate the sum in \eqref{eqCondensateDepletion} with an integral.  In 1D Eq.~\eqref{eqCondensateDepletion} is
 \begin{align}
   \frac{N_{\mathbf{k}\neq 0}(t)}{N} &= \frac{(n_a \chi_{aa} \tau_\text{hold} \cos\theta)^2}{N} \sum_{k \neq 0} \sinc^2\left(\sqrt{\omega^0_{k}(\omega^0_{k}+2 \chi_{aa}n_a)}\tau_\text{hold}\right).
 \end{align}
@@ -305,7 +305,7 @@ We wish to approximate this sum by the integral
 \begin{align}
   \frac{N_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{(n_a \chi_{aa} \tau_\text{hold} \cos\theta)^2}{N} \int_{-\infty}^{+\infty} \sinc^2 \left(\sqrt{\omega^0_{k}(\omega^0_{k}+2 \chi_{aa}n_a)}\tau_\text{hold}\right) \frac{d k}{\Delta k}, \label{eqCondensateDepletionFirstIntegralApproximation}
 \end{align}
-where $\Delta k = 2\pi/L$.  This approximation will be valid in the limit that $\omega_{k_\text{min}} \tau_\text{hold} \ll 1$, where $k_\text{min} = 2\pi/L$ as for small $k$ the allowed values $k = n_x 2\pi /L$ will closely sample the region $\xi = \sqrt{\omega_k^0(\omega_k^0 + 2 \chi_{aa} n_a)} \tau_\text{hold} < \pi$ where $\sinc^2(\xi)$ is significant.
+where $\Delta k = 2\pi/L$ and $L$ is the length of the 1D box condensate.  This approximation will be valid in the limit that $\omega_{k_\text{min}} \tau_\text{hold} \ll 1$, where $k_\text{min} = 2\pi/L$ as for small $k$ the allowed values $k = n_x 2\pi /L$ will closely sample the region $\xi = \sqrt{\omega_k^0(\omega_k^0 + 2 \chi_{aa} n_a)} \tau_\text{hold} < \pi$ where $\sinc^2(\xi)$ is significant.
 
 Changing integration variables to $\Phi = \omega^{0}_{\mathbf{k}}\tau_\text{hold}$ and defining $\Lambda_a = n_a \chi_{aa} \tau_\text{hold}$ the expression \eqref{eqCondensateDepletionFirstIntegralApproximation} can be written as
 \begin{align}
@@ -323,8 +323,10 @@ In 2D and 3D the equivalent expressions are
 where
 \begin{align}
   f^\text{2D}(\Lambda) &= \int_0^{\infty} \sinc^2\sqrt{\Phi(\Phi + 2 \Lambda)}\, d\Phi,\\
-  f^\text{3D}(\Lambda) &= \int_0^{\infty} \sqrt{\Phi} \sinc^2\sqrt{\Phi(\Phi + 2 \Lambda)}\, d\Phi.
+  f^\text{3D}(\Lambda) &= \int_0^{\infty} \sqrt{\Phi} \sinc^2\sqrt{\Phi(\Phi + 2 \Lambda)}\, d\Phi,
 \end{align}
+and $A$ is the area of the two-dimensional system and $V$ is the volume of the three-dimensional system.
+
 
 The squeezing predicted by the two-mode model will only be valid in higher dimensions when $N_{\mathbf{k}\neq0}/N \ll 1$, when this condition is violated, the squeezing will be detrimentally affected.  We therefore want to examine the scaling of $N_{\mathbf{k}\neq 0}/N$ with system size in 1D, 2D and 3D.
 
