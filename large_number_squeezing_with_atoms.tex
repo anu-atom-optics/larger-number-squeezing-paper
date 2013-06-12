@@ -58,6 +58,8 @@
 \newcommand{\abs}[1]{\ensuremath{\left|#1\right|}}
 \newcommand{\expect}[1]{\ensuremath{\left<#1\right>}}
 \newcommand{\ket}[1]{\ensuremath{\left|#1\right>}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
 
 \begin{document}
 
@@ -681,21 +683,43 @@ We write (\ref{eqNumDiffVarianceAppendix}) in terms of $\hat{a}_2$ and $\hat{b}_
 \section{Derivation of Bogoliubov squeezing formula}
 \label{appendixBogDerivation}
 
-Here we put some details of the Bog analysis.
-
+The Bogoliubov model presented in Section~\ref{sec:2D3Dsqueezing} is taken in the limit of a homogeneous condensate with $\chi_{aa}\neq 0$, $\chi_{ab}=\chi_{bb}=0$.  In this limit, the Hamiltonian for the internal state $\ket{a}$ during the hold time is
 \begin{align}
-  S &= \frac{\Var(n_0) + \sum_k \frac{1}{2} n_k (3 + \cos 2\theta + 4 n_k)}{n_0 + \sum_k n_k} \\
-  n_k &= \left[\lambda \cos\theta \sinc(\omega_k \tau)\right]^2 \\
-  \hat{a}(t_3) &= \left[\hat{a}(0) - i \chi \alpha \tau_h\left(\alpha^* \hat{a}(0) + \alpha \hat{a}^\dagger(0) - 2\abs{\alpha}^2\right) \right]\cos(\theta) - i\hat{b}(0) \sin\theta e^{i\phi} \\
-  n_0 &= \left(\alpha ^2+\alpha ^4 \lambda ^2\right) \cos^2\theta + \left(\beta^2 \sin\theta  + 2\alpha\beta\cos\theta\sin\phi\right)\sin\theta\\
-  \begin{split}
-  \Var(n_0) &= \frac{1}{2} \left(\alpha ^2+\beta ^2\right)+\frac{1}{8}\alpha ^4 \left(7+ 2\beta ^2\right) \lambda ^2+ \frac{3}{4} \alpha ^8 \lambda ^4 \\
-  &\phantom{\mathrel{=}}+\frac{1}{2}\left( \alpha ^2-\beta ^2+2 \alpha ^4 \lambda ^2+2 \alpha ^8 \lambda ^4\right) \text{Cos}[2 \theta ] \\
-  &\phantom{\mathrel{=}}+\frac{1}{8}\left(\alpha ^4 \lambda ^2 \left(1-2 \beta ^2+2 \alpha ^4 \lambda ^2\right) \text{Cos}[4 \theta ] \right) \\
-  &\phantom{\mathrel{=}}+\frac{1}{8}\left(4 \alpha  \beta  \left(8 \alpha ^2 \lambda  \text{Cos}[\theta ]^3 \text{Cos}[\phi ] \text{Sin}[\theta ]+\text{Sin}[2 \theta ] \left(2 \text{Sin}[\phi ]+\alpha  \beta  \lambda  \text{Sin}[2 \theta ] \left(\alpha ^2 \lambda  \text{Cos}[2 \phi ]+\text{Sin}[2 \phi ]\right)\right)\right)\right)
-  \end{split}
+  \hat{H}_{a} &= \int \left[ \hat{\psi}_a^\dagger \left(-\frac{\hbar^2}{2 m}\nabla^2\right) \hat{\psi}_a + \frac{U_{aa}}{2} \hat{\psi}_a^\dagger \hat{\psi}_a^\dagger \hat{\psi}_a \hat{\psi}_a \right] \,dV \label{eqBogOriginalHamiltonian}
+\end{align}
+To find the response of the condensate to small fluctuations we define fluctuation operators for the non-zero momentum modes $\delta\hat{a}_\mathbf{k} = \hat{a}_\mathbf{k} - \alpha_\mathbf{k}$ where $\alpha_\mathbf{k} = \expect{\hat{a}_\mathbf{k}}$ is the condensate mean field ($\alpha_\mathbf{k}=0$ for $\mathbf{k} \neq 0$ as the condensate is homogenous).  The Hamiltonian \eqref{eqBogOriginalHamiltonian} is then expanded in terms of $\delta\hat{a}_\mathbf{k}$ retaining only the lowest order contributions.  The lowest order contribution is second order:
+\begin{align}
+  \hat{H}_{a}^{(2)} &= \sum_{\mathbf{k}\neq 0} \left[ \frac{\hbar^2 \mathbf{k}^2}{2M} \delta\hat{a}_\mathbf{k}^\dagger \delta\hat{a}_\mathbf{k} + \frac{1}{2} \hbar \chi_{aa} n_a \left(\delta\hat{a}_\mathbf{k}^\dagger \delta\hat{a}_{-\mathbf{k}}^\dagger + \delta\hat{a}_{-\mathbf{k}} \delta\hat{a}_{\mathbf{k}} \right) \right].
+\end{align}
+This Hamiltonian is diagonalised with the standard Bogoliubov transformation \cite{PethickSmith}
+\begin{align}
+  \delta \hat{a}_\mathbf{k}(t) &= u_\mathbf{k} \hat{b}_\mathbf{k}(t) - v_k \hat{b}_{-\mathbf{k}}^\dagger(t),\\
+  u_k^2 &= v_k^2+1 = \frac{1}{2} \left(\frac{\omega^0_\mathbf{k} + 2 \chi_{aa}n_a}{\omega_\mathbf{k}} +1\right),
+\end{align}
+where $\omega^0_\mathbf{k} = \hbar \mathbf{k}^2/2M$ is the frequency of a free particle, and $\omega_\mathbf{k} = \sqrt{\omega^0_\mathbf{k}(\omega^0_\mathbf{k} + 2 \chi_{aa} n_a)}$ is the frequency of the Bogoliubov modes:
+\begin{align}
+  \delta\hat{b}_\mathbf{k}(t) &= \exp\left(-i \omega_\mathbf{k} t\right)\delta\hat{b}_\mathbf{k}(0).
 \end{align}
 
+The expectation value of the number of atoms in momentum mode $\hbar\mathbf{k}$ after the hold time is then found to be
+\begin{align}
+  \expect{\hat{n}_\mathbf{k}(t_2)} &= \expect{\delta\hat{a}^\dagger_\mathbf{k} \delta\hat{a}_\mathbf{k}} \\
+  \begin{split}
+  &=\left[1 + 4 u_\mathbf{k}^2(2 u_\mathbf{k}^2 - 1)\sin^2(\omega_\mathbf{k} \tau_\text{hold})\right] \expect{\delta \hat{a}^\dagger_\mathbf{k} \hat{a}_\mathbf{k}} \\
+  &\phantom{\mathrel{=}}- 4 u_\mathbf{k} v_\mathbf{k} \sin(\omega_\mathbf{k}\tau_\text{hold}) \Im\left\{\left[1-i2 u_\mathbf{k}^2 \sin(\omega_k \tau_\text{hold})\right] \expect{\hat{a}_{-\mathbf{k}} \hat{a}_\mathbf{k}}\right\}\\
+  &\phantom{\mathrel{=}} + 4 u_\mathbf{k}^2 v_\mathbf{k}^2 \sin^2(\omega_\mathbf{k}\tau_\text{hold})
+  \end{split}
+\end{align}
+If the non-zero momentum modes are initially in a vacuum state then this reduces to
+\begin{align}
+  \expect{\hat{n}_\mathbf{k}(t_2)} &= 4 u_\mathbf{k}^2 v_\mathbf{k}^2 \sin^2(\omega_\mathbf{k}\tau_\text{hold}), \\
+  &= \left[n_a \chi_{aa} \tau_\text{hold} \sinc(\omega_\mathbf{k} \tau_\text{hold}) \right]^2.
+\end{align}
+After the final Rabi coupling pulse the occupation of the non-zero momentum mode $\hbar\mathbf{k}$ is
+\begin{align}
+  n_a(\mathbf{k}, t_3) &= \left[n_a \chi_{aa} \tau_\text{hold} \cos(\theta)\sinc(\omega_\mathbf{k} \tau_\text{hold}) \right]^2,
+\end{align}
+which is the expression given earlier in Eq.~\eqref{eqBogOccupation}.
 
 \section*{References}
 \begin{thebibliography}{10}
