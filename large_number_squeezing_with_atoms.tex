@@ -47,7 +47,7 @@
 %\usepackage{iopams}
 \usepackage{graphicx}
 \usepackage{amsmath}
-\usepackage{ulem}
+% \usepackage{ulem}
 \usepackage{amssymb}
 \usepackage{caption}
 \captionsetup{compatibility=false}
@@ -289,13 +289,31 @@ We can understand the origin and scaling of this degradation of squeezing by con
 \begin{align}
   n_a(\mathbf{k}, t_3) &= \expect{\hat{a}^\dagger(\mathbf{k},t) \hat{a}(\mathbf{k},t)} = \left[n_a \chi_{aa} \tau_\text{hold} \cos(\theta) \sinc\left(\omega_\mathbf{k} \tau_\text{hold}\right) \right]^2, \label{eqBogOccupation}
 \end{align}
-where the Bogoliubov mode frequency is $\omega_\mathbf{k} = \sqrt{\omega^0_\mathbf{k}(\omega^0_\mathbf{k} + 2 \chi_{aa} n_a)}$, and the free particle frequency is $\omega^0_\mathbf{k} = \hbar \mathbf{k}^2/2 M$.  The Bogoliubov modes can be expected to have an impact on the squeezing of the system when their occupation is a non-negligible fraction of the total number of atoms.  The fractional occupation of the Bogoliubov modes is
+where the Bogoliubov mode frequency is $\omega_\mathbf{k} = \sqrt{\omega^0_\mathbf{k}(\omega^0_\mathbf{k} + 2 \chi_{aa} n_a)}$, and the free particle frequency is $\omega^0_\mathbf{k} = \hbar \mathbf{k}^2/2 M$.  The non-zero momentum modes can be expected to have an impact on the squeezing of the system when their occupation is a non-negligible fraction of the total number of atoms.  The fractional occupation of these modes is
 \begin{align}
   \frac{N_{\mathbf{k}\neq 0}(t)}{N} &= \frac{1}{N}\sum_{\mathbf{k}\neq 0} n_a(\mathbf{k}, t), \label{eqCondensateDepletion}
 \end{align}
 where the sum over $\mathbf{k} \neq 0$ is taken over the available non-zero momentum modes $\mathbf{k} = (2\pi/L_x) n_x \hat{\mathbf{x}} + (2\pi/L_y) n_y \hat{\mathbf{y}} + (2\pi/L_z) n_z \hat{\mathbf{z}}$ with $n_x$, $n_y$ and $n_z$ arbitrary integers that are not all zero.
 
-Figure~\ref{figBogSqueezingValidation} demonstrates the agreement between truncated Wigner simulations and the Bogoliubov theory for the fractional occupation of the Bogoliubov modes for parameters where the occupation of these modes approach 20\%\footnote{FIXME} of the total occupation of the system.  The disagreement for larger fractional occupations occurs because the Bogoliubov theory used in deriving \eqref{eqCondensateDepletion} is not number-conserving as it neglects the effect of the Bogoliubov modes on the condensate.  
+\begin{figure}
+    \centering
+    \framebox{
+    \parbox{0.8\textwidth}{
+    Plot of the number occupation of the condensate and non-zero momentum modes as computed by the Bog theory (direct summation and integral approximation) and a simulation.  The simulation agrees with the Bog theory for the occupation of the non-zero momentum modes, but there is significant ~10-20\% depletion of the condensate.  The horizontal axis is the hold time.}
+    }
+\caption{This is not a caption.}
+  \label{figBogSqueezingValidation}
+\end{figure}
+
+
+Figure~\ref{figBogSqueezingValidation} demonstrates the agreement between truncated Wigner simulations and the Bogoliubov theory for the fractional occupation of the non-zero momentum modes for parameters where the occupation of these modes approach 20\%\footnote{FIXME} of the total occupation of the system.  The disagreement for larger fractional occupations occurs because the Bogoliubov theory used in deriving \eqref{eqCondensateDepletion} is not number-conserving as it neglects the effect of the non-zero momentum modes on the condensate.  
+
+% I'm commenting this out and will essentially gloss over the matter.  We will illustrate that Bog modes are detrimental, rather than arguing the fact.
+% [Insert motivation that the impact of Bogoliubov modes is detrimental here.  I could wave my hands and say that more modes is bad, as seen in the previous parts of the article, or I could refer to the squeezing of the Bogoliubov modes:
+% \begin{align}
+%   S_{a,\mathbf{k}\neq 0}(t_3) &= \frac{\frac{1}{2}\sum_{\mathbf{k}\neq0}n_a(\mathbf{k},t_3)\left[3 + \cos 2\theta + n_a(\mathbf{k}, t_3)\right]}{\sum_{\mathbf{k}\neq0} n_a(\mathbf{k}, t_3)},
+% \end{align}
+% which is always greater than 1, but this isn't convincing either as the total squeezing includes the number variance of the $\mathbf{k=0}$ mode as well as the correlations between the $\mathbf{k}=0$ mode and the $\mathbf{k}\neq 0$ modes.  If you do it naively, you find that when the Bog modes have a significant impact on the squeezing, they have also significantly changed it at $t=t_2$, which must be the same as $t=t_1$.  The problem is that the Bogoliubov theory used isn't number-conserving.  The best argument I have at the moment for Bog theory being a good indicator for when things go bad is that a significant Bog fraction implies a depleted condensate, and that will almost certainly make squeezing bad as it will invalidate the single-mode theory.  More freedom == bad?  In this case, the best evidence for the utility of Bog theory would seem to be Figure~\ref{fig1D_squeezing_and_bog_scaling}.]
 
 To minimise the damaging effects of the non-zero momentum modes it is better to operate in a regime where the total occupation of the non-zero momentum modes $N_{\mathbf{k}\neq 0}$ is small, which is also fortuitously the regime in which the Bogoliubov theory is a good approximation.  To better understand when $N_{\mathbf{k}\neq 0}/N$ will be small, we approximate the sum in \eqref{eqCondensateDepletion} with an integral.  In 1D Eq.~\eqref{eqCondensateDepletion} is
 \begin{align}
@@ -309,7 +327,7 @@ where $\Delta k = 2\pi/L$ and $L$ is the length of the 1D box condensate.  This 
 
 Changing integration variables to $\Phi = \omega^{0}_{\mathbf{k}}\tau_\text{hold}$ and defining $\Lambda_a = n_a \chi_{aa} \tau_\text{hold}$ the expression \eqref{eqCondensateDepletionFirstIntegralApproximation} can be written as
 \begin{align}
-  \frac{N^\text{1D}_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{1}{N} \frac{\Lambda_a^2 L \cos^2\theta } {\sqrt{2}\pi\sqrt{\frac{\hbar}{M}\tau_\text{hold}}} f^\text{1D}(\Lambda_a),
+  \frac{N^\text{1D}_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{1}{N} \frac{\Lambda_a^2 L \cos^2\theta } {\sqrt{2}\pi\sqrt{\frac{\hbar}{M}\tau_\text{hold}}} f^\text{1D}(\Lambda_a), \label{eqBogFraction1D}
 \end{align}
 where
 \begin{align}
@@ -317,69 +335,25 @@ where
 \end{align}
 In 2D and 3D the equivalent expressions are
 \begin{align}
-  \frac{N^{\text{2D}}_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{1}{N} \frac{\Lambda_a^2 A \cos^2\theta } {4\frac{\hbar}{M}\tau_\text{hold}} f^\text{2D}(\Lambda_a), \\
-  \frac{N^{\text{3D}}_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{1}{N} \frac{\Lambda_a^2 V \cos^2\theta } {\sqrt{2}\pi^2\left(\frac{\hbar}{M}\tau_\text{hold}\right)^{3/2}} f^\text{3D}(\Lambda_a),
+  \frac{N^{\text{2D}}_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{1}{N} \frac{\Lambda_a^2 A \cos^2\theta } {4\frac{\hbar}{M}\tau_\text{hold}} f^\text{2D}(\Lambda_a),  \label{eqBogFraction2D}\\
+  \frac{N^{\text{3D}}_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{1}{N} \frac{\Lambda_a^2 V \cos^2\theta } {\sqrt{2}\pi^2\left(\frac{\hbar}{M}\tau_\text{hold}\right)^{3/2}} f^\text{3D}(\Lambda_a), \label{eqBogFraction3D}
 \end{align}
 where
 \begin{align}
   f^\text{2D}(\Lambda) &= \int_0^{\infty} \sinc^2\sqrt{\Phi(\Phi + 2 \Lambda)}\, d\Phi,\\
   f^\text{3D}(\Lambda) &= \int_0^{\infty} \sqrt{\Phi} \sinc^2\sqrt{\Phi(\Phi + 2 \Lambda)}\, d\Phi,
 \end{align}
-and $A$ is the area of the two-dimensional system and $V$ is the volume of the three-dimensional system.
+and $A$ is the area of the two-dimensional system and $V$ is the volume of the three-dimensional system.  Figure~\ref{figBogSqueezingValidation} demonstrates the agreement in 1D between the integral approximation to $N_{\mathbf{k}\neq 0}/N$ in \eqref{eqBogFraction1D}, the summation expression in \eqref{eqCondensateDepletion} and a truncated Wigner simulation.
 
-
-The squeezing predicted by the two-mode model will only be valid in higher dimensions when $N_{\mathbf{k}\neq0}/N \ll 1$, when this condition is violated, the squeezing will be detrimentally affected.  We therefore want to examine the scaling of $N_{\mathbf{k}\neq 0}/N$ with system size in 1D, 2D and 3D.
-
-For constant total number $N$ and occupations of the $\ket{a}$ and $\ket{b}$ states at time $t_1$, the optimum squeezing as determined by the two-mode model will have a particular value of $\tau_\text{hold}$, $\theta$ and $\phi$.  As the dimensions of the system are scaled, $\hbar \chi_{ij} = U^\text{1D}_{ij}/L = U^\text{2D}_{ij}/A = U^\text{3D}_{ij}/V$ will change, but to keep the same squeezing (and the same equivalent two-mode model) $\lambda_{ij} = \chi_{ij} \tau_\text{hold}$ must be kept constant (see Eq.~\eqref{eqsDef}--\eqref{eqNumDiffVariance}).  Therefore $\Lambda_a = n_a\chi_{aa}\tau_\text{hold}$ must also be kept constant. With this in mind, we can write $\tau_\text{hold}$ in terms of the system size and the nonlinearity.  We obtain:
+We wish to examine the scaling of the fractional occupation of the non-zero momentum modes $N_{\mathbf{k}\neq0}/N$ with the physical size of the condensate.  Other system parameters such as the total number $N$ and the occupation of the $\ket{a}$ and $\ket{b}$ states at $t_1$ ($n_a$ and $n_b$, respectively) are kept constant and chosen to maximise the squeezing of the equivalent two-mode model presented in Section~\ref{secTwoModeAnalytic}.  In particular this fixes the values of $\theta$, $\phi$ and $\lambda_{ij} = \chi_{ij}\tau_\text{hold}$.  As the size of the condensate is scaled, $\hbar \chi_{ij} = U^\text{1D}_{ij}/L = U^\text{2D}_{ij}/A = U^\text{3D}_{ij}/V$ will change, but $\tau_\text{hold}$ will vary to keep $\lambda_{ij}$ constant.  Therefore $\Lambda_a = n_a\chi_{aa}\tau_\text{hold}$ will also be constant.  With this in mind, we can write $\tau_\text{hold}$ in terms of the system size and the nonlinearity $U_{aa}$.  The fractional occupation of the non-zero momentum modes can then be shown to scale with the physical size of the condensate as:
 \begin{align}
-  \frac{N^\text{1D}_{\mathbf{k}\neq 0}(t_3)}{N} &\approx \sqrt{L} \cdot \frac{1}{N} \sqrt{\frac{M U^\text{1D}_{aa} n_a}{2 \hbar^2 \pi^2}} \Lambda_a^{3/2} \cos^2\theta f^\text{1D}(\Lambda_a) &&\propto \sqrt{L} \\
-  \frac{N^\text{2D}_{\mathbf{k}\neq 0}(t_3)}{N} &\approx 1 \cdot \frac{1}{N} \frac{M U^\text{2D}_{aa} n_a }{4 \hbar^2} \Lambda_a \cos^2\theta f^\text{2D}(\Lambda_a) &&\propto \text{constant} \\
-  \frac{N^\text{3D}_{\mathbf{k}\neq 0}(t_3)}{N} &\approx \frac{1}{\sqrt{V}} \cdot \frac{1}{N} \left(\frac{M U^\text{3D}_{aa} n_a}{\hbar^2}\right)^{3/2} \frac{\Lambda_a^{1/2} \cos^2\theta f^\text{3D}(\Lambda_a)}{\sqrt{2} \pi^2} &&\propto \frac{1}{\sqrt{V}}
+  \frac{N^\text{1D}_{\mathbf{k}\neq 0}(t_3)}{N} &\approx \sqrt{L} \cdot \frac{1}{N} \sqrt{\frac{M U^\text{1D}_{aa} n_a}{2 \hbar^2 \pi^2}} \Lambda_a^{3/2} \cos^2\theta f^\text{1D}(\Lambda_a) &&\propto \sqrt{L}, \\
+  \frac{N^\text{2D}_{\mathbf{k}\neq 0}(t_3)}{N} &\approx 1 \cdot \frac{1}{N} \frac{M U^\text{2D}_{aa} n_a }{4 \hbar^2} \Lambda_a \cos^2\theta f^\text{2D}(\Lambda_a) &&\propto \text{constant}, \\
+  \frac{N^\text{3D}_{\mathbf{k}\neq 0}(t_3)}{N} &\approx \frac{1}{\sqrt{V}} \cdot \frac{1}{N} \left(\frac{M U^\text{3D}_{aa} n_a}{\hbar^2}\right)^{3/2} \frac{\Lambda_a^{1/2} \cos^2\theta f^\text{3D}(\Lambda_a)}{\sqrt{2} \pi^2} &&\propto \frac{1}{\sqrt{V}}.
 \end{align}
+The fractional occupation of the non-zero momentum modes $N_{\mathbf{k}\neq 0}/N$ thus scales differently with trap size in each of 1D, 2D and 3D.  For one-dimensional traps, the fractional occupation of these modes increases with system size, whereas for 2D traps it is constant.  For three-dimensional traps, the fractional occupation of the non-zero momentum modes \emph{decreases} with volume.  This suggests that the best system to use will be a box potential, and the system size can be increased until the condensate depletion becomes negligibly small.
 
-In 1D the condensate depletion $N_{\mathbf{k}\neq 0}/N$ increases with increasing system size, in 2D the condensate depletion remains constant, and in 3D the condensate depletion decreases as the system size increases.  This suggests that the best system to use will be a box potential, and the system size can be increased until the condensate depletion becomes negligibly small.
-
-Qualitatively, the occupation of the non-zero momentum modes is almost entirely determined by the number of Bogoliubov modes energetically accessible to the system.  While this gets larger 
-
-The Bogoliubov theory used in deriving \eqref{eqCondensateDepletion} is not number-conserving
-
-
-To minimise the damaging effects of the non-zero momentum modes, it is better to 
-
-
-The Bogoliubov theory used in deriving \eqref{eqBogOccupation} is not number-conserving because the effect of the Bogoliubov modes on the condensate is neglected.  
-
-To minimise the 
-
-Good squeezing will only be observed when the fractional occupation of the Bogoliubov modes $N_{\mathbf{k}\neq 0}/N$ is small.  
-
-% I'm commenting this out and will essentially gloss over the matter.  We will illustrate that Bog modes are detrimental, rather than arguing the fact.
-% [Insert motivation that the impact of Bogoliubov modes is detrimental here.  I could wave my hands and say that more modes is bad, as seen in the previous parts of the article, or I could refer to the squeezing of the Bogoliubov modes:
-% \begin{align}
-%   S_{a,\mathbf{k}\neq 0}(t_3) &= \frac{\frac{1}{2}\sum_{\mathbf{k}\neq0}n_a(\mathbf{k},t_3)\left[3 + \cos 2\theta + n_a(\mathbf{k}, t_3)\right]}{\sum_{\mathbf{k}\neq0} n_a(\mathbf{k}, t_3)},
-% \end{align}
-% which is always greater than 1, but this isn't convincing either as the total squeezing includes the number variance of the $\mathbf{k=0}$ mode as well as the correlations between the $\mathbf{k}=0$ mode and the $\mathbf{k}\neq 0$ modes.  If you do it naively, you find that when the Bog modes have a significant impact on the squeezing, they have also significantly changed it at $t=t_2$, which must be the same as $t=t_1$.  The problem is that the Bogoliubov theory used isn't number-conserving.  The best argument I have at the moment for Bog theory being a good indicator for when things go bad is that a significant Bog fraction implies a depleted condensate, and that will almost certainly make squeezing bad as it will invalidate the single-mode theory.  More freedom == bad?  In this case, the best evidence for the utility of Bog theory would seem to be Figure~\ref{fig1D_squeezing_and_bog_scaling}.]
-
-
-
-The squeezing of mode $|a\rangle$ in \eqref{eqBogoliubovSqueezing} includes the first-order multimode quantum mechanical fluctuations about the mean field and differs from the single-mode squeezing of $\Var[N_a](t_3)/N_a(t_3)$ only by terms involving the occupation of the non-zero momentum modes $n_a(\mathbf{k}, t)$.  The contribution of these terms is always detrimental to squeezing as the contribution to the numerator of \eqref{eqBogoliubovSqueezing} is always at least as large as the contribution to the denominator.  When the occupation of the non-zero momentum modes is a non-negligible fraction of the condensate, the observed squeezing will differ from that predicted by the two-mode model in Section~\ref{secTwoModeAnalytic} (see Fig.~\ref{figBogSqueezingValidation}).  
-
-\begin{figure}
-    \centering
-    \framebox{
-    \parbox{0.8\textwidth}{
-    Plot of the number occupation of the condensate and non-zero momentum modes as computed by the Bog theory (direct summation and integral approximation) and a simulation.  The simulation agrees with the Bog theory for the occupation of the non-zero momentum modes, but there is significant ~10-20\% depletion of the condensate.  The horizontal axis is the hold time.}
-    }
-\caption{This is not a caption.}
-  \label{figBogSqueezingValidation}
-\end{figure}
-
-The Bogoliubov theory used in deriving \eqref{eqBogoliubovSqueezing} is not number-conserving because the depletion of the condensate caused by the occupation of the non-zero momentum modes is neglected.  Therefore when these non-zero momentum modes become sufficiently occupied for $S_a$ to differ from the two-mode model, the Bogoliubov approximation becomes invalid and $S_a$ will not agree with the full quantum-statistical multimode result.  While number-conserving variants of the Bogoliubov theory exist \cite{NumberConservingBog}, they are still perturbative approximations about the mean field, and they are not required for our purposes.  Although the Bogoliubov approximation cannot predict the exact amount by which squeezing will be degraded compared to the two-mode model, it does predict the regime in which squeezing is reduced by coupling between spatial modes, and it can thereby suggest how this problem can be avoided.  Figure~\ref{figBogSqueezingValidation}(a) illustrates the agreement between truncated Wigner simulations and the Bogoliubov theory for the total number of atoms in the non-zero momentum modes $N_{\mathbf{k}\neq 0}$ for parameters where these modes approach 20\% of the total number of atoms in the system.  Figure~\ref{figBogSqueezingValidation}(b) shows that in this case the squeezing predicted by the Bogoliubov theory in Eq.~\eqref{eqBogoliubovSqueezing} is a lower bound for the squeezing predicted by the truncated Wigner simulations.  The two-mode analytic solution, which ignores multimode effects entirely, provides an upper bound for the squeezing. \textbf{Reconsider these last sentences when we have the figure.  Maybe qualify `lower bound' for constant density models only?}  This means that we can use the Bogoliubov analysis to guide our search for parameter regimes with higher squeezing.
- 
-To minimise the damaging effects of the non-zero momentum modes, it is better to operate in a regime where the total occupation of the non-zero momentum modes $N_{\mathbf{k}\neq 0}$ is small, which is also fortuitously the regime in which the Bogoliubov theory is a good approximation.
- 
-The number of excited modes is almost entirely determined by the density of modes energetically accessible by the system.  While this gets larger with the dimensionality and the volume of the system at a given chemical potential, in practice the dimensionality and the volume of the BEC are controlled by changing the trap parameters, which has a dramatic effect on the attainable chemical potential.  So the true figure of merit controlling the degradation of the squeezing due to coupling between the modes is the number of states energetically reachable from the chemical potential.  This scales differently with trap size in each of 1D, 2D and 3D.  For one-dimensional traps, the number of accessible states increases with volume, whereas for 2D traps it is constant with volume. For three-dimensional traps, the number of accessible states \emph{decreases} with volume.
-
+% End of Graham's content
 
 Figure \ref{fig1D_squeezing_and_bog_scaling} and Figure \ref{fig2D_squeezing_and_bog_scaling} show the non-condensed fraction predicted by the Bogoliubov analysis compared to that predicted by a full numerical simulation, in one, two and three dimensions, as a function of the trap size. Also shown in the 1D and 2D cases is the maximum amount of number squeezing obtainable, as predicted by the numerical simulation. The full squeezing scaling curve is not shown in 3D, as for the smaller trap sizes the TWA method breaks down, and results are unreliable; for the larger trap sizes with negligible non-condensate fractions, however, the simulation was carried out and a relative number squeezing of 12.6dB was found. The traps are assumed to have a constant potential, which minimises the effects of the multimode issues described in section \ref{sec:MMdescription}.  We see that the squeezing does indeed degrade at large trap sizes in 1D, but remains constant in $2D$. For small trap sizes, the squeezing in 1D aymptotically approaches that of the ideal 0D system.
 
