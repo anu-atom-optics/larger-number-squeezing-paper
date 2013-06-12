@@ -297,16 +297,13 @@ where the sum over $\mathbf{k} \neq 0$ is taken over the available non-zero mome
 
 \begin{figure}
     \centering
-    \framebox{
-    \parbox{0.8\textwidth}{
-    Plot of the number occupation of the condensate and non-zero momentum modes as computed by the Bog theory (direct summation and integral approximation) and a simulation.  The simulation agrees with the Bog theory for the occupation of the non-zero momentum modes, but there is significant ~10-20\% depletion of the condensate.  The horizontal axis is the hold time.}
-    }
-\caption{This is not a caption.}
+    \includegraphics[width=10cm]{figures/Bog_validation}
+\caption{Plot of the fractional occupation of the non-zero momentum modes as a function of the hold time $\tau_\text{hold}$.  The blue dashed line is the Bogoliubov integral approximation given in Eq.~\ref{eqBogFraction1D}, the purple dot-dashed line is the Bogoliubov summation expression given in Eq.~\ref{eqCondensateDepletion}, and the solid black line is the result of a truncated Wigner simulation.  Parameters: $L=600\,\mu\text{m}$, $N=4 \times 10^5$, $n_a=n_b=2\times 10^5$, $\chi_{aa} = 2.67 \times 10^{-2}\, \text{s}^{-1}$, $\chi_{ab}=\chi_{bb}=0$, $\theta=0$.}
   \label{figBogSqueezingValidation}
 \end{figure}
 
 
-Figure~\ref{figBogSqueezingValidation} demonstrates the agreement between truncated Wigner simulations and the Bogoliubov theory for the fractional occupation of the non-zero momentum modes for parameters where the occupation of these modes approach 20\%\footnote{FIXME} of the total occupation of the system.  The disagreement for larger fractional occupations occurs because the Bogoliubov theory used in deriving \eqref{eqCondensateDepletion} is not number-conserving as it neglects the effect of the non-zero momentum modes on the condensate.  
+Figure~\ref{figBogSqueezingValidation} demonstrates the agreement between truncated Wigner simulations and the Bogoliubov theory for the fractional occupation of the non-zero momentum modes for parameters where the occupation of these modes approach 15\% of the total occupation of the system.  The disagreement for larger fractional occupations occurs because the Bogoliubov theory used in deriving \eqref{eqCondensateDepletion} is not number-conserving as it neglects the effect of the non-zero momentum modes on the condensate.  
 
 % I'm commenting this out and will essentially gloss over the matter.  We will illustrate that Bog modes are detrimental, rather than arguing the fact.
 % [Insert motivation that the impact of Bogoliubov modes is detrimental here.  I could wave my hands and say that more modes is bad, as seen in the previous parts of the article, or I could refer to the squeezing of the Bogoliubov modes:
