@@ -693,8 +693,8 @@ To find the response of the condensate to small fluctuations we define fluctuati
 \end{align}
 This Hamiltonian is diagonalised with the standard Bogoliubov transformation \cite{PethickSmith}
 \begin{align}
-  \delta \hat{a}_\mathbf{k}(t) &= u_\mathbf{k} \hat{b}_\mathbf{k}(t) - v_k \hat{b}_{-\mathbf{k}}^\dagger(t),\\
-  u_k^2 &= v_k^2+1 = \frac{1}{2} \left(\frac{\omega^0_\mathbf{k} + 2 \chi_{aa}n_a}{\omega_\mathbf{k}} +1\right),
+  \delta \hat{a}_\mathbf{k}(t) &= u_\mathbf{k} \delta\hat{b}_\mathbf{k}(t) - v_k \delta\hat{b}_{-\mathbf{k}}^\dagger(t),\\
+  u_k^2 &= v_k^2+1 = \frac{1}{2} \left(\frac{\omega^0_\mathbf{k} + \chi_{aa}n_a}{\omega_\mathbf{k}} +1\right),
 \end{align}
 where $\omega^0_\mathbf{k} = \hbar \mathbf{k}^2/2M$ is the frequency of a free particle, and $\omega_\mathbf{k} = \sqrt{\omega^0_\mathbf{k}(\omega^0_\mathbf{k} + 2 \chi_{aa} n_a)}$ is the frequency of the Bogoliubov modes:
 \begin{align}
@@ -703,14 +703,14 @@ where $\omega^0_\mathbf{k} = \hbar \mathbf{k}^2/2M$ is the frequency of a free p
 
 The expectation value of the number of atoms in momentum mode $\hbar\mathbf{k}$ after the hold time is then found to be
 \begin{align}
-  \expect{\hat{n}_\mathbf{k}(t_2)} &= \expect{\delta\hat{a}^\dagger_\mathbf{k} \delta\hat{a}_\mathbf{k}} \\
+  \expect{\hat{n}_\mathbf{k}(t_2)} &= \expect{\delta\hat{a}^\dagger_\mathbf{k}(t_2) \delta\hat{a}_\mathbf{k}(t_2)} \\
   \begin{split}
-  &=\left[1 + 4 u_\mathbf{k}^2(2 u_\mathbf{k}^2 - 1)\sin^2(\omega_\mathbf{k} \tau_\text{hold})\right] \expect{\delta \hat{a}^\dagger_\mathbf{k} \hat{a}_\mathbf{k}} \\
-  &\phantom{\mathrel{=}}- 4 u_\mathbf{k} v_\mathbf{k} \sin(\omega_\mathbf{k}\tau_\text{hold}) \Im\left\{\left[1-i2 u_\mathbf{k}^2 \sin(\omega_k \tau_\text{hold})\right] \expect{\delta\hat{a}_{-\mathbf{k}} \delta\hat{a}_\mathbf{k}}\right\}\\
+  &=\left[1 + 4 u_\mathbf{k}^2(2 u_\mathbf{k}^2 - 1)\sin^2(\omega_\mathbf{k} \tau_\text{hold})\right] \expect{\delta \hat{a}^\dagger_\mathbf{k}(t_1) \delta\hat{a}_\mathbf{k}(t_1)} \\
+  &\phantom{\mathrel{=}}- 4 u_\mathbf{k} v_\mathbf{k} \sin(\omega_\mathbf{k}\tau_\text{hold}) \Im\left\{\left[1-i2 u_\mathbf{k}^2 \sin(\omega_k \tau_\text{hold})\right] \expect{\delta\hat{a}_{-\mathbf{k}}(t_1) \delta\hat{a}_\mathbf{k}}(t_1)\right\}\\
   &\phantom{\mathrel{=}} + 4 u_\mathbf{k}^2 v_\mathbf{k}^2 \sin^2(\omega_\mathbf{k}\tau_\text{hold})
   \end{split}
 \end{align}
-If the non-zero momentum modes are initially in a vacuum state then this reduces to
+If the non-zero momentum modes are in a vacuum state at $t=t_1$ then this reduces to
 \begin{align}
   \expect{\hat{n}_\mathbf{k}(t_2)} &= 4 u_\mathbf{k}^2 v_\mathbf{k}^2 \sin^2(\omega_\mathbf{k}\tau_\text{hold}), \\
   &= \left[n_a \chi_{aa} \tau_\text{hold} \sinc(\omega_\mathbf{k} \tau_\text{hold}) \right]^2.
