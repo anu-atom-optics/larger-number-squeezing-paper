@@ -58,6 +58,8 @@
 \newcommand{\abs}[1]{\ensuremath{\left|#1\right|}}
 \newcommand{\expect}[1]{\ensuremath{\left<#1\right>}}
 \newcommand{\ket}[1]{\ensuremath{\left|#1\right>}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
 
 \begin{document}
 
@@ -300,7 +302,7 @@ These points are illustrated in Fig.~\ref{piPulseFig}, which shows the best sque
 
 The simulations in the previous two sections were one dimensional, and show how having spatially constant density and using a $\pi$-pulse will improve the resultant squeezing.  While these conclusions remain valid for simulations in two or three dimensions, adding each additional dimension increases the number of spatial modes in a given energy range.  For BECs of different dimension at the same energy per particle, this leads to a degradation of squeezing, even when the potential (and the resulting atomic density) is constant across the bulk of the trap.  This is demonstrated in Fig.~\ref{figDimensionalSqueezingEffects}, where we show the squeezing generated in 1D, 2D and 3D BECs for two different parameter regimes. In both cases we take the BEC to be trapped in a box potential, which in the Thomas-Fermi limit leads to a constant density profile across the BEC. In Figure~\ref{figDimensionalSqueezingEffects}a we consider the case where $U_{aa}=U_{bb}\neq 0$, $U_{ab}=0$, while in Figure~\ref{figDimensionalSqueezingEffects}b we consider the case $U_{aa}\neq 0$, $U_{ab}=U_{bb}=0$. In both cases it is clear that number squeezing is best in lower dimensions, and becomes degraded or non-existent as we move to a three dimensional system; the effect is worse if more than one nonlinearity is non-zero.
 
-To find the trap geometries that produce the best squeezing, it is important to understand the root cause of this loss of squeezing in higher dimensional traps.  The dependence on dimensionality is not explained by the processes described in section \ref{sec:MMdescription}, which focus on the effects of inhomogeneity within the trap.  Fundamentally, this degradation of the squeezing is due to nonlinearity-induced coupling between different spatial modes.  
+To find the trap geometries that produce the best squeezing, it is important to understand the root cause of this loss of squeezing in higher dimensional traps.  The dependence on dimensionality is not explained by the processes described in section \ref{sec:MMdescription}, which focus on the effects of inhomogeneity within the trap.  Fundamentally, this degradation of the squeezing is due to nonlinearity-induced coupling between different momentum modes.  
 
 We can understand the origin and scaling of this degradation of squeezing by considering the response of the condensate to small fluctuations about the mean field.  We do this using Bogoliubov theory \cite{PethickSmith}, which considers the first order quantum-mechanical fluctuations about the mean field.  To simplify the analysis we consider the case in which $U_{aa} \neq 0$, $U_{bb}=U_{ab} = 0$ and the condensate has a spatially-constant density in a box of side lengths $L_x$, $L_y$ and $L_z$.  In this limit the occupation of the non-zero momentum modes (the non-condensed fraction) in the $\ket{a}$ internal state at the end of the pulse sequence is (a derivation is given in \ref{appendixBogDerivation})
 \begin{align}
@@ -698,21 +700,43 @@ We write (\ref{eqNumDiffVarianceAppendix}) in terms of $\hat{a}_2$ and $\hat{b}_
 \section{Derivation of Bogoliubov squeezing formula}
 \label{appendixBogDerivation}
 
-Here we put some details of the Bog analysis.
-
+The Bogoliubov model presented in Section~\ref{sec:2D3Dsqueezing} is taken in the limit of a homogeneous condensate with $\chi_{aa}\neq 0$, $\chi_{ab}=\chi_{bb}=0$.  In this limit, the Hamiltonian for the internal state $\ket{a}$ during the hold time is
 \begin{align}
-  S &= \frac{\Var(n_0) + \sum_k \frac{1}{2} n_k (3 + \cos 2\theta + 4 n_k)}{n_0 + \sum_k n_k} \\
-  n_k &= \left[\lambda \cos\theta \sinc(\omega_k \tau)\right]^2 \\
-  \hat{a}(t_3) &= \left[\hat{a}(0) - i \chi \alpha \tau_h\left(\alpha^* \hat{a}(0) + \alpha \hat{a}^\dagger(0) - 2\abs{\alpha}^2\right) \right]\cos(\theta) - i\hat{b}(0) \sin\theta e^{i\phi} \\
-  n_0 &= \left(\alpha ^2+\alpha ^4 \lambda ^2\right) \cos^2\theta + \left(\beta^2 \sin\theta  + 2\alpha\beta\cos\theta\sin\phi\right)\sin\theta\\
-  \begin{split}
-  \Var(n_0) &= \frac{1}{2} \left(\alpha ^2+\beta ^2\right)+\frac{1}{8}\alpha ^4 \left(7+ 2\beta ^2\right) \lambda ^2+ \frac{3}{4} \alpha ^8 \lambda ^4 \\
-  &\phantom{\mathrel{=}}+\frac{1}{2}\left( \alpha ^2-\beta ^2+2 \alpha ^4 \lambda ^2+2 \alpha ^8 \lambda ^4\right) \text{Cos}[2 \theta ] \\
-  &\phantom{\mathrel{=}}+\frac{1}{8}\left(\alpha ^4 \lambda ^2 \left(1-2 \beta ^2+2 \alpha ^4 \lambda ^2\right) \text{Cos}[4 \theta ] \right) \\
-  &\phantom{\mathrel{=}}+\frac{1}{8}\left(4 \alpha  \beta  \left(8 \alpha ^2 \lambda  \text{Cos}[\theta ]^3 \text{Cos}[\phi ] \text{Sin}[\theta ]+\text{Sin}[2 \theta ] \left(2 \text{Sin}[\phi ]+\alpha  \beta  \lambda  \text{Sin}[2 \theta ] \left(\alpha ^2 \lambda  \text{Cos}[2 \phi ]+\text{Sin}[2 \phi ]\right)\right)\right)\right)
-  \end{split}
+  \hat{H}_{a} &= \int \left[ \hat{\psi}_a^\dagger \left(-\frac{\hbar^2}{2 m}\nabla^2\right) \hat{\psi}_a + \frac{U_{aa}}{2} \hat{\psi}_a^\dagger \hat{\psi}_a^\dagger \hat{\psi}_a \hat{\psi}_a \right] \,dV \label{eqBogOriginalHamiltonian}
+\end{align}
+To find the response of the condensate to small fluctuations we define fluctuation operators for the non-zero momentum modes $\delta\hat{a}_\mathbf{k} = \hat{a}_\mathbf{k} - \alpha_\mathbf{k}$ where $\alpha_\mathbf{k} = \expect{\hat{a}_\mathbf{k}}$ is the condensate mean field ($\alpha_\mathbf{k}=0$ for $\mathbf{k} \neq 0$ as the condensate is homogenous).  The Hamiltonian \eqref{eqBogOriginalHamiltonian} is then expanded in terms of $\delta\hat{a}_\mathbf{k}$ retaining only the lowest order contributions.  The lowest order contribution is second order:
+\begin{align}
+  \hat{H}_{a}^{(2)} &= \sum_{\mathbf{k}\neq 0} \left[ \frac{\hbar^2 \mathbf{k}^2}{2M} \delta\hat{a}_\mathbf{k}^\dagger \delta\hat{a}_\mathbf{k} + \frac{1}{2} \hbar \chi_{aa} n_a \left(\delta\hat{a}_\mathbf{k}^\dagger \delta\hat{a}_{-\mathbf{k}}^\dagger + \delta\hat{a}_{-\mathbf{k}} \delta\hat{a}_{\mathbf{k}} \right) \right].
+\end{align}
+This Hamiltonian is diagonalised with the standard Bogoliubov transformation \cite{PethickSmith}
+\begin{align}
+  \delta \hat{a}_\mathbf{k}(t) &= u_\mathbf{k} \hat{b}_\mathbf{k}(t) - v_k \hat{b}_{-\mathbf{k}}^\dagger(t),\\
+  u_k^2 &= v_k^2+1 = \frac{1}{2} \left(\frac{\omega^0_\mathbf{k} + 2 \chi_{aa}n_a}{\omega_\mathbf{k}} +1\right),
+\end{align}
+where $\omega^0_\mathbf{k} = \hbar \mathbf{k}^2/2M$ is the frequency of a free particle, and $\omega_\mathbf{k} = \sqrt{\omega^0_\mathbf{k}(\omega^0_\mathbf{k} + 2 \chi_{aa} n_a)}$ is the frequency of the Bogoliubov modes:
+\begin{align}
+  \delta\hat{b}_\mathbf{k}(t) &= \exp\left(-i \omega_\mathbf{k} t\right)\delta\hat{b}_\mathbf{k}(0).
 \end{align}
 
+The expectation value of the number of atoms in momentum mode $\hbar\mathbf{k}$ after the hold time is then found to be
+\begin{align}
+  \expect{\hat{n}_\mathbf{k}(t_2)} &= \expect{\delta\hat{a}^\dagger_\mathbf{k} \delta\hat{a}_\mathbf{k}} \\
+  \begin{split}
+  &=\left[1 + 4 u_\mathbf{k}^2(2 u_\mathbf{k}^2 - 1)\sin^2(\omega_\mathbf{k} \tau_\text{hold})\right] \expect{\delta \hat{a}^\dagger_\mathbf{k} \hat{a}_\mathbf{k}} \\
+  &\phantom{\mathrel{=}}- 4 u_\mathbf{k} v_\mathbf{k} \sin(\omega_\mathbf{k}\tau_\text{hold}) \Im\left\{\left[1-i2 u_\mathbf{k}^2 \sin(\omega_k \tau_\text{hold})\right] \expect{\delta\hat{a}_{-\mathbf{k}} \delta\hat{a}_\mathbf{k}}\right\}\\
+  &\phantom{\mathrel{=}} + 4 u_\mathbf{k}^2 v_\mathbf{k}^2 \sin^2(\omega_\mathbf{k}\tau_\text{hold})
+  \end{split}
+\end{align}
+If the non-zero momentum modes are initially in a vacuum state then this reduces to
+\begin{align}
+  \expect{\hat{n}_\mathbf{k}(t_2)} &= 4 u_\mathbf{k}^2 v_\mathbf{k}^2 \sin^2(\omega_\mathbf{k}\tau_\text{hold}), \\
+  &= \left[n_a \chi_{aa} \tau_\text{hold} \sinc(\omega_\mathbf{k} \tau_\text{hold}) \right]^2.
+\end{align}
+After the final Rabi coupling pulse the occupation of the non-zero momentum mode $\hbar\mathbf{k}$ is
+\begin{align}
+  n_a(\mathbf{k}, t_3) &= \left[n_a \chi_{aa} \tau_\text{hold} \cos(\theta)\sinc(\omega_\mathbf{k} \tau_\text{hold}) \right]^2,
+\end{align}
+which is the expression given earlier in Eq.~\eqref{eqBogOccupation}.
 
 \section*{References}
 \begin{thebibliography}{10}
