@@ -96,20 +96,31 @@ We examine the feasibility of creating and measuring large relative number squee
   \item Lay out what sections we have and what we've done
 \end{itemize}
 
-History: Quantum optics led to creating nonclassical states after the laser was
-invented. The advent of the BEC led to the ability to start recreating these types
-of states with massive particles. One of the first things that was considered was
-quadrature squeezing, as this can be done with intrinsic nonlinearities of the atoms,
-which photons don’t have. Quadrature squeezing using nonlinearities has been around
-a while (cite Drummond) due to being useful for EPR. Also been shown you can use
-it for atom lasers. Possible to use atom nonlinearities to continuously quadrature
-squeeze an atom laser [?] To get number squeezing, however, need to mix quadrature
-squeezed states or mix a quadrature squeezed state with a coherent local oscillator.
-Can be hard to mode match beams of atoms, so doing everything in trap can useful.
-That’s why number squeezing (aka spin squeezing) often tends to use a Ramsey-type
-interferometry scheme. [4].
-These sorts of things have led to experimentally detectable amounts of number
-squeezing [10]
+Quantum optics led to creating nonclassical states after the laser was invented \cite{???}. The experimental realization of the BEC \cite{???} led to the ability to start recreating these types of states with massive particles. 
+
+One of the advantages of atoms over photons is that they interact with each other, unlike photons, which allows nonlinear interaction effects without all the fluffery that optics requires, like crystals etc.
+
+It has been recognized that the intrinsic nonlinearities of atoms could lead to effects like quadrature squeezing \cite{kheruntsyanET2005, johnssonET2007, haineET2009, doeringET2010}. Can also get number squeezing using spin squeezing techniques \cite{kitagawaET1993, gross2010, sinatra2012}, molecular dissocation of BECs \cite{kheruntsyanET2002, davisET2008, savage2007, ogren2010}, four-wave mixing \cite{perrin2008, ogren2009, jascula2010}, or double-well potentials \cite{esteve2008, maussang2010} or mixing quadrature-squeezed states using Ramsey interferometry \cite{haineET2009}.
+
+{\bf Note that the FWM stuff is using the s-wave scatter sphere from condensate collisions, so pretty useless for interferometry}
+
+The creation of these non-classical atomic states has relevence for fundamental tests of quantum mechanics such as the EPR paradox \cite{pu2000, sorensen2001, haine2005,zhao2007, ogren2010}, as well as atom inteferometry \cite{sorensenET1999, kuzmichET2000, meyerET2001, liebfriedET2004, roosET2006, doeringET2010, gross2010}
+
+While these techniques have resulted in impressive levels of experimentally detectable number squeezing \cite{gross2010}, they have been limited to small numbers of atoms, typically a few hundred. 
+
+To really win in the interferometry game, you need good squeezing for large numbers of atoms. The reason people have used small numbers of atoms is that it allows you to move into the single-mode regime, where the trap is tight enough such that all higher modes are frozen out \cite{LiET2009}
+
+If this is not the case multimode stuff needs to be considered, and that's what we do in this paper.
+
+Most previous simulations of this sort of stuff tend to be in 1D or 2D for simplicity \cite{kheruntsyanET2002, kheruntsyanET2005, johnssonET2007, haineET2009}. They reduce the problem from 3D to 1D by integrating out one or two dimensions \cite{???}. Semi-classically this isn't a problem, because you can assume the modal dynamics have symmetry. However as we show in this paper, when dealing with QFT problems this naive approach can give you the wrong answer. We can do full 3D simulations because we're cool and we have XMDS2 \cite{dennis2013}. 
+
+
+
+
+
+
+
+
 
 
 
@@ -371,7 +382,7 @@ The non-condensed fraction $N_{\mathbf{k}\neq 0}/N$ thus scales differently with
 
 % End of Graham's content
 
-Figures~\ref{fig1D_squeezing_and_bog_scaling}--\ref{fig3D_Bog_mode_occupation_scaling} show the non-condensed fraction predicted by the Bogoliubov analysis compared to that predicted by a full numerical simulation, in one, two and three dimensions, as a function of the trap size. Also shown in the 1D and 2D cases is the maximum amount of number squeezing obtainable, as predicted by the numerical simulation. The full squeezing scaling curve is not shown in 3D, as for the smaller trap sizes the TWA method breaks down, and results are unreliable; for the larger trap sizes with negligible non-condensate fractions, however, the simulation was carried out and a relative number squeezing of 12.6dB was found. The traps are assumed to have a constant potential, which minimises the effects of the multimode issues described in section \ref{sec:MMdescription}.  We see that the squeezing does indeed degrade at large trap sizes in 1D, but remains constant in $2D$. For small trap sizes, the squeezing in 1D aymptotically approaches that of the ideal 0D system.
+Figures~\ref{fig1D_squeezing_and_bog_scaling}--\ref{fig3D_Bog_mode_occupation_scaling} show the non-condensed fraction predicted by the Bogoliubov analysis compared to that predicted by a full numerical simulation, in one, two and three dimensions, as a function of the trap size. Also shown in the 1D and 2D cases is the maximum amount of number squeezing obtainable, as predicted by the numerical simulation. The full squeezing scaling curve is not shown in 3D, as for the smaller trap sizes the TWA method breaks down, and results are unreliable; for the larger trap sizes with negligible non-condensate fractions, however, the simulation was carried out and a relative number squeezing of 12.6dB was found. The traps are assumed to have a constant potential, which minimises the effects of the multimode issues described in section \ref{sec:MMdescription}.  We see that the squeezing does indeed degrade at large trap sizes in 1D, but remains constant in 2D. For small trap sizes, the squeezing in 1D aymptotically approaches that of the ideal 0D system.
 
 We note that the non-smooth nature of the squeezing prediction in 2D is due to the stochastic nature of the simulations, and the necessity of averaging over fewer quantum trajectories due to the very high number grid points in this regime. The non-smooth nature of the non-condensate mode fraction in 3D, on the other hand, is due to the number of modes being both discrete and low in this regime, and counting only the non-condensed fraction in modes with an energy less than than $\mu$, the chemical potential.
 
@@ -391,7 +402,7 @@ In Fig.~\ref{fig:3DBogScaling} we see that the number of accessible states for t
     \centering
     \includegraphics[width=\textwidth]{figures/1D_squeezing_scaling.eps}
   \end{subfigure}
-\caption{1D scaling as function of trap size, $L$. (Left) The proportion the non-condensed fraction in mode $|a\rangle$ relative to total particle number, with the Bogoliubov theory model in red and the full numerical solution in blue. (Right) Relative number squeezing in mode $|a\rangle$ as a function of trap size. Parameters: $N=1\times 10^5$, $U_{aa} = 8.9\times 10^{-40}$Jm, $U_{ab}=U_{bb}=0$, $\tau_{\mathrm{hold}} = 10L$\,s.}
+\caption{1D scaling as function of trap size, $L$. (Left) The proportion the non-condensed fraction in state $|a\rangle$ relative to total particle number, with the Bogoliubov theory model in red and the full numerical solution in blue. (Right) Relative number squeezing in mode $|a\rangle$ as a function of trap size. Parameters: $N=1\times 10^5$, $U_{aa} = 8.9\times 10^{-40}$Jm, $U_{ab}=U_{bb}=0$, $\tau_{\mathrm{hold}} = 10L$\,s.}
   \label{fig1D_squeezing_and_bog_scaling}
 \end{figure}
 
@@ -406,7 +417,7 @@ In Fig.~\ref{fig:3DBogScaling} we see that the number of accessible states for t
     \centering
     \includegraphics[width=\textwidth]{figures/2D_squeezing_scaling.eps}
   \end{subfigure}
-\caption{2D scaling as function of trap size, L. (Left) The proportion the non-condensed fraction in mode $|a\rangle$ relative to total particle number, with the Bogoliubov theory model in red and the full numerical solution in blue. (Right) Relative number squeezing in mode $|a\rangle$ as a function of trap size. Parameters: $N=1\times 10^5$, $U_{aa} = 8.9\times 10^{-44}$Jm, $U_{ab}=U_{bb}=0$, $\tau_{\mathrm{hold}} = 10^{5} L^2$\,s.}
+\caption{2D scaling as function of trap size, L. (Left) The proportion the non-condensed fraction in state $|a\rangle$ relative to total particle number, with the Bogoliubov theory model in red and the full numerical solution in blue. (Right) Relative number squeezing in mode $|a\rangle$ as a function of trap size. Parameters: $N=1\times 10^5$, $U_{aa} = 8.9\times 10^{-44}$Jm$^2$, $U_{ab}=U_{bb}=0$, $\tau_{\mathrm{hold}} = 10^{5} L^2$\,s.}
   \label{fig2D_squeezing_and_bog_scaling}
 \end{figure}
 
@@ -442,7 +453,7 @@ In Fig.~\ref{fig:3DBogScaling} we see that the number of accessible states for t
 \begin{figure}
   \centering
    \includegraphics[width=7cm]{figures/3D_Bog_mode_occupation_scaling.eps}
-\caption{3D scaling as function of trap size, $L$. (Left) The proportion the non-condensed fraction in mode $|a\rangle$ relative to total particle number, with the Bogoliubov theory model in red and the full numerical solution in blue. (Right) Relative number squeezing in mode $|a\rangle$ as a function of trap size. Parameters: $N=1\times 10^4$, $U_{aa} = 4.7\times 10^{-49}$Jm, $U_{ab}=U_{bb}=0$, $\tau_{\mathrm{hold}} = 1.25 \times 10^{11} L^3$\,s.}
+\caption{3D scaling as function of trap size, $L$. (Left) The proportion the non-condensed fraction in state $|a\rangle$ relative to total particle number, with the Bogoliubov theory model in red and the full numerical solution in blue. (Right) Relative number squeezing in mode $|a\rangle$ as a function of trap size. Parameters: $N=1\times 10^4$, $U_{aa} = 4.7\times 10^{-49}$Jm$^3$, $U_{ab}=U_{bb}=0$, $\tau_{\mathrm{hold}} = 1.25 \times 10^{11} L^3$\,s.}
  \label{fig3D_Bog_mode_occupation_scaling}
 \end{figure}
 
@@ -468,7 +479,7 @@ Operating in a parameter regime where there is truly only one spatial mode, whic
 
 Using a constant potential in the trap (a `box' trap) allows the BEC density to be spatially uniform throughout the process.  This is shown to alleviate the difficulties with choosing correct hold times and phases for the coupling pulses.  Along with a pi-pulse midway during the holding period, this also alleviates the majority of the mode-matching issues for the final recombination of the two modes.  The remaining issue with the existence of multiple spatial modes was the possibility of scattering into them by the nonlinearities.
 
-By a Bogoliubov analysis, it was shown that the coupling between different modes could be minimised in two regimes.  The first was the tight trapping regime, where the system becomes effectively zero-dimensional, and the second was the weak trapping limit for 3D traps.  This latter regime is in fact ideally compatible with large atomic numbers, and shows the prospect of extremely high squeezing.  A TWA simulation demonstrated a BEC trap with $15dB$ of squeezing.  In practice, the only limit to the number of atoms in such traps would be the stability of the trap, as the BEC would become increasingly sensitive to fluctuations as the energy per particle is reduced as the volume increases.
+Using a Bogoliubov analysis, it was shown that the coupling between different modes could be minimised in two regimes.  The first was the tight trapping regime, where the system becomes effectively zero-dimensional, and the second was the weak trapping limit for 3D traps.  This latter regime is in fact ideally compatible with large atomic numbers, and shows the prospect of extremely high squeezing.  A TWA simulation demonstrated a BEC trap with $15$\,dB of squeezing.  In practice, the only limit to the number of atoms in such traps would be the stability of the trap, as the BEC would become increasingly sensitive to fluctuations as the energy per particle is reduced as the volume increases.
 
 \ack
 Acknowledgements in here; funding sources etc.  Joe's Future Fellowship.  NCI?
@@ -700,9 +711,9 @@ We write (\ref{eqNumDiffVarianceAppendix}) in terms of $\hat{a}_2$ and $\hat{b}_
 \section{Derivation of Bogoliubov squeezing formula}
 \label{appendixBogDerivation}
 
-The Bogoliubov model presented in Section~\ref{sec:2D3Dsqueezing} is taken in the limit of a homogeneous condensate with $\chi_{aa}\neq 0$, $\chi_{ab}=\chi_{bb}=0$.  In this limit, the Hamiltonian for the internal state $\ket{a}$ during the hold time is
+We consider the Bogoliubov model presented in Section~\ref{sec:2D3Dsqueezing} taken in the limit of a homogeneous condensate with $\chi_{aa}\neq 0$, $\chi_{ab}=\chi_{bb}=0$.  In this limit, the Hamiltonian for the internal state $\ket{a}$ during the hold time is
 \begin{align}
-  \hat{H}_{a} &= \int \left[ \hat{\psi}_a^\dagger \left(-\frac{\hbar^2}{2 m}\nabla^2\right) \hat{\psi}_a + \frac{U_{aa}}{2} \hat{\psi}_a^\dagger \hat{\psi}_a^\dagger \hat{\psi}_a \hat{\psi}_a \right] \,dV \label{eqBogOriginalHamiltonian}
+  \hat{H}_{a} &= \int \left[ \hat{\psi}_a^\dagger \left(-\frac{\hbar^2}{2 m}\nabla^2\right) \hat{\psi}_a + \frac{U_{aa}}{2} \hat{\psi}_a^\dagger \hat{\psi}_a^\dagger \hat{\psi}_a \hat{\psi}_a \right] \,dV. \label{eqBogOriginalHamiltonian}
 \end{align}
 To find the response of the condensate to small fluctuations we define fluctuation operators for the non-zero momentum modes $\delta\hat{a}_\mathbf{k} = \hat{a}_\mathbf{k} - \alpha_\mathbf{k}$ where $\alpha_\mathbf{k} = \expect{\hat{a}_\mathbf{k}}$ is the condensate mean field ($\alpha_\mathbf{k}=0$ for $\mathbf{k} \neq 0$ as the condensate is homogenous).  The Hamiltonian \eqref{eqBogOriginalHamiltonian} is then expanded in terms of $\delta\hat{a}_\mathbf{k}$ retaining only the lowest order contributions.  The lowest order contribution is second order:
 \begin{align}
@@ -724,45 +735,91 @@ The expectation value of the number of atoms in momentum mode $\hbar\mathbf{k}$ 
   \begin{split}
   &=\left[1 + 4 u_\mathbf{k}^2(2 u_\mathbf{k}^2 - 1)\sin^2(\omega_\mathbf{k} \tau_\text{hold})\right] \expect{\delta \hat{a}^\dagger_\mathbf{k}(t_1) \delta\hat{a}_\mathbf{k}(t_1)} \\
   &\phantom{\mathrel{=}}- 4 u_\mathbf{k} v_\mathbf{k} \sin(\omega_\mathbf{k}\tau_\text{hold}) \Im\left\{\left[1-i2 u_\mathbf{k}^2 \sin(\omega_k \tau_\text{hold})\right] \expect{\delta\hat{a}_{-\mathbf{k}}(t_1) \delta\hat{a}_\mathbf{k}(t_1)}\right\}\\
-  &\phantom{\mathrel{=}} + 4 u_\mathbf{k}^2 v_\mathbf{k}^2 \sin^2(\omega_\mathbf{k}\tau_\text{hold})
+  &\phantom{\mathrel{=}} + 4 u_\mathbf{k}^2 v_\mathbf{k}^2 \sin^2(\omega_\mathbf{k}\tau_\text{hold}).
   \end{split}
 \end{align}
 If the non-zero momentum modes are in a vacuum state at $t=t_1$ then this reduces to
 \begin{align}
-  \expect{\hat{n}_\mathbf{k}(t_2)} &= 4 u_\mathbf{k}^2 v_\mathbf{k}^2 \sin^2(\omega_\mathbf{k}\tau_\text{hold}), \\
+  \expect{\hat{n}_\mathbf{k}(t_2)} &= 4 u_\mathbf{k}^2 v_\mathbf{k}^2 \sin^2(\omega_\mathbf{k}\tau_\text{hold}) \\
   &= \left[n_a \chi_{aa} \tau_\text{hold} \sinc(\omega_\mathbf{k} \tau_\text{hold}) \right]^2.
 \end{align}
 After the final Rabi coupling pulse the occupation of the non-zero momentum mode $\hbar\mathbf{k}$ is
 \begin{align}
-  n_a(\mathbf{k}, t_3) &= \left[n_a \chi_{aa} \tau_\text{hold} \cos(\theta)\sinc(\omega_\mathbf{k} \tau_\text{hold}) \right]^2,
+  n_a(\mathbf{k}, t_3) &= \left[n_a \chi_{aa} \tau_\text{hold} \cos(\theta)\sinc(\omega_\mathbf{k} \tau_\text{hold}) \right]^2
 \end{align}
 which is the expression given earlier in Eq.~\eqref{eqBogOccupation}.
 
 \section*{References}
 \begin{thebibliography}{10}
+\bibitem{kheruntsyanET2002} Kheruntsyan K V and Drummond P D 2002 Quantum correlated twin atomic beams via photodissociation of a molecular Bose-Einstein condensate \emph {Phys. Rev.} A {\bf 66} 031602(R)
+
+\bibitem{kheruntsyanET2005} Kheruntsyan K V, Olsen M K and Drummond P D 2005 Einstein-Podolsky-Rosen correlations via dissociation of a molecular Bose-Einstein condensate \emph{Phys. Rev.} A {\bf 66} 031602(R)
+
+\bibitem{kitagawaET1993} Kitagawa M and Ueda M 1995 Spin squeezed states \emph{Phys. Rev.} A {\bf 47} 5138
+
+\bibitem{sorensenET1999} Hald J, S{\"{o}}rensen J L, Schori C, and Polzik E S 1999 Spin squeezed atoms: a macroscopic entangled ensemble created by light \emph{Phys. Rev. Lett.} {\bf 83} 1319
+
+\bibitem{kuzmichET2000} Kuzmich A, Mandel L, and Bigelow N P 2000 Generation of spin squeezing via
+continuous quantum nondemolition measurement \emph{Phys. Rev. Lett.} {\bf 85} 1594 
+
+\bibitem{meyerET2001} Meyer V, Rowe M A, Kielpinski D, Sackett C A, Itano W M, Monroe C, and Wineland D J 2001 Experimental demonstration of entanglement-enhanced rotation angle estimation using trapped ions \emph{Phys. Rev. Lett.} {\bf 86} 5870
+
+\bibitem{liebfriedET2004} Leibfried D, Barrett M D, Schaetz T, Britton J, Chiaverini J, Itano W M, Jost J D, Langer D, Wineland D J 2004 Toward Heisenberg-limited spectroscopy with multiparticle entangled states \emph{Science} {\bf 304} 1476
+
+\bibitem {roosET2006} Roos C F, Chwalla M, Kim K, Riebe M, and Blatt R Designer atoms for
+quantum metrology 2006 \emph{Nature} {\bf 443}, 316
+
+\bibitem{LiET2009} Li Y, Treutlein P, Reichel J, and Sinatra A 2009 Spin squeezing in a bimodal condensate: spatial dynamics and particle losses \emph{Eur. Phys. J.} B {\bf 68} 365
+
+\bibitem{jascula2010} Jaskula J C, Bonneau M, Partridge G B, Krachmalnicoff V, Deuar P, Kheruntsyan K V, Aspect A, Boiron D, and Westbrook C I 2010 Sub-Poissonian Number Differences in Four-Wave Mixing of Matter Waves \emph{Phys. Rev. Lett.} {\bf 105} 190402
+
+\bibitem{doeringET2010} D{\"{o}}ring D, McDonald G, Debs J E, Figl C, Altin P A, Bachor H-A, Robins N P, and Close J D 2010 Quantum-projection-noise-limited interferometry with coherent atoms in a Ramsey-type setup \emph{Phys. Rev.} A {\bf 81} 043633
+
+\bibitem{davisET2008} Davis M J, Thwaite S J, Olsen M K, and Kheruntsyan K V 2008 Pairing mean-field theory for the dynamics of dissociation of molecular Bose-Einstein condensates \emph{Phys. Rev.} A {\bf 77} 023617
+
+\bibitem{savage2007} Savage C M and Kheruntsyan K V 2007 Spatial Pair Correlations of Atoms in Molecular Dissociation \emph{Phys. Rev. Lett.} {\bf 99} 220404 
+
+\bibitem{pu2000} Pu H and Meystre P 2000 Creating Macroscopic Atomic Einstein-Podolsky-Rosen States from Bose-Einstein Condensates \emph{Phys. Rev. Lett.} {\bf 85} 3987
+
+\bibitem{sorensen2001} S{\"{o}}rensen A, Duan L-M, Cirac J I, Zoller P 2001 Many-particle entanglement with Bose-Einstein condensates \emph{Nature} {\bf 409} 63
+
+\bibitem{haine2005} Haine S A and Hope J J 2005 Outcoupling from a Bose-Einstein condensate with squeezed light to produce entangled atom laser beams, \emph{Phys. Rev.} A {\bf 72} 033601
+
+\bibitem{zhao2007} Zhao B, Chen Z, Pan J, Schmiedmayer J, Recati A, Astrakharchik G E, Calarco T 2007 Deterministic Entanglement via Molecular Dissociation in Integrated Atom Optics \emph{Phys. Rev.} A {\bf 75} 042312
+
+\bibitem{esteve2008} J. Est{\`{e}}eve, C. Gross, A. Weller, S. Giovanazzi, and M. Oberthaler 2008 Squeezing and entanglement in a Bose-Einstein condensate \emph{Nature} {\bf 455} 1216 (2008)
+
+\bibitem{maussang2010} Maussang, G.E. Marti, T. Schneider, P. Treutlein, Y. Li, A. Sinatra, R. Long, J. Est{\`{e}}ve, and J. Reichel 2010 Enhanced and reduced atom number fluctuations in a BEC splitter \emph{Phys. Rev. Lett.} {\bf 105} 080403
+
+\bibitem{sinatra2012} A. Sinatra, J.-C. Dornstetter, Y. Castin 2012 Spin squeezing in Bose-Einstein condensates: Limits imposed by decoherence and non-zero temperature \emph{Front. Phys.} {\bf 7} 86
+
+\bibitem{perrin2008} A. Perrin, C. M. Savage, D. Boiron, V. Krachmalnicoff, C. I. Westbrook and Kheruntsyan K V 2008 Atomic four-wave mixing via condensate collisions \emph{New J. Phys.} {\bf 10} 045021
+
+\bibitem{ogren2010} M. {\"{O}}gren and Kheruntsyan K V 2010 Role of spatial inhomogeneity in dissociation of trapped molecular condensates \emph{Phys. Rev. A} {\bf 82} 013641
+
+\bibitem{ogren2009} M. {\"{O}}gren and Kheruntsyan K V 2009 Atom-atom correlations in colliding Bose-Einstein condensates \emph{Phys. Rev. A} {\bf 79} 021606
+
 \bibitem{Hadzibabic2004} Hadzibabic Z, Stock S, Battelier B, Bretin V and Dalibard J 2004 Interference of an array of independent Bose-Einstein Condensates {\it Phys. Rev. Lett.} {\bf 93} 180403
-\bibitem{johnssonET2007} Johnsson M T and Haine S A 2007 Generating squeezing in an atom laser through self-interaction {\it Phys. Rev. Lett.} {\bf 99} 010401
 
-\bibitem{dallET2009} Dall R G, Byron L J, Truscott A G, Dennis G R, Johnsson M T and Hope J J 2009 Paired-atom laser beams created via four-wave mixing {\it Phys. Rev. A} {\bf 79} 011601(R)
+\bibitem{johnssonET2007} Johnsson M T and Haine S A 2007 Generating squeezing in an atom laser through self-interaction \emph{Phys. Rev. Lett.} {\bf 99} 010401
 
-\bibitem{haineET2009} S. A. Haine and M. T. Johnsson 2009 Dynamic scheme for generating number squeezing in Bose-Einstein condensates
-through nonlinear interactions \emph{Phys. Rev. A} {\bf 80} 023611.
+\bibitem{dallET2009} Dall R G, Byron L J, Truscott A G, Dennis G R, Johnsson M T and Hope J J 2009 Paired-atom laser beams created via four-wave mixing \emph{Phys. Rev.} A {\bf 79} 011601(R)
 
-\bibitem{dennisET2010} Dennis G R and Johnsson M T 2010 Generation of directional coherent matter beams through dynamical instabilities in Bose-Einstein condensates {\it Phys. Rev. A} {\bf 82} 033615
+\bibitem{haineET2009} S. A. Haine and M. T. Johnsson 2009 Dynamic scheme for generating number squeezing in Bose-Einstein condensates through nonlinear interactions \emph{Phys. Rev.} A {\bf 80} 023611
+
+\bibitem{dennisET2010} G. R. Dennis and M. T. Johnsson 2010 Generation of directional coherent matter beams through dynamical instabilities in Bose-Einstein condensates \emph{Phys. Rev.} A {\bf 82} 033615
 
 \bibitem{gardiner1991} C. W. Gardiner, \emph{Quantum Noise}, (Springer-Verlag, Berlin 1991).
 
-\bibitem{steelET1998} M. J. Steel, M. K. Olsen, L. I. Plimak, P. D. Drummond, S. M. Tan, M. J. Collett, D. F. Walls, and R. Graham 2010 Dynamical quantum noise in trapped Bose-Einstein condensates {\it Phys. Rev. A} {\bf 58}, 4824.
+\bibitem{steelET1998} M. J. Steel, M. K. Olsen, L. I. Plimak, P. D. Drummond, S. M. Tan, M. J. Collett, D. F. Walls, and R. Graham 2010 Dynamical quantum noise in trapped Bose-Einstein condensates \emph{Phys. Rev.} A {\bf 58} 4824
 
-\bibitem{dennis2013} Dennis G R, Hope J J and Johnsson M T 2013 XMDS2: Fast, scalable simulation of coupled stochastic partial
-differential equations {\it Comput. Phys. Commun.} {\bf 184} 201--208
+\bibitem{dennis2013} G. R. Dennis, J. J. Hope and M. T. Johnsson 2013 XMDS2: Fast, scalable simulation of coupled stochastic partial differential equations {\it Comput. Phys. Commun.} {\bf 184} 201--208
 
-\bibitem{louisell} W. H. Louisell \emph{Quantum Statistical Properties of Radiation}, (Wiley 1990).
+\bibitem{louisell} W. H. Louisell \emph{Quantum Statistical Properties of Radiation}, (Wiley 1990)
 
-\bibitem{gross2010} Gross C, Zibold T, Est{\`{e}}ve J and Oberthaler M K 2010 Nonlinear atom interferometer surpasses classical
-precision limit {\it Nature} {\bf 464} 1165--1169
+\bibitem{gross2010} Gross C, Zibold T, Est{\`{e}}ve J and Oberthaler M K 2010 Nonlinear atom interferometer surpasses classical precision limit \emph{Nature} {\bf 464} 1165--1169
 
-\bibitem{PethickSmith} C.J.~Pethick and H.~Smith, \emph{Bose-Einstein Condensation in Dilute Gases} (Cambridge University Press, Cambridge, 2002).
+\bibitem{PethickSmith} Pethick C J and Smith H, \emph{Bose-Einstein Condensation in Dilute Gases} (Cambridge University Press, Cambridge, 2002).
 
 \end{thebibliography}
 
