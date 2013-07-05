@@ -63,7 +63,7 @@
 
 \begin{document}
 
-\title{Large squeezing in multicomponent trapped Bose-Einstein condensates with large numbers of atoms}
+\title{Large squeezing in multicomponent trapped Bose-Einstein condensates}
 
 \author{Mattias T Johnsson$^1$, Graham R Dennis$^2$ and Joseph J Hope$^1$}
 
@@ -72,7 +72,7 @@
 \ead{mattias.johnsson@anu.edu.au}
 
 \begin{abstract}
-We examine the feasibility of creating and measuring large relative number squeezing in multicomponent trapped Bose-Einstein condensates.  In the absence of multimode effects, this squeezing can be arbitrarily large, but a range of processes limit the measurable squeezing in realistic trap configurations.  We examine these processes, and suggest methods to mitigate them. We conclude that high levels of squeezing with large numbers of atoms is feasible, but can realistically only be achieved in traps with particular trap geometries.  We also introduce a method of maximising the measurable squeezing by using a pi-pulse during the process to improve spatial mode-matching.
+We examine the feasibility of creating and measuring large relative number squeezing in multicomponent trapped Bose-Einstein condensates.  In the absence of multimode effects, this squeezing can be arbitrarily large, but a range of processes limit the measurable squeezing in realistic trap configurations.  We examine these processes, and suggest methods to mitigate them. We conclude that high levels of squeezing with large numbers of atoms is feasible, but can realistically only be achieved in traps with even density profiles in at least two dimensions. We also introduce a method of maximising the measurable squeezing by using a pi-pulse during the process to improve spatial mode-matching.
 \end{abstract}
 
 %Uncomment for PACS numbers title message
@@ -87,30 +87,55 @@ We examine the feasibility of creating and measuring large relative number squee
 
 \section{Introduction}
 \label{sectionIntroduction}
+\begin{itemize}
+  \item General non-classical state generation with atoms
+  \item Talk about number squeezing with atoms
+  \item Link to interferometry
+  \item Motivate why large number squeezing
+  \item Point out no one has done it before, only low number squeeze
+  \item Lay out what sections we have and what we've done
+\end{itemize}
 
-Quantum degenerate ultracold atomic sources have been used to study fundamental processes such as quantum phase transitions \cite{Leggett2001,Buluta2009}, quantum non-equilibrium thermodynamics \cite{Kinoshita:2006,Barnett:2011} and entanglement of massive particles \cite{Kheruntsyan:2005}.  Their ability to be highly isolated from their environment and controlled precisely by optical, magnetic and rf fields makes them an ideal platform for engineering and manipulating non-trivial quantum states.   In quantum optics, the most common way to produce entangled states has been through squeezing, and it has been recognised that the intrinsic nonlinearities of atoms naturally lead to quadrature squeezing \cite{kheruntsyanET2005, johnssonET2007, haineET2009, doeringET2010}.  Number squeezing can be achieved with spin squeezing techniques \cite{kitagawaET1993, gross2010, sinatra2012}, molecular dissociation of Bose-Einstein Condensates (BECs) \cite{kheruntsyanET2002, davisET2008, savage2007, ogren2010}, four-wave mixing \cite{perrin2008, ogren2009, jascula2010}, double-well potentials \cite{esteve2008, maussang2010}, or mixing quadrature-squeezed states using Ramsey interferometry \cite{haineET2009}.
-The creation of these non-classical atomic states has relevance for fundamental tests of quantum mechanics such as the EPR paradox \cite{pu2000, sorensen2001, haine2005,zhao2007, ogren2010}, as well as atom inteferometry \cite{sorensenET1999, kuzmichET2000, meyerET2001, liebfriedET2004, roosET2006, doeringET2010, gross2010}.
-While these techniques have resulted in significant experimentally detectable number squeezing \cite{gross2010}, they have been limited to small numbers of atoms, typically a few hundred. 
+Quantum optics led to creating nonclassical states after the laser was invented \cite{???}. The experimental realization of the BEC \cite{???} led to the ability to start recreating these types of states with massive particles. 
 
-Ultracold atomic interferometers are also reaching state of the art sensitivities in precision measurements \cite{Robins2012}. While all current atom interferometry is limited by technical noise sources, it appears that BEC-based coherent sources offer the best chance of overcoming some of these issues, for the same reasons that optical lasers are typically preferred for optical interferometry \cite{Szigeti2012}.  If these technical noise sources can be controlled, atom interferometers will be limited by atomic shot noise, which leads to a sensitivity that scales as the square root of the atomic flux.   From that point, sensitivity will only be improved by increasing the atomic flux, and/or using non-classical quantum states such as squeezed states to go below the shot noise limit.  Producing squeezed states for metrological purposes is therefore only relevant when it can be achieved in a context of large numbers of atoms.  This paper examines the generation of atomic squeezing using the inherent Kerr-like nonlinearities of ultracold atoms, and demonstrates a trap geometry in which metrologically relevant levels of squeezing are present in trap geometries that are compatible with large atomic number.
+One of the advantages of atoms over photons is that they interact with each other, unlike photons, which allows nonlinear interaction effects without all the fluffery that optics requires, like crystals etc.
 
-The creation, detection and application of squeezing requires precise mode-matching, and is therefore very sensitive to uncontrolled coupling between spatial modes of the atomic field.  Atomic squeezing experiments have typically attempted to operate in the single-mode regime, where the trap is tight enough such that all higher modes are frozen out \cite{LiET2009}.  However, tight traps limit the total number of atoms, as the 3-body recombination rate places an effective maximum atomic density in the gas, and well before that limit, the interatomic interactions break the single-mode operation.  Both of these effects limit the number of atoms that can be effectively squeezed, so we will examine a broader range of trap geometries, and calculate the dynamics in the presence of multiple spatial modes.
-Many similar previous simulations have been performed in one or two spatial dimensions, by integrating out some of the remaining dimensions \cite{kheruntsyanET2002, kheruntsyanET2005, johnssonET2007, haineET2009}.  For simulations of semiclassical fields this can be a reasonable approximation, but it can ignore spontaneous scattering processes in full quantum field theory calculations, so we take care to include full 3D simulations. 
+It has been recognized that the intrinsic nonlinearities of atoms could lead to effects like quadrature squeezing \cite{kheruntsyanET2005, johnssonET2007, haineET2009, doeringET2010}. Can also get number squeezing using spin squeezing techniques \cite{kitagawaET1993, gross2010, sinatra2012}, molecular dissocation of BECs \cite{kheruntsyanET2002, davisET2008, savage2007, ogren2010}, four-wave mixing \cite{perrin2008, ogren2009, jascula2010}, or double-well potentials \cite{esteve2008, maussang2010} or mixing quadrature-squeezed states using Ramsey interferometry \cite{haineET2009}.
 
-In section \ref{secTwoModeAnalytic} we examine the ideal behaviour when the system is reduced to a single spatial mode, extracting a full analytic solution to the squeezing for arbitrary \textbf{whatever it is we extended, along with reference of what was covered previously.}  In section \ref{sec:MMdescription} we explore the idea of how multimode behaviour will become important in physical systems, and introduce our model for simulating higher dimensional trap geometries.  Sec.~\ref{sec:1Dsim} analyses one-dimensional models, highlighting some of the issues regarding optimising squeezing parameters and mode-matching in squeezing experiments.  Sec.~ref{sec:pipulse} shows that the application of a $\pi$-pulse during the process can dramatically improve mode-matching issues.  Sec.~\ref{sec:2D3Dsqueezing} investigates measurable squeezing in 2D and 3D, and uses a Bogoliubov analysis to explain the  scaling with dimensionality.  Sec.~\ref{sectionConclusion} describes the conclusion that large volume, flat-bottomed, three-dimensional traps, which are obviously compatible with large atom number, can produce extremely high degrees of squeezing.
+{\bf Note that the FWM stuff is using the s-wave scatter sphere from condensate collisions, so pretty useless for interferometry}
+
+The creation of these non-classical atomic states has relevence for fundamental tests of quantum mechanics such as the EPR paradox \cite{pu2000, sorensen2001, haine2005,zhao2007, ogren2010}, as well as atom inteferometry \cite{sorensenET1999, kuzmichET2000, meyerET2001, liebfriedET2004, roosET2006, doeringET2010, gross2010}
+
+While these techniques have resulted in impressive levels of experimentally detectable number squeezing \cite{gross2010}, they have been limited to small numbers of atoms, typically a few hundred. 
+
+To really win in the interferometry game, you need good squeezing for large numbers of atoms. The reason people have used small numbers of atoms is that it allows you to move into the single-mode regime, where the trap is tight enough such that all higher modes are frozen out \cite{LiET2009}
+
+If this is not the case multimode stuff needs to be considered, and that's what we do in this paper.
+
+Most previous simulations of this sort of stuff tend to be in 1D or 2D for simplicity \cite{kheruntsyanET2002, kheruntsyanET2005, johnssonET2007, haineET2009}. They reduce the problem from 3D to 1D by integrating out one or two dimensions \cite{???}. Semi-classically this isn't a problem, because you can assume the modal dynamics have symmetry. However as we show in this paper, when dealing with QFT problems this naive approach can give you the wrong answer. We can do full 3D simulations because we're cool and we have XMDS2 \cite{dennis2013}. 
+
+
+
+
+
+
+
+
+
+
 
 \section{Model and two mode solutions}
 \label{secTwoModeAnalytic}
-Our goal is to describe the number squeezing possibilities of a BEC comprising two relevant internal states denoted by $|a\rangle$ and $|b\rangle$.  The Hamiltonian for a pair of coupled atomic internal modes is the spatial integral of the Hamiltonian density:
+Our goal is to describe the number squeezing possibilities of a BEC comprising two relevant internal states denoted by $|a\rangle$ and $|b\rangle$.  The Hamiltonian for a pair of coupled atomic internal modes is the spatial integral of the Hamiltonian density, which is given by
 \begin{equation}
-\hat{\mathcal{H}} = \sum_{j\in \{a,b\}} \hat{\psi}_j^{\dagger}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_j\right)\hat{\psi}_j 
-          + \sum_{i,j}\frac{U_{i j}}{2} \hat{\psi}_i^{\dagger} \hat{\psi}_j^{\dagger} \hat{\psi}_j \hat{\psi}_i
-          + \kappa \hat{\psi}_a^{\dagger} \hat{\psi}_b + \kappa^* \hat{\psi}_b^{\dagger}  \hat{\psi}_a,
+\hat{\mathcal{H}} = \sum_{j} \hat{\psi}_j^{\dagger}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_j\right)\hat{\psi}_j 
+          + \sum_{i j}\frac{U_{i j}}{2} \hat{\psi}_i^{\dagger} \hat{\psi}_j^{\dagger} \hat{\psi}_j \hat{\psi}_i
+          + \kappa \hat{\psi}_a^{\dagger} \hat{\psi}_b + \kappa^* \hat{\psi}_b^{\dagger}  \hat{\psi}_a
 \label{eqFieldHamiltonian}
 \end{equation}
 where $\hat{\psi}_j(\mathbf{x})$ is the annihilation field operator for a particle at position $\mathbf{x}$ and in internal state $|j\rangle$, $m$ is the mass of the atoms, $V_j(\mathbf{x})$ is the trapping potential for atoms in internal state $|j\rangle$, $U_{ij}$ describe the various inter- and intra-state nonlinearities, and $\kappa$ describes the coupling between the two states.  
 
-We begin by considering a simplified version of the problem, assuming that only one of these spatial modes is relevant for each of the condensate's components.  This is done by writing the multimode atomic field operators in terms of a set of basis functions $\hat{\psi}_a({\mathbf{r}},t) = \sum_n u_{n}({\mathbf{r}}) \hat{a}_{n}(t)$ and $\hat{\psi}_b({\mathbf{r}},t) = \sum_n u_{n}({\mathbf{r}}) \hat{b}_{n}(t)$, where $\hat{a}_{n}$ and $\hat{b}_{n}$ annihilate a particle with normalised spatial mode $u_n({\mathbf{r}})$ and internal state $|a\rangle$ or $|b\rangle$ respectively. With this expansion, the nonlinear term in the multimode Hamiltonian for the self-interaction of the $|a\rangle$ internal state becomes
+We begin by considering a simplified version of the problem, assuming that only one of these spatial modes is relevant for each of the condensate's components.  This is done by writing the multimode atomic field operators in terms of a set of basis functions $\hat{\psi}_a({\mathbf{r}},t) = \sum_n u_{n}({\mathbf{r}}) \hat{a}_{n}(t)$ and $\hat{\psi}_b({\mathbf{r}},t) = \sum_n u_{n}({\mathbf{r}}) \hat{b}_{n}(t)$, where $\hat{a}_{n}$ and $\hat{b}_{n}$ annihilate a particle with normalised spatial mode $u_n$ and internal state $|a\rangle$ or $|b\rangle$ respectively. With this expansion, the nonlinear term in the multimode Hamiltonian for the self-interaction of the $|a\rangle$ internal state becomes
 \begin{equation}
 \hat{H} = \frac{U_{aa}}{2} \int dV \sum_{nmpq} u_n^* u_m^* u_p u_q \, \hat{a}^{\dagger}_{n} \hat{a}^{\dagger}_{m} \hat{a}_{p} \hat{a}_{q} 
 \end{equation}
@@ -129,9 +154,15 @@ We proceed similarly for the other terms.  In the parameter regimes we are inter
 \end{equation}
 where the $\chi_{ij}$ describe the various inter- and intra-mode nonlinearities, and $\Omega$ couples the two modes and allows for population transfer between them.
 
-The system is prepared with all the population in $|a\rangle$, and vacuum in $|b\rangle$. We choose state $|a\rangle$ to be occupied as a coherent state with average number $\langle \hat{a}^{\dagger} \hat{a} \rangle = N$, where $N$ is the total particle number.  As our simulation and experiment are insensitive to the initial phase of the coherent state, this is equivalent to a mixture of coherent states of uncertain phase, or a mixture of Poissonian-distributed number states.  This state is consistent with BEC coherence experiments \cite{Hadzibabic2004}.  
+The system is prepared with all the population in $|a\rangle$, and vacuum in $|b\rangle$. We choose state $|a\rangle$ to be occupied as a coherent state with average number $\langle \hat{a}^{\dagger} \hat{a} \rangle = N$, where $N$ is the total particle number in our system.  As our simulation and experiment are insensitive to the initial phase of the coherent state, this is equivalent to a mixture of coherent states of uncertain phase, which is also equivalent to mixture of Poissonian-distributed number states.  This state is consistent with BEC coherence experiments \cite{Hadzibabic2004}.  
 
-At time $t=0$, the coupling $\Omega$ is applied until time $t=t_1$, resulting in a portion of the population being transferred into mode $|b\rangle$. We assume this transfer process is fast relative to the nonlinear energy time scale, ensuring that, as the initial states were coherent states, after the population transfer both $|a\rangle$ and $|b\rangle$ are still described by coherent states with mean number $\langle \hat{a}^{\dagger} \hat{a} \rangle = n_a$ and $\langle \hat{b}^{\dagger} \hat{b} \rangle = n_b$ respectively.  The coupling $\Omega$ is then switched off until time $t_2$, while the atoms interact solely through the nonlinear terms.   After this hold time $\tau_{\mathrm{hold}} = t_2 - t_1 $, the coupling $\Omega$ is switched back on until time $t_3$, with a phase shift $\phi$ compared to its first application. During this last stage, the two modes exchange population and the quadrature variance is converted into number variance, in the same way that homodyne measurements are used in quantum optics to convert quadrature squeezing into number squeezing, which can be directly measured. In this interpretation, $\phi$ is the relative phase of the strong local oscillator, which allows specific phase angles of quadrature squeezing to be examined.  This experiment can also be interpreted as a Ramsey interferometer with a final beam splitter phase of $\phi$.  The entire sequence of pulses and the resulting populations are shown schematically in Figure~\ref{figPulseScheme}.
+At time $t=0$, the coupling $\Omega$ is switched on and applied until time $t=t_1$, at which point it is turned off, resulting in a portion of the population being transferred into mode $|b\rangle$. We assume this transfer process fast relative to the nonlinear energy time scale, ensuring that, as the initial states were coherent states, after the population transfer both $|a\rangle$ and $|b\rangle$ are still described by coherent states with mean number $\langle \hat{a}^{\dagger} \hat{a} \rangle = n_a$ and $\langle \hat{b}^{\dagger} \hat{b} \rangle = n_b$ respectively.
+
+The coupling $\Omega$ is then switched off until time $t_2$. During this period the atoms interact solely through the nonlinear terms, with no population being transferred. Due to the form of the Hamiltonian, the number variance remains unchanged, but the quadrature variances in the two modes change over time, which can lead to quadrature squeezing \cite{johnssonET2007}.
+
+After this hold time $\tau_{\mathrm{hold}} = t_2 - t_1 $, the coupling $\Omega$ is switched back on until time $t_3$, with a phase shift $\phi$ compared to its first application. During this last stage, the two modes exchange population and the quadrature variance is converted into number variance, in the same way that homodyne measurements are used in quantum optics to convert quadrature squeezing into number squeezing, which can be directly measured. In this interpretation, $\phi$ is the relative phase of the strong local oscillator, which allows specific phase angles of quadrature squeezing to be examined.  This experiment can also be interpreted as a Ramsey interferometer with a final beam splitter phase of $\phi$.
+
+The entire sequence of pulses and the resulting populations are shown schematically in Figure~\ref{figPulseScheme}.
 
 \begin{figure}
     \centering
@@ -199,7 +230,7 @@ The first problem is present even if the spatial modes are uncoupled.  The two-m
 
 The second problem is due to the number-dependent dynamics of the spatial modes, which is observable even in a semiclassical simulation.  Due to the nonlinear term in the Hamiltonian, the local phase evolution of the atomic field is density dependent.  Consequently the mode shape of the atomic field changes depending on the nonlinearity-density product, which means that unless $U_{aa}|\psi_a({\mathbf{r}})|^2 + U_{ab}|\psi_b({\mathbf{r}})|^2 = U_{bb}|\psi_b({\mathbf{r}})|^2 + U_{ab}|\psi_a({\mathbf{r}})|^2$ for all ${\mathbf{r}}$, the mode shapes will not overlap perfectly during the final coupling pulse. This degraded mode-matching will result in lower efficiency when converting the quadrature squeezing to number squeezing. 
 
-We might speculate that the effects of these first two problems would be lessened by trap geometries that lead to near-constant density profiles for the BEC.  This should enable higher squeezing.  We cannot make strong conclusions without also considering the effects of coupling between spatial modes, however, which leads to the third potential problem: coupling between modes is inevitable in the presence of a nonlinearity, meaning that the modes cannot be analyzed independently. Coupling between modes will disturb mode-matching, as well as mixing fields with different phase evolution, which can rapidly destroy squeezing.  
+We might speculate that the effects of these first two problems would be lessened by trap geometries that lead to near-constant density profiles for the BEC.  This should enable higher squeezing.  We cannot make strong conclusions without also considering the effects of coupling between spatial modes, however, which leads to the third potential problem: Coupling between modes is inevitable in the presence of a nonlinearity, meaning that the modes cannot be analyzed independently. Coupling between modes will disturb mode-matching, as well as mixing fields with different phase evolution, which can rapidly destroy squeezing.  
 
 An analytic solution to the multimode, higher-dimensional problem is intractable, so we must use a numerical solution.  We use stochastic methods based on phase space representations to simulate the dynamics of the multimode quantum fields.  These methods alleviate the problem of directly simulating elements of the Hilbert space, the size of which increases exponentially with the number of spatial modes \cite{gardiner1991, steelET1998}.  Stochastic methods achieve this by finding a sufficiently well-behaved quasi-probability representation for the density matrix, which can then be simulated as the average behaviour of a number of low-dimensional samples.  These sample objects are the same size as the equivalent classical field.  In our case, the only tractable phase space representation is the functional Wigner representation, which is well behaved when the quantum field is approximately Gaussian, as it is for coherent and squeezed states.  Stochastic methods based on the functional Wigner representation have been used to model the behaviour of BECs and atom lasers \cite{johnssonET2007,dallET2009,dennisET2010}, as the Wigner representation allows the mapping of the system to a Fokker-Planck equation with positive semi-definite diffusion matrix (unlike the $P$-representation), and does not suffer exponential path-weighting problems that would constrain it to very short simulation intervals (as would the positive-$P$ representation).
 
@@ -215,17 +246,15 @@ where $:\star:_{\mbox{sym}}$ denotes symmetric ordering of the operators, and $\
 
 These stochastic equations take the form
 \begin{eqnarray}
-\frac{d \phi_a}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_a(\mathbf{x}) + U_{a a} n_a + U_{a b} \tilde{n}_b  \right)\phi_a   + \kappa \phi_b  \nonumber \\
-\frac{d \phi_b}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_b(\mathbf{x}) + U_{b b} n_b + U_{a b} \tilde{n}_a   \right)\phi_b   + \kappa^* \phi_a
-%\frac{d \phi_a}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_a(\mathbf{x}) + U_{a a} \left( \left|\phi_{a}\right|^2 -\frac{1}{dV}\right) + U_{a b} \left( \left|\phi_b\right|^2 -\frac{1}{2dV}\right)  \right)\phi_a   + \kappa \phi_b  \nonumber \\
-%\frac{d \phi_b}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_b(\mathbf{x}) + U_{b b} \left( \left|\phi_{b}\right|^2 - \frac{1}{dV} \right) + U_{a b} \left( \left|\phi_a\right|^2 -\frac{1}{2dV} \right)   \right)\phi_b   + \kappa^* \phi_a
+\frac{d \phi_a}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_a(\mathbf{x}) + U_{a a} \left( \left|\phi_{a}\right|^2 -\frac{1}{dV}\right) + U_{a b} \left( \left|\phi_b\right|^2 -\frac{1}{2dV}\right)  \right)\phi_a   + \kappa \phi_b  \nonumber \\
+\frac{d \phi_b}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_b(\mathbf{x}) + U_{b b} \left( \left|\phi_{b}\right|^2 - \frac{1}{dV} \right) + U_{a b} \left( \left|\phi_a\right|^2 -\frac{1}{2dV} \right)   \right)\phi_b   + \kappa^* \phi_a
   \label{eqStochasticEquations}
 \end{eqnarray}
-where $n_j=\left|\phi_{j}\right|^2 -\frac{1}{dV}$, $\tilde{n}_j=\left|\phi_{j}\right|^2 -\frac{1}{2 dV}$, $dV$ is the volume element of the grid on which the simulation is carried out, and the terms proportional to $1/dV$ correspond to vacuum corrections. It is a peculiarity of the Wigner representation that, up to the vacuum correction terms, Eqs.~(\ref{eqStochasticEquations}) look identical to those of the coupled semi-classical nonlinear Schr{\"{o}}dinger equation. The quantum statistical nature of the Wigner equations enters due to the fact that Eqs.~(\ref{eqStochasticEquations}) are run many times and stochastically averaged, with each run using different set of random initial conditions describing (in this case) the noise on a coherent state.
+where $dV$ is the volume element of the grid on which the simulation is carried out, and the terms proportional to $1/dV$ correspond to a vacuum corrections. It is a peculiarity of the Wigner representation that, up to the vacuum correction terms, Eqs.~(\ref{eqStochasticEquations}) look identical to those of the coupled semi-classical nonlinear Schr{\"{o}}dinger equation. The quantum statistical nature of the Wigner equations enters due to the fact that Eqs.~(\ref{eqStochasticEquations}) are run many times and stochastically averaged, with each run using different set of random initial conditions describing (in this case) the noise on a coherent state.
 
 We integrate equations (\ref{eqStochasticEquations}) numerically in one, two and three spatial dimensions using the numerical package XMDS2 \cite{dennis2013}.  For the one- and two-dimensional simulations, the dimensional reduction is achieved by estimating the mode shape in three dimensions, and using dimensionally reduced values for $U_{ij}$ that match the zero-dimensional reduction given by Eq.~(\ref{eqChiUequivalence}).  To make relevant comparisons between equivalent situations with different numbers of spatial dimensions, this mode shape is typically chosen to match the chemical potentials of the initial states.  
 
-\section{Effects of trap geometries on squeezing in 1D} \label{sec:1Dsim}
+\section{Effects of trap geometries on squeezing in 1D}
 
 A one-dimensional simulation is sufficient to examine the hypothesis that the squeezing will be higher for a BEC where the spatial mode has a more constant density profile.  We compare squeezing for fields starting in the ground states of a harmonic trap with negligible nonlinearity (a Gaussian), a harmonic trap with strong nonlinearity (Thomas-Fermi), and a constant potential (constant density). Using Eq.~(\ref{eqChiUequivalence}) we find the following equivalences
 \begin{eqnarray}
@@ -253,7 +282,7 @@ One way to avoid any requirement to engineer and maintain specific atomic modes 
 \end{equation}
 Such spatial filtering can easily produce higher squeezing, but there is the obvious disadvantage that it  significantly reduces the effective number of atoms.  This is a serious issue for most applications of squeezed sources, such as interferometry, where the signal to noise scales with the square root of the flux.  We will focus on methods for producing squeezing with large atomic number.
 
-\section{Using a $\pi$-pulse to improve mode-matching} \label{sec:pipulse}
+\section{Using a $\pi$-pulse to improve mode-matching}
 Modal mismatch is generated by the different atomic potentials seen by the two internal states.  A straightforward method of minimising this effect is to use a $\pi$-pulse to swap the populations of the internal states after half of the evolution. As can be seen by Eqs~(\ref{eqa1}) and (\ref{eqb1}), such a pulse also leaves the quantum statistics of each state unchanged. In the limit where each state remains in a single mode, and exactly half of the atoms are in each state, this technique ensures that both modes have identical mode shapes after the hold time. In practice this will never work perfectly --- due to the density distributions of $\psi_a(\mathbf{r})$ and $\psi_a(\mathbf{r})$ not reflecting the ground state, resulting in non-identical environments for the two modes, some modal dynamics will occur. Nonetheless, in many regimes, such a $\pi$-pulse can produce some improvement. More importantly, as this scheme accepts that the two modes will change shape, and attempts to make them change in a similar fashion, it allows the possibility of much longer hold times. That is, if we are no longer constrained to hold times short enough such that the mode shapes of the atoms in states $|a \rangle$ and $|b \rangle$ do not change significantly, much more squeezing can be extracted from the system.
 
 These points are illustrated in Fig.~\ref{piPulseFig}, which shows the best squeezing obtainable from a specific system with and without the $\pi$-pulse, as well as the extra squeezing that can be obtained by allowing a longer hold time as well as the $\pi$-pulse.
@@ -313,17 +342,17 @@ Figure~\ref{figBogSqueezingValidation} demonstrates the agreement between trunca
 % \end{align}
 % which is always greater than 1, but this isn't convincing either as the total squeezing includes the number variance of the $\mathbf{k=0}$ mode as well as the correlations between the $\mathbf{k}=0$ mode and the $\mathbf{k}\neq 0$ modes.  If you do it naively, you find that when the Bog modes have a significant impact on the squeezing, they have also significantly changed it at $t=t_2$, which must be the same as $t=t_1$.  The problem is that the Bogoliubov theory used isn't number-conserving.  The best argument I have at the moment for Bog theory being a good indicator for when things go bad is that a significant Bog fraction implies a depleted condensate, and that will almost certainly make squeezing bad as it will invalidate the single-mode theory.  More freedom == bad?  In this case, the best evidence for the utility of Bog theory would seem to be Figure~\ref{fig1D_squeezing_and_bog_scaling}.]
 
-To minimise the damaging effects of the non-condensed fraction it is better to operate in a regime where the total occupation of the non-zero momentum modes $N_{\mathbf{k}\neq 0}$ is small, which is also fortuitously the regime in which the Bogoliubov theory is a good approximation, so we can investigate in more detail.  In 1D Eq.~\eqref{eqCondensateDepletion} is
+To minimise the damaging effects of the non-condensed fraction it is better to operate in a regime where the total occupation of the non-zero momentum modes $N_{\mathbf{k}\neq 0}$ is small, which is also fortuitously the regime in which the Bogoliubov theory is a good approximation.  To better understand when $N_{\mathbf{k}\neq 0}/N$ will be small, we approximate the sum in \eqref{eqCondensateDepletion} with an integral.  In 1D Eq.~\eqref{eqCondensateDepletion} is
 \begin{align}
   \frac{N_{\mathbf{k}\neq 0}(t)}{N} &= \frac{(n_a \chi_{aa} \tau_\text{hold} \cos\theta)^2}{N} \sum_{k \neq 0} \sinc^2\left(\sqrt{\omega^0_{k}(\omega^0_{k}+2 \chi_{aa}n_a)}\tau_\text{hold}\right).
 \end{align}
-We approximate this sum by the integral
+We wish to approximate this sum by the integral
 \begin{align}
   \frac{N_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{(n_a \chi_{aa} \tau_\text{hold} \cos\theta)^2}{N} \int_{-\infty}^{+\infty} \sinc^2 \left(\sqrt{\omega^0_{k}(\omega^0_{k}+2 \chi_{aa}n_a)}\tau_\text{hold}\right) \frac{d k}{\Delta k}, \label{eqCondensateDepletionFirstIntegralApproximation}
 \end{align}
 where $\Delta k = 2\pi/L$ and $L$ is the length of the 1D box condensate.  This approximation will be valid in the limit that $\omega_{k_\text{min}} \tau_\text{hold} \ll 1$, where $k_\text{min} = 2\pi/L$ as for small $k$ the allowed values $k = n_x 2\pi /L$ will closely sample the region $\xi = \sqrt{\omega_k^0(\omega_k^0 + 2 \chi_{aa} n_a)} \tau_\text{hold} < \pi$ where $\sinc^2(\xi)$ is significant.
 
-Changing integration variables to $\Phi = \omega^{0}_{\mathbf{k}}\tau_\text{hold}$ and defining $\Lambda_a = n_a \chi_{aa} \tau_\text{hold}$, the non-condensed fraction \eqref{eqCondensateDepletionFirstIntegralApproximation} can be written as
+Changing integration variables to $\Phi = \omega^{0}_{\mathbf{k}}\tau_\text{hold}$ and defining $\Lambda_a = n_a \chi_{aa} \tau_\text{hold}$ the non-condensed fraction \eqref{eqCondensateDepletionFirstIntegralApproximation} can be written as
 \begin{align}
   \frac{N^\text{1D}_{\mathbf{k}\neq 0}(t)}{N} &\approx \frac{1}{N} \frac{\Lambda_a^2 L \cos^2\theta } {\sqrt{2}\pi\sqrt{\frac{\hbar}{M}\tau_\text{hold}}} f^\text{1D}(\Lambda_a), \label{eqBogFraction1D}
 \end{align}
@@ -444,17 +473,16 @@ This scaling of the estimated Bogoliubov fraction in 3D suggests that strong squ
 \section{Conclusion}
 \label{sectionConclusion}
 
-The large Kerr-type nonlinearities present between neutral atoms in BEC present the possibility of significant squeezing, but they also cause potentially complicated multimode behaviour.  Furthermore, the nonlinearities between multiple internal atomic states are not yet known for many atomic species, and often have sensitive dependence on external magnetic fields due to Feshbach resonances \cite{FeshbachOrReview}.  This paper analyses the requirements for producing useful squeezing for large atomic numbers.  
+We have presented an analytic solution to the two-mode model of atomic fields with a strong Kerr non-linearity.  The three nonlinearities between and within the modes are not yet known for many atomic species, and often have sensitive dependence on external magnetic fields due to Feshbach resonances \cite{FeshbachOrReview}, so this solution allows for a rapid estimate of the atomic number difference squeezing that can be gained from these systems as this data is obtained.  In general, it predicts arbitrarily good squeezing in the two-mode limit. \textbf{Revise that.}
 
-We have presented an analytic solution to the two-mode model of atomic fields with a strong Kerr non-linearity, allowing for a rapid estimate of the atomic number difference squeezing that can be gained from these systems as scattering length data is obtained.  In general, it predicts arbitrarily good squeezing in the two-mode limit. We then examined trap geometries in which this limit can be approached.
+Operating in a parameter regime where there is truly only one spatial mode, which is essential for the analytic solution to be valid, requires extremely tight trapping potentials.  Furthermore, due to the nonlinearities, it also comes with a strong limit on the number of atoms that can be trapped.  Interferometric applications of squeezing become valuable at high atomic flux, so we investigate methods of mitigating multimode spatial effects that degrade the squeezing.
 
 Using a constant potential in the trap (a `box' trap) allows the BEC density to be spatially uniform throughout the process.  This is shown to alleviate the difficulties with choosing correct hold times and phases for the coupling pulses.  Along with a pi-pulse midway during the holding period, this also alleviates the majority of the mode-matching issues for the final recombination of the two modes.  The remaining issue with the existence of multiple spatial modes was the possibility of scattering into them by the nonlinearities.
 
-Excluding multiple spatial modes on the basis of energy makes the analytic solution valid, but requires extremely tight trapping potentials.  This also strongly limits the number of atoms that can be trapped, due to inelastic scattering rates.  
-Using a Bogoliubov analysis, it was shown that the coupling between different modes could be minimised in a second regime, namely the \textit{weak} trapping limit for 3D traps.  This latter regime is in fact ideally compatible with large atomic numbers, and shows the prospect of extremely high squeezing.  A TWA simulation demonstrated a BEC trap with $15$\,dB of squeezing.  In practice, the only limit to the number of atoms in such traps would be the stability of the trap, as the BEC would become increasingly sensitive to fluctuations as the energy per particle is reduced as the volume increases.
+Using a Bogoliubov analysis, it was shown that the coupling between different modes could be minimised in two regimes.  The first was the tight trapping regime, where the system becomes effectively zero-dimensional, and the second was the weak trapping limit for 3D traps.  This latter regime is in fact ideally compatible with large atomic numbers, and shows the prospect of extremely high squeezing.  A TWA simulation demonstrated a BEC trap with $15$\,dB of squeezing.  In practice, the only limit to the number of atoms in such traps would be the stability of the trap, as the BEC would become increasingly sensitive to fluctuations as the energy per particle is reduced as the volume increases.
 
 \ack
-JH acknowledges the support of an ARC Future Fellowship.  \textbf{NCI?}
+Acknowledgements in here; funding sources etc.  Joe's Future Fellowship.  NCI?
 
 \clearpage
 
@@ -477,7 +505,7 @@ Finally, from time $t_2$ until time $t=t_3$, the coupling is once again applied 
 \hat{H_3} = \hbar \omega \hat{a}^{\dagger} \hat{a} +  \hbar \omega \hat{b}^{\dagger} \hat{b}
           + \hbar\Omega (e^{i\phi} \hat{a}^{\dagger} \hat{b} + e^{-i\phi} \hat{b}^{\dagger} \hat{a} ).
 \end{equation}
-It is clear that the linear self-energy terms proportional to $\omega$ result in a constant phase rotation of the fields $\hat{a}$ and $\hat{b}$. As this system is self-contained and global phase is unmeasurable, all phase measurements can only rely on the difference in phase between the two modes. This phase rotation is therefore irrelevant and will be ignored in the following analysis.
+It is clear that the linear self-energy terms proportional to $\omega$ result in a constant phase rotation of the fields $\hat{a}$ and $\hat{b}$. As this system is self-contained and global phase is unmeasurable, all phase measurements can only rely on the difference in phase between the two modes. This phase rotation is therefore irrelevent and will be ignored in the following analysis.
 
 We will work in the Heisenberg picture, and derive expressions for $\hat{a}(t_3)$ and $\hat{b}(t_3)$ in terms of $\hat{a}(t_2)$ and $\hat{b}(t_2)$, which in turn can be expressed in terms of $\hat{a}(t_1)$ and $\hat{b}(t_1)$. We will show that the state of the system at time $t_1$ consists of seperate coherent states in modes $|a\rangle$ and $|b\rangle$, enabling us to calculate expectation values at time $t_3$ in terms of the known state at $t_1$.
 
@@ -696,7 +724,7 @@ This Hamiltonian is diagonalised with the standard Bogoliubov transformation \ci
   \delta \hat{a}_\mathbf{k}(t) &= u_\mathbf{k} \delta\hat{b}_\mathbf{k}(t) - v_k \delta\hat{b}_{-\mathbf{k}}^\dagger(t),\\
   u_k^2 &= v_k^2+1 = \frac{1}{2} \left(\frac{\omega^0_\mathbf{k} + \chi_{aa}n_a}{\omega_\mathbf{k}} +1\right),
 \end{align}
-where $\omega^0_\mathbf{k} = \hbar \mathbf{k}^2/2M$ is the frequency of a free particle, and $\omega_\mathbf{k} = \sqrt{\omega^0_\mathbf{k}(\omega^0_\mathbf{k} + 2 \chi_{aa} n_a)}$ are the frequencies of the Bogoliubov modes:
+where $\omega^0_\mathbf{k} = \hbar \mathbf{k}^2/2M$ is the frequency of a free particle, and $\omega_\mathbf{k} = \sqrt{\omega^0_\mathbf{k}(\omega^0_\mathbf{k} + 2 \chi_{aa} n_a)}$ is the frequency of the Bogoliubov modes:
 \begin{align}
   \delta\hat{b}_\mathbf{k}(t) &= \exp\left(-i \omega_\mathbf{k} t\right)\delta\hat{b}_\mathbf{k}(0).
 \end{align}
