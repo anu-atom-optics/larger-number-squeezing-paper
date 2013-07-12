@@ -457,7 +457,7 @@ Finally, from time $t_2$ until time $t=t_3$, the coupling is once again applied 
 \hat{H_3} = \hbar\Omega (e^{i\phi} \hat{a}^{\dagger} \hat{b} + e^{-i\phi} \hat{b}^{\dagger} \hat{a} ).
 \end{equation}
 
-We will work in the Heisenberg picture, and derive expressions for $\hat{a}(t_3)$ and $\hat{b}(t_3)$ in terms of $\hat{a}(t_2)$ and $\hat{b}(t_2)$, which in turn can be expressed in terms of $\hat{a}(t_1)$ and $\hat{b}(t_1)$. We will show that the state of the system at time $t_1$ consists of seperate coherent states in modes $|a\rangle$ and $|b\rangle$, enabling us to calculate expectation values at time $t_3$ in terms of the known state at $t_1$.
+We will work in the Heisenberg picture, and derive expressions for $\hat{a}(t_3)$ and $\hat{b}(t_3)$ in terms of $\hat{a}(t_2)$ and $\hat{b}(t_2)$, which in turn can be expressed in terms of $\hat{a}(t_1)$ and $\hat{b}(t_1)$. We will show that the state of the system at time $t_1$ consists of separate coherent states in modes $|a\rangle$ and $|b\rangle$, enabling us to calculate expectation values at time $t_3$ in terms of the known state at $t_1$.
 
 In order to have more compact expressions we will use the notation
 \begin{eqnarray}
@@ -465,7 +465,7 @@ In order to have more compact expressions we will use the notation
 \hat{b}(t_j) &=& \hat{b}_j.
 \end{eqnarray}
 
-Beginning with the Hamiltonian $H_1$, during the period $(0, t_1)$ mode $\hat{a}$ will evolve as
+Beginning with the Hamiltonian $\hat{H}_1$, during the period $(0, t_1)$ mode $\hat{a}$ will evolve as
 \begin{equation}
 \hat{a}_1 = e^{ i \hat{H}_1 t/ \hbar} \, \hat{a}_0 \, e^{-i \hat{H}_1 t/ \hbar}.
 \end{equation}
@@ -484,9 +484,9 @@ Similarly, we find
 \hat{b}_1 = \cos (\Omega t_1) \hat{b}_0 - i \sin (\Omega t_1) \hat{a}_0.
 \label{eqb1}
 \end{equation}
-From the form of (\ref{eqa1}) and (\ref{eqb1}) it is clear that as both modes $\hat{a}$ and $\hat{b}$ began in coherent states, they will remain in coherent states, with only their amplitudes changing. Specifically, at time $t_1$ the system is in a product of coherent states, which we denote $|\alpha, \beta\rangle$ with $\alpha=\sqrt{n_a}$ and $\beta=-i\sqrt{n_b}$.
+From the form of (\ref{eqa1}) and (\ref{eqb1}) it is clear that as both modes $\hat{a}$ and $\hat{b}$ began in coherent states, they will remain in coherent states, with only their amplitudes changing. Specifically, at time $t_1$ the system is in a product of coherent states, which we denote $|\alpha, \beta\rangle$ with $\alpha=\sqrt{n_a}$ and $\beta=-i\sqrt{n_b}$ with $n_a + n_b = N$.
 
-Next we consider evolution under $H_2$. Taking mode $\hat{a}$ first, we note that as it commutes with the $\hat{b}^{\dagger} \hat{b}^{\dagger} \hat{b} \hat{b}$ term, and since $\hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}$ commutes with $\hat{a}^{\dagger} \hat{a} \hat{b}^{\dagger} \hat{b}$ we have
+Next we consider evolution under $\hat{H}_2$. Taking mode $\hat{a}$ first, we note that as it commutes with the $\hat{b}^{\dagger} \hat{b}^{\dagger} \hat{b} \hat{b}$ term, and since $\hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}$ commutes with $\hat{a}^{\dagger} \hat{a} \hat{b}^{\dagger} \hat{b}$ we have
 \begin{equation}
 \hat{a}_2 = e^{i \lambda_{ab} \hat{a}_1^{\dagger} \hat{a}_1 \hat{b}_1^{\dagger} \hat{b}_1 } 
           e^{ i \frac{\lambda_{aa}} {2} \hat{a}_1^{\dagger} \hat{a}_1^{\dagger} \hat{a}_1 \hat{a}_1}\, \hat{a}_1 \,  
@@ -656,7 +656,7 @@ When substituted into (\ref{eqNavariance}) and (\ref{eqNbvariance}) these expect
 \begin{equation}
 {\mathrm{Var}}[N_a-N_b] = {\mathrm{Var}}[N_a] + {\mathrm{Var}}[N_b] - 2\langle \hat{a}^{\dagger}_3 \hat{a}_3 \hat{b}^{\dagger}_3 \hat{b}_3\rangle + 2\langle \hat{a}^{\dagger}_3  \hat{a}_3 \rangle \langle \hat{b}^{\dagger}_3 \hat{b}_3\rangle \label{eqNumDiffVarianceAppendix}.
 \end{equation}
-We write (\ref{eqNumDiffVarianceAppendix}) in terms of $\hat{a}_2$ and $\hat{b}_2$ by using using (\ref{eqa3}) and (\ref{eqb3}), and then use the expectation values calculated earlier in this Appendix. After some algebra we obtain the expression (\ref{eqNumDiffVariance}) given in Section \ref{secTwoModeAnalytic}.
+We write (\ref{eqNumDiffVarianceAppendix}) in terms of $\hat{a}_2$ and $\hat{b}_2$ by using using (\ref{eqa3}) and (\ref{eqb3}), and then use the expectation values calculated earlier in this Appendix. This procedure gives the expression (\ref{eqNumDiffVariance}) given in Section \ref{secTwoModeAnalytic}.
 
 \section{Derivation of Bogoliubov squeezing formula}
 \label{appendixBogDerivation}
