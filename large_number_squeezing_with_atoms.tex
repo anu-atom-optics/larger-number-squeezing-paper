@@ -72,7 +72,7 @@
 \ead{mattias.johnsson@anu.edu.au}
 
 \begin{abstract}
-We examine the feasibility of creating and measuring large relative number squeezing in multicomponent trapped Bose-Einstein condensates.  In the absence of multimode effects, this squeezing can be arbitrarily large for arbitrarily large condensates, but a range of processes limit the measurable squeezing in realistic trap configurations.  We examine these processes, and suggest methods to mitigate them. We conclude that high levels of squeezing with large numbers of atoms is feasible, but can realistically only be achieved in traps with particular trap geometries.  We also introduce a method of maximising the measurable squeezing by using a $\pi$-pulse during the process to improve spatial mode-matching.
+We examine the feasibility of creating and measuring large relative number squeezing in multicomponent trapped Bose-Einstein condensates.  In the absence of multimode effects, this squeezing can be arbitrarily large for arbitrarily large condensates, but a range of processes limit the measurable squeezing in realistic trap configurations.  We examine these processes, and suggest methods to mitigate them. We conclude that high levels of squeezing with large numbers of atoms is feasible, but can realistically only be achieved in particular trap geometries.  We also introduce a method of maximising the measurable squeezing by using a $\pi$-pulse during the process to improve spatial mode-matching.
 \end{abstract}
 
 %Uncomment for PACS numbers title message
@@ -98,10 +98,10 @@ Many similar previous simulations have been performed in one or two spatial dime
 
 In Section \ref{secTwoModeAnalytic} we examine the ideal behaviour of a nonlinear bosonic two-state system when that system possesses only a single spatial mode, extracting full analytic solutions for the number squeezing in each of the two states, as well as the number difference squeezing between the two states. These solutions of the ideal case provide a check on the multimode cases we consider later in the paper, as well as providing a bound on the best possible squeezing for the system.
 
-In Section \ref{sec:MMdescription} we show how multimode behaviour becomes important in physical systems, and introduce our model for simulating higher dimensional trap geometries.  Section~\ref{sec:1Dsim} analyses one-dimensional models, highlighting some of the issues regarding optimising squeezing parameters and mode-matching in squeezing experiments.  Section~\ref{sec:pipulse} shows that the application of a $\pi$-pulse during the process can significantly improve mode-matching issues.  Section~\ref{sec:2D3Dsqueezing} investigates measurable squeezing in 2D and 3D, and uses a Bogoliubov analysis to explain the scaling with dimensionality. Section~\ref{sectionConclusion} describes the conclusion that large volume, flat-bottomed, three-dimensional traps, which are obviously compatible with large atom number, can produce extremely high degrees of squeezing.
+In Section \ref{sec:MMdescription} we show how multimode behaviour becomes important in physical systems, and introduce our model for simulating higher dimensional trap geometries.  Section~\ref{sec:1Dsim} analyses one-dimensional models, highlighting some of the issues regarding optimising squeezing parameters and mode-matching in squeezing experiments.  Section~\ref{sec:pipulse} shows that the application of a $\pi$-pulse during the process can significantly improve mode-matching issues.  Section~\ref{sec:2D3Dsqueezing} investigates measurable squeezing in 2D and 3D, and uses a Bogoliubov analysis to explain the scaling with system size and dimensionality. Section~\ref{sectionConclusion} describes the conclusion that large volume, flat-bottomed, three-dimensional traps, which are obviously compatible with large atom number, can produce extremely high degrees of squeezing.
 
 
-\section{Model and two mode solutions}
+\section{Model and single-mode solutions}
 \label{secTwoModeAnalytic}
 Our goal is to describe the number squeezing possibilities of a BEC comprising two relevant internal states denoted by $|a\rangle$ and $|b\rangle$.  The Hamiltonian for a pair of coupled atomic internal modes is the spatial integral of the Hamiltonian density:
 \begin{equation}
@@ -112,7 +112,7 @@ Our goal is to describe the number squeezing possibilities of a BEC comprising t
 \end{equation}
 where $\hat{\psi}_j(\mathbf{r})$ is the annihilation field operator for a particle at position $\mathbf{r}$ and in internal state $|j\rangle$, $m$ is the mass of the atoms, $V_j(\mathbf{r})$ is the trapping potential for atoms in internal state $|j\rangle$, $\kappa$ describes the coupling between the two states, and the $U_{ij}$ describe the various inter- and intra-state nonlinearities and are given by
 \begin{equation}
-U_{ij} = \frac{4 \pi \hbar^2 m} {a_{ij}}
+U_{ij} = \frac{4 \pi \hbar^2 a_{ij}} {m}
 \label{eqUij}
 \end{equation}
 where $a_{ij}$ are the inter- and intra-species s-wave scattering lengths.
@@ -139,20 +139,27 @@ where the $\chi_{ij}$ describe the various inter- and intra-mode nonlinearities,
 
 When considering squeezing, the Hamiltonian (\ref{eqTwoModeHamiltonian}) has typically been handled within the framework of spin squeezing, which has a long history \cite{kitagawaET1993, esteve2008,sorensenET1999, liebfriedET2004, wineland1994, steel+collett}. This approach involves exploiting the equivalence between the algebra of two harmonic oscillators and that of angular momentum, and writing
 \begin{eqnarray}
-\hat{S}_+ &=& \hat{a}^{\dagger} \hat{b} \\
-\hat{S}_- &=& \hat{a} \hat{b}^{\dagger} \\
-\hat{S}_x &=& \frac{1}{2} \left( \hat{S}_+ + \hat{S}_-\right) \\
-\hat{S}_y &=& \frac{1}{2i} \left( \hat{S}_+ - \hat{S}_-\right) \\
-\hat{S}_z &=& \frac{1}{2} \left( \hat{a}^{\dagger} \hat{a} - \hat{b}^{\dagger} \hat{b} \right).
+\hat{J}_+ &=& \hat{a}^{\dagger} \hat{b} \\
+\hat{J}_- &=& \hat{a} \hat{b}^{\dagger} \\
+\hat{J}_x &=& \frac{1}{2} \left( \hat{J}_+ + \hat{J}_-\right) \\
+\hat{J}_y &=& \frac{1}{2i} \left( \hat{J}_+ - \hat{J}_-\right) \\
+\hat{J}_z &=& \frac{1}{2} \left( \hat{a}^{\dagger} \hat{a} - \hat{b}^{\dagger} \hat{b} \right).
 \end{eqnarray}
-Using these variables Eq.~(\ref{eqTwoModeHamiltonian}) is transformed into the Josephson Hamiltonian \cite{steel+collett}
+Using these variables Eq.~(\ref{eqTwoModeHamiltonian}) becomes
 \begin{equation}
-\hat{H}_J = \Delta \omega \, \hat{S}_z + \chi \hat{J}_z^2 + \Omega \hat{J}_x
-\label{eqJosephson}
+\hat{H} = \hbar\Delta \omega(\hat{N}) \, \hat{J}_z + \frac{1}{2}\hbar\chi_+ \hat{J}_z^2 + 2\hbar\Omega \hat{J}_x - \frac{1}{4}\left(\chi_{aa} + \chi_{bb}\right)\hat{N} + \frac{1}{8} \left(\chi_{aa} + \chi_{bb} + 2\chi_{ab}\right) \hat{N}^2
+\label{eqNonlinearJosephson}
 \end{equation}
-where $\Delta \omega$ is a function of the various nonlinearities and $\chi=\chi_{aa}+\chi_{bb}-2\chi_{ab}$. The system described by $\hat{H}_J$ is then solved by using angular momentum algebra. 
+where $\hat{N}=\hat{n}_1 + \hat{n}_2$ is the total number operator, $\Delta \omega(\hat{N}) = (\hat{N}-1)\left(\chi_1 - \chi_2\right)/2$ and $\chi_+=\chi_{aa}+\chi_{bb}-2\chi_{ab}$. For initial states which are total number Fock states, the last two terms are physically meaningless phase shifts and the first term can be removed by an appropriate choice of detuning.  In this case Eq.~\eqref{eqNonlinearJosephson} reduces to the Josephson Hamiltonian with zero detuning \cite{steel+collett}
+\begin{equation}
+  \hat{H}_J = \frac{1}{2} \hbar\chi_+ \hat{J}_z^2 + 2\hbar \Omega \hat{J}_x. \label{eqJosephson}
+\end{equation}
+The system described by $\hat{H}_J$ is then solved using angular momentum algebra.
 
-We take a different approach and solve Eq.~(\ref{eqTwoModeHamiltonian}) directly for two reasons. First, we want access to the number variances of each state, not just the variance of the number difference between the states. Second, Eq.~(\ref{eqJosephson}) has led to the common misconception that no squeezing can be generated in this system if $\chi_{aa}+\chi_{bb}-2\chi_{ab}=0$, as the effects of the nonlinearities on $\Delta \omega$ are dismissed as an irrelevent detuning. This is only the case if a spin-echo pulse is used half way through the application of (\ref{eqTwoModeHamiltonian}) (which is the protocol used in most spin squeezing experiments) or extra detunings are added to (\ref{eqJosephson}). Directly solving Eq.~(\ref{eqTwoModeHamiltonian}) makes this clearer.
+The reduction of Eq.~\eqref{eqTwoModeHamiltonian} to the Josephson Hamiltonian has led to the common misconception that no squeezing can be generated in this system if $\chi_+ = 0$ as the effects of the $\Delta\omega$ term are usually dismissed as an irrelevant detuning.  This is not true in general for initial states other than a total number Fock state as the $\Delta\omega(\hat{N})\hat{J}_z$ term leads to a number-dependent detuning.  We demonstrate in this paper that for the case of an initial coherent state this term leads to squeezing.  A spin-echo pulse applied half-way through the experiment which exchanges the population of modes $\ket{a}$ and $\ket{b}$ (which is the protocol used in most spin squeezing experiments) also cancels the effects of this term, and in this case squeezing is only generated if $\chi_+ \neq 0$.  In this work we directly solve Eq.~\eqref{eqTwoModeHamiltonian} demonstrating that squeezing is generated (without a spin-echo pulse) even if $\chi_+=0$.
+% We discuss the effects of a spin-echo pulse in Section~\ref{sec:pipulse}
+
+% We take a different approach and solve Eq.~(\ref{eqTwoModeHamiltonian}) directly for two reasons. First, we want access to the number variances of each state, not just the variance of the number difference between the states. Second, Eq.~(\ref{eqJosephson}) has led to the common misconception that no squeezing can be generated in this system if $\chi_{aa}+\chi_{bb}-2\chi_{ab}=0$, as the effects of the nonlinearities on $\Delta \omega$ are dismissed as an irrelevent detuning. This is only the case if a spin-echo pulse is used half way through the application of (\ref{eqTwoModeHamiltonian}) (which is the protocol used in most spin squeezing experiments) or extra detunings are added to (\ref{eqJosephson}). Directly solving Eq.~(\ref{eqTwoModeHamiltonian}) makes this clearer.
 
 The system is prepared with all the population initially in $|a\rangle$, and vacuum in $|b\rangle$. We choose the initial state $|a\rangle$ to be a coherent state with average number $\langle \hat{a}^{\dagger} \hat{a} \rangle = N$, where $N$ is the total particle number.  As the system is insensitive to the initial phase of the coherent state, this is equivalent to a mixture of coherent states of uncertain phase, or a mixture of Poissonian-distributed number states. Such a state is consistent with BEC coherence experiments \cite{Hadzibabic2004}.  
 
