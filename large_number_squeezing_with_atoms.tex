@@ -112,7 +112,7 @@ Our goal is to describe the number squeezing possibilities of a BEC comprising t
 \end{equation}
 where $\hat{\psi}_j(\mathbf{r})$ is the annihilation field operator for a particle at position $\mathbf{r}$ and in internal state $|j\rangle$, $m$ is the mass of the atoms, $V_j(\mathbf{r})$ is the trapping potential for atoms in internal state $|j\rangle$, $\kappa$ describes the coupling between the two states, and the $U_{ij}$ describe the various inter- and intra-state nonlinearities and are given by
 \begin{equation}
-U_{ij} = \frac{4 \pi \hbar^2 a_{ij}} {m}
+U_{ij} = \frac{4 \pi \hbar^2 a_{ij}} {m},
 \label{eqUij}
 \end{equation}
 where $a_{ij}$ are the inter- and intra-species s-wave scattering lengths.
@@ -120,7 +120,7 @@ where $a_{ij}$ are the inter- and intra-species s-wave scattering lengths.
  
 We begin by considering a simplified version of the problem, assuming that only one of these spatial modes is relevant for each of the condensate's components.  This is done by writing the multimode atomic field operators in terms of a set of basis functions $\hat{\psi}_a({\mathbf{r}},t) = \sum_n u_{n}({\mathbf{r}}) \hat{a}_{n}(t)$ and $\hat{\psi}_b({\mathbf{r}},t) = \sum_n u_{n}({\mathbf{r}}) \hat{b}_{n}(t)$, where $\hat{a}_{n}$ and $\hat{b}_{n}$ annihilate a particle with normalised spatial mode $u_n({\mathbf{r}})$ and internal state $|a\rangle$ or $|b\rangle$ respectively. With this expansion, the nonlinear term in the multimode Hamiltonian for the self-interaction of the $|a\rangle$ internal state becomes
 \begin{equation}
-\hat{H} = \frac{U_{aa}}{2} \int dV \sum_{nmpq} u_n^* u_m^* u_p u_q \, \hat{a}^{\dagger}_{n} \hat{a}^{\dagger}_{m} \hat{a}_{p} \hat{a}_{q} 
+\hat{H} = \frac{U_{aa}}{2} \int dV \sum_{nmpq} u_n^* u_m^* u_p u_q \, \hat{a}^{\dagger}_{n} \hat{a}^{\dagger}_{m} \hat{a}_{p} \hat{a}_{q} .
 \end{equation}
 When the system remains predominantly in spatial mode $u_0(\mathbf{r})$, we can approximate this sum as the single term $\hat{H} = \hbar\chi_{aa} \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}/2$ where
 \begin{equation}
@@ -132,22 +132,22 @@ We proceed similarly for the other terms.  In the parameter regimes we are inter
 \hat{H} = \hbar\frac{\chi_{aa}}{2} \hat{a}^{\dagger} \hat{a}^{\dagger} \hat{a} \hat{a}
           + \hbar\chi_{ab} \hat{a}^{\dagger} \hat{a} \hat{b}^{\dagger} \hat{b}
           + \hbar\frac{\chi_{bb}}{2} \hat{b}^{\dagger} \hat{b}^{\dagger} \hat{b} \hat{b}
-          + \hbar\Omega (\hat{a}^{\dagger} \hat{b} + \hat{b}^{\dagger}  \hat{a} )
+          + \hbar\Omega (\hat{a}^{\dagger} \hat{b} + \hat{b}^{\dagger}  \hat{a} ),
 \label{eqTwoModeHamiltonian}
 \end{equation}
 where the $\chi_{ij}$ describe the various inter- and intra-mode nonlinearities, and $\Omega$ couples the two modes and allows for population transfer between them.
 
 When considering squeezing, the Hamiltonian (\ref{eqTwoModeHamiltonian}) has typically been handled within the framework of spin squeezing, which has a long history \cite{kitagawaET1993, esteve2008,sorensenET1999, liebfriedET2004, wineland1994, steel+collett}. This approach involves exploiting the equivalence between the algebra of two harmonic oscillators and that of angular momentum, and writing
 \begin{eqnarray}
-\hat{J}_+ &=& \hat{a}^{\dagger} \hat{b} \\
-\hat{J}_- &=& \hat{a} \hat{b}^{\dagger} \\
-\hat{J}_x &=& \frac{1}{2} \left( \hat{J}_+ + \hat{J}_-\right) \\
-\hat{J}_y &=& \frac{1}{2i} \left( \hat{J}_+ - \hat{J}_-\right) \\
+\hat{J}_+ &=& \hat{a}^{\dagger} \hat{b}, \\
+\hat{J}_- &=& \hat{a} \hat{b}^{\dagger}, \\
+\hat{J}_x &=& \frac{1}{2} \left( \hat{J}_+ + \hat{J}_-\right), \\
+\hat{J}_y &=& \frac{1}{2i} \left( \hat{J}_+ - \hat{J}_-\right), \\
 \hat{J}_z &=& \frac{1}{2} \left( \hat{a}^{\dagger} \hat{a} - \hat{b}^{\dagger} \hat{b} \right).
 \end{eqnarray}
 Using these variables Eq.~(\ref{eqTwoModeHamiltonian}) becomes
 \begin{equation}
-\hat{H} = \hbar\Delta \omega(\hat{N}) \, \hat{J}_z + \frac{1}{2}\hbar\chi_+ \hat{J}_z^2 + 2\hbar\Omega \hat{J}_x - \frac{1}{4}\left(\chi_{aa} + \chi_{bb}\right)\hat{N} + \frac{1}{8} \left(\chi_{aa} + \chi_{bb} + 2\chi_{ab}\right) \hat{N}^2
+\hat{H} = \hbar\Delta \omega(\hat{N}) \, \hat{J}_z + \frac{1}{2}\hbar\chi_+ \hat{J}_z^2 + 2\hbar\Omega \hat{J}_x - \frac{1}{4}\left(\chi_{aa} + \chi_{bb}\right)\hat{N} + \frac{1}{8} \left(\chi_{aa} + \chi_{bb} + 2\chi_{ab}\right) \hat{N}^2,
 \label{eqNonlinearJosephson}
 \end{equation}
 where $\hat{N}=\hat{a}^\dagger\hat{a} + \hat{b}^\dagger\hat{b}$ is the total number operator, $\Delta \omega(\hat{N}) = (\hat{N}-1)\left(\chi_{aa} - \chi_{bb}\right)/2$ and $\chi_+=\chi_{aa}+\chi_{bb}-2\chi_{ab}$. For initial states which are total number Fock states, the last two terms are physically meaningless phase shifts and the first term can be removed by an appropriate choice of detuning.  In this case Eq.~\eqref{eqNonlinearJosephson} reduces to the Josephson Hamiltonian with zero detuning \cite{steel+collett}
@@ -172,40 +172,40 @@ At time $t=0$, the coupling $\Omega$ is applied until time $t=t_1$, resulting in
     \label{figPulseScheme}
 \end{figure}
 
-We solve this system analytically, and derive expressions for absolute and relative number squeezing. We present the solutions here; the full derivation can be found in \ref{appendixTwoModeDerivation} as it is somewhat laborious. If we define
+We solve this system analytically, and derive expressions for absolute and relative number squeezing. We present the solutions here; the full derivation can be found in \ref{appendixTwoModeDerivation}. If we define
 \begin{eqnarray}
-s &=& \sin(\theta) \label{eqsDef} \\
-c &=& \cos(\theta) \\
-\theta &=& \Omega(t_3 - t_2) \\
-\lambda_{ij} &=& \chi_{ij} \tau_{\mathrm{hold}} \\
-A &=& \sqrt{n_a} \exp [n_a (e^{-i(\lambda_{aa}-\lambda_{ab})} - 1 )] \\
-A_2 &=& n_a \exp [n_a (e^{-2i(\lambda_{aa}-\lambda_{ab})} - 1 )] \\
-B &=& -i e^{i \phi}\sqrt{n_b} \exp [n_b (e^{-i(\lambda_{bb}-\lambda_{ab})} - 1 )] \\
-B_2 &=& -n_b e^{2i\phi} \exp [n_b (e^{-2i(\lambda_{bb}-\lambda_{ab})} - 1 )] \\
-D &=& AB^* - A^*B \label{eqDDef}
+s &=& \sin(\theta), \label{eqsDef} \\
+c &=& \cos(\theta), \\
+\theta &=& \Omega(t_3 - t_2), \\
+\lambda_{ij} &=& \chi_{ij} \tau_{\mathrm{hold}}, \\
+A &=& \sqrt{n_a} \exp [n_a (e^{-i(\lambda_{aa}-\lambda_{ab})} - 1 )], \\
+A_2 &=& n_a \exp [n_a (e^{-2i(\lambda_{aa}-\lambda_{ab})} - 1 )], \\
+B &=& -i e^{i \phi}\sqrt{n_b} \exp [n_b (e^{-i(\lambda_{bb}-\lambda_{ab})} - 1 )], \\
+B_2 &=& -n_b e^{2i\phi} \exp [n_b (e^{-2i(\lambda_{bb}-\lambda_{ab})} - 1 )], \\
+D &=& AB^* - A^*B, \label{eqDDef}
 \end{eqnarray}
 then the expectation values for number, number variance, and number difference variance after applying the final coupling field are given by
 \begin{eqnarray}
-N_a(t_3) &=& n_a c^2 + n_b s^2 + i c s D \\
+N_a(t_3) &=& n_a c^2 + n_b s^2 + i c s D, \\
 %
-N_b(t_3) &=& n_a s^2 + n_b c^2 - i c s D \\
+N_b(t_3) &=& n_a s^2 + n_b c^2 - i c s D, \\
 %
 {\mathrm{Var}} [ N_a](t_3) &=& n_a c^2 + n_b s^2 + 2 n_a n_b c^2 s^2 \nonumber\\
        && + c^2 s^2 (D^2 - e^{i(\lambda_{aa} - \lambda_{bb})} B_2 A_2^* - e^{-i(\lambda_{aa} - \lambda_{bb})} B_2^* A_2) \nonumber \\
        && + i c s D (1-2 n_a c^2 -2 n_b s^2)  \nonumber\\
        && + 2 i c^3 s n_a (e^{-i(\lambda_{aa} - \lambda_{ab})} A B^* - e^{i(\lambda_{aa} - \lambda_{ab})} A^* B ) \nonumber \\
-       && + 2 i c s^3 n_b (e^{i(\lambda_{bb} - \lambda_{ab})} A B^* - e^{-i(\lambda_{bb} - \lambda_{ab})} A^* B ) \\
+       && + 2 i c s^3 n_b (e^{i(\lambda_{bb} - \lambda_{ab})} A B^* - e^{-i(\lambda_{bb} - \lambda_{ab})} A^* B ), \\
 %
 {\mathrm{Var}} [ N_b](t_3) &=&  n_a s^2 + n_b c^2 + 2 n_a n_b c^2 s^2 \nonumber \\
        && + c^2 s^2 (D^2 - e^{i(\lambda_{aa} - \lambda_{bb})} B_2 A_2^* - e^{-i(\lambda_{aa} - \lambda_{bb})} B_2^* A_2 ) \nonumber \\
        && + i c s D (-1+2 n_a s^2 + 2 n_b c^2)  \nonumber \\
        && + 2 i c^3 s n_b (e^{-i(\lambda_{bb} - \lambda_{ab})} A^* B - e^{i(\lambda_{bb} - \lambda_{ab})} A B^* ) \nonumber \\
-       && + 2 i c s^3 n_a (e^{i(\lambda_{aa} - \lambda_{ab})} A^* B - e^{-i(\lambda_{aa} - \lambda_{ab})} A B^* ) \\
+       && + 2 i c s^3 n_a (e^{i(\lambda_{aa} - \lambda_{ab})} A^* B - e^{-i(\lambda_{aa} - \lambda_{ab})} A B^* ), \\
 %
 {\mathrm{Var}} [ N_a - N_b](t_3) &=& n_a + n_b + 4 i c s D (n_a - n_b)(s^2 - c^2) \nonumber \\
        && + 4 c^2 s^2 (2 n_a n_b +D^2 - e^{i(\lambda_{aa} - \lambda_{bb})} A_2^* B_2 - e^{-i(\lambda_{aa} - \lambda_{bb})} A_2 B_2^* ) \nonumber \\
        && + 4 i c s (c^2 - s^2) \left( n_a e^{-i(\lambda_{aa} - \lambda_{ab})} A B^* - n_a e^{i(\lambda_{aa} - \lambda_{ab})} A^* B \right. \nonumber \\
-       && \,\,\,\,\, \left. + n_b e^{-i(\lambda_{bb} - \lambda_{ab})} A^* B - n_b e^{i(\lambda_{bb} - \lambda_{ab})} A B^* \right) \label{eqNumDiffVariance}
+       && \,\,\,\,\, \left. + n_b e^{-i(\lambda_{bb} - \lambda_{ab})} A^* B - n_b e^{i(\lambda_{bb} - \lambda_{ab})} A B^* \right). \label{eqNumDiffVariance}
 \end{eqnarray}
 In the case where all the nonlinearities are equal, such that $\chi_{aa} = \chi_{ab} = \chi_{bb}$, the number variances all reduce to those of a coherent state, i.e. ${\mathrm{Var}}[N_a]=N_a$, and no number squeezing is possible. It should also be noted that, although there are three independent nonlinearities $\chi_{ij}$ in the Hamiltonian (\ref{eqTwoModeHamiltonian}), the expressions for the number variances only depend on differences. This means that number squeezing is parameterised by only two independent quantities, for example $\chi_{aa}-\chi_{ab}$ and $\chi_{aa}-\chi_{bb}$.  
 
@@ -238,7 +238,7 @@ The equation of motion for the density matrix is defined by the Hamiltonian in E
 
 Under the TWA, the equation of motion for the functional Wigner distribution is a Fokker-Planck equation, and can therefore be sampled by a set of stochastic equations, as described in \cite{gardiner1991}.  These stochastic fields $\phi(\mathbf{x})$ are related to field operator expectation values by  
 \begin{equation}
-\langle :\hat{\psi}^\dagger(\mathbf{x_1})\cdots\hat{\psi}^\dagger(\mathbf{x_n})\hat{\psi}(\mathbf{y_1})\cdots\hat{\psi}(\mathbf{y_m}):_{\mbox{sym}}\rangle = \mathbb{E}\left[\phi^*(\mathbf{x_1})\cdots\phi^*(\mathbf{x_n})\phi(\mathbf{y_1})\cdots\phi(\mathbf{y_m})\right]
+\langle :\hat{\psi}^\dagger(\mathbf{x_1})\cdots\hat{\psi}^\dagger(\mathbf{x_n})\hat{\psi}(\mathbf{y_1})\cdots\hat{\psi}(\mathbf{y_m}):_{\mbox{sym}}\rangle = \mathbb{E}\left[\phi^*(\mathbf{x_1})\cdots\phi^*(\mathbf{x_n})\phi(\mathbf{y_1})\cdots\phi(\mathbf{y_m})\right],
 \label{eqExpectationRelations}
 \end{equation}
 %
@@ -246,8 +246,8 @@ where $:\star:_{\mbox{sym}}$ denotes symmetric ordering of the operators, and $\
 
 These stochastic equations take the form
 \begin{eqnarray}
-\frac{d \phi_a}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_a(\mathbf{r}) + U_{a a} n_a + U_{a b} \tilde{n}_b  \right)\phi_a   + \kappa \phi_b  \nonumber \\
-\frac{d \phi_b}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_b(\mathbf{r}) + U_{b b} n_b + U_{a b} \tilde{n}_a   \right)\phi_b   + \kappa^* \phi_a
+\frac{d \phi_a}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_a(\mathbf{r}) + U_{a a} n_a + U_{a b} \tilde{n}_b  \right)\phi_a   + \kappa \phi_b , \nonumber \\
+\frac{d \phi_b}{dt} = -\frac{i}{\hbar}\left(-\frac{\hbar^2}{2 m}\nabla^2+V_b(\mathbf{r}) + U_{b b} n_b + U_{a b} \tilde{n}_a   \right)\phi_b   + \kappa^* \phi_a,
   \label{eqStochasticEquations}
 \end{eqnarray}
 where $n_j=\left|\phi_{j}\right|^2 -\frac{1}{dV}$, $\tilde{n}_j=\left|\phi_{j}\right|^2 -\frac{1}{2 dV}$, $dV$ is the volume element of the grid on which the simulation is carried out, and the terms proportional to $1/dV$ correspond to vacuum corrections. It is a peculiarity of the Wigner representation that, up to the vacuum correction terms, Eqs.~(\ref{eqStochasticEquations}) look identical to those of the coupled semi-classical nonlinear Schr{\"{o}}dinger equation. The quantum statistical nature of the Wigner equations enters due to the fact that Eqs.~(\ref{eqStochasticEquations}) are run many times and stochastically averaged, with each run using different set of random initial conditions describing (in this case) the noise on a coherent state.
@@ -257,13 +257,13 @@ We integrate Eqs.~(\ref{eqStochasticEquations}) numerically in one, two and thre
 \section{Effects of trap geometries on squeezing in 1D} \label{sec:1Dsim}
 
 A one-dimensional simulation is sufficient to examine the hypothesis that the squeezing will be higher for a BEC where the spatial mode has a more constant density profile.  We compare squeezing for fields starting in the ground states of a harmonic trap with negligible nonlinearity (a Gaussian), a harmonic trap with strong nonlinearity (Thomas-Fermi), and a constant potential (constant density). Using Eq.~(\ref{eqChiUequivalence}) we find the following equivalences
-\begin{eqnarray}
-\hbar \chi &=& U \sqrt{\frac{m^3 \omega_x \omega_y \omega_z}{8 \pi^3 \hbar^3}} \,\,\,\, ({\textrm{Gaussian}}) \\
+\begin{align}
+\hbar \chi &= U \sqrt{\frac{m^3 \omega_x \omega_y \omega_z}{8 \pi^3 \hbar^3}}, &&({\textrm{Gaussian}}) \\
 %
-\hbar \chi &=& \frac{4}{7} \left( \frac{15 U \omega_x \omega_y \omega_z}{16 \pi \sqrt{2}} \right)^{2/5} \left( \frac{m}{N} \right)^{3/5} \,\,\,\, ({\textrm{Thomas-Fermi}}) \\
+\hbar \chi &= \frac{4}{7} \left( \frac{15 U \omega_x \omega_y \omega_z}{16 \pi \sqrt{2}} \right)^{2/5} \left( \frac{m}{N} \right)^{3/5}, &&({\textrm{Thomas-Fermi}}) \\
 %
-\hbar \chi &=& \frac{U}{V} \,\,\,\, {\textrm{(constant density)}}
-\end{eqnarray}
+\hbar \chi &= \frac{U}{V}, &&{\textrm{(constant density)}}
+\end{align}
 %
 where $\omega_x$, $\omega_y$, $\omega_z$ are the angular frequencies of the harmonic trap, and $N$ is the number of particles in the mode of interest.
 
