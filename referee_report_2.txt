@@ -1,0 +1,27 @@
+Referee report
+Article ID:	NJP/481926/PAP
+Title:	Squeezing in Bose-Einstein condensates with large numbers of atoms
+ 	
+	Second referee's report
+
+The authors study number squeezing via atomic collisions in multimode, multicomponent Bose-Einstein condensates. They show how the achievable squeezing scales with key parameters such as the atom number, interaction strength, and trap frequency and volume, and make practical suggestions for trapping configuration that should lead to the best possible squeezing.
+
+This is an interesting study, and the paper is clearly organised and easy to follow. However I would like to see the authors respond to the following comments before recommending publication.
+
+Firstly, it would be nice to see a more detailed discussion of the conditions under which squeezing becomes metro logically useful for the cases that are studied in the paper. The authors state that:
+
+"Producing squeezed states for metrological purposes is therefore only relevant when it can be achieved in a context of large numbers of atoms."
+
+and, I would add, in situations where the atomic flux cannot (practically) be increased. For example, in a recent paper the Treutlein group demonstrate petrological advantage from spin squeezing in a BEC used to image microwave fields. Here the limit on the achievable flux is set by the desired spatial resolution (determined by the trapping parameters) and limited by atomic collisions leading to loss and decoherence at high density (Ockeloen, arXiv: 1303.1313 [quant-ph]). It would be interesting for the authors to relate the conditions under which spin squeezing might beat simply increasing the atom number for the trapping configurations that they study in this paper.
+
+It would also be interesting to see a discussion of what measurements might benefit from the trapping configurations & squeezing schemes discussed in the study. I say this in particular because some measurements take advantage of the confinement provided by the trapping potential to make a measurement.
+
+However, my main criticism concerns the argument in section 6, which is unclear. At the beginning of this sections the authors study squeezing in uniform box potential 1D, 2D and 3D (illustrated in figure 6) and conclude that:
+
+"In both cases it is clear that number squeezing is best in lower dimensions, and becomes degraded or non- existent as we move to a three dimensional system; the effect is worse if more than one nonlinearity is non-zero."
+
+The they relate this effect to the excitation of excited momentum modes, and study how this scales with system size and dimension using Bogoliubov theory. They then argue that:
+
+"For one-dimensional traps, the non-condensed fraction increases with system size, whereas for 2D traps it is constant. For three-dimensional traps, the non-condensed fraction decreases with volume. This suggests that the best system to use will be a three-dimensional box potential, and the system size can be increased until the condensate depletion becomes negligibly small."
+
+These two conclusions seem contradictory, and it is not clear how to relate them. This is made more difficult because figure 10 is missing the part labelled "Right", which as I understand should show the achievable squeezing in the 3D case. The authors appear to resolve this seeming contradiction in the conclusion, but it is unclear from the text how this relates to the parameters used in the different simulations. 

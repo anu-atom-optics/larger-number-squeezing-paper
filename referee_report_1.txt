@@ -1,0 +1,59 @@
+Referee report
+Article ID:	NJP/481926/PAP
+Title:	Squeezing in Bose-Einstein condensates with large numbers of atoms
+ 	
+	First referee's report
+
+> The manuscript "Squeezing in Bose-Einstein condensates with large numbers
+> of atoms" describes how the fluctuation of the atom number in
+> a specific component of an ultracold gas can be reduced below the usual
+> quantum limit.
+>
+> The underlying mechanism used here, Kerr-squeezing through non-linear 
+> interactions works analogously for non-linear optics systems.
+> The manuscript has a particular focus on the question under which 
+> conditions this squeezing effect can practically be expected to be most
+> effective.
+>
+> I find the article mostly well-written, concise and thoroughly motivated.
+> The results will be useful and interesting for a broad community.
+> Overall I can thus recommend its publication in the New Journal of Physics.
+> I a few small comments though, that should be considered in order to
+> further improve the presentation of the material:
+>
+> - The discussion on the bottom of page 4 "(The reduction of Eq. (5) has
+> led to....)". Should be made a bit clearer. This pertains to Eq. (11) 
+> rather than (12) right? however the term "Josephson-Hamiltonian" only 
+> occurs related to Eq. (12)
+
+Eq. (5) leads directly to Eq. (11) via the substitutions (6)-(10). Eq. (12)
+is the reduced, approximate form of (11). We have cleaned up the wording in
+this section to make things clearer.
+
+>
+> - More care should be taken that all quantities from figures and their
+> axes are explictly defined. I could not find a recombination time \tau 
+> for Fig. 2 (presumably t3-t2 ?) and where I found one, it was instead
+> the period of cyclic variations (centre page 7). Also the multi-mode 
+> number variance of Fig. 4 should be some-where clearly defined in terms of
+> the ingredient from Eq. (28).
+
+We had indeed overlooked defining \tau. We have now added the definition
+of \tau, and renamed the period of cyclic variations from \tau to T to
+avoid confusion.
+
+We have also added a paragraph at the end of Section 3 clearly explaining
+our definition of number squeezing in the multimode case, and refer to this
+definition in the caption of Figure 4.
+
+> - The article PRA 77 (2008) 023619 discusses a quite similar effect 
+> (Kerr squeezing converted to number squeezing via inter-component coupling),
+> albeit in quite a different context, the authors could cite it for some
+> complementary context.
+
+We thank the referee for bring this reference to our attention, and we have
+added it to our paper.
+
+
+
+
