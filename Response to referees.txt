@@ -1,0 +1,47 @@
+We thank the referees for their detailed reports.  We have addressed their 
+concerns and clarified answers to their questions in a new version of the 
+manuscript.
+
+Response to suggestions of referee 1:
+
+1. We have clarified the wording of the discussion at the bottom of page 4, to
+better explain the derivation of Eq. (12), which is the reduced, approximate 
+form of (11). 
+
+2. We had indeed overlooked defining \tau. We have now added the definition
+of \tau, and renamed the period of cyclic variations from \tau to T to
+avoid confusion.
+
+3. We have also added a paragraph at the end of Section 3 clearly explaining
+our definition of number squeezing in the multimode case, and refer to this
+definition in the caption of Figure 4.
+
+4. We thank the referee for bring the extra reference on atomic Kerr squeezing
+to our attention, and we have added it to our paper.
+
+
+Response to questions and suggestions of referee 2:
+
+1.  We have added a discussion of the practicality of using squeezing to improve a precision 
+measurement relative to the possibility of increasing the atom number.  In fact, these two methods 
+should ideally be used together if possible, as they are essentially entirely compatible and 
+independent improvements to the sensitivity.  We include the highly relevant reference that the 
+referee quoted. 
+
+2.  We have added a comment that the large number, box-potential geometries are most obviously
+adapted to precision inertial measurements rather than in-trap measurements with goals of spatial 
+resolution.
+
+3.  We have rewritten our discussion of the effect of trap geometry on squeezing in response to 
+the referee's very reasonable comments that it was confusing and apparently contradictory.  The 
+effect of dimensionality changes character completely depending on whether the density is kept 
+constant, or the total atom number is kept constant.  We have elaborated on this point, and made
+the manuscript clear on this key issue.
+
+     These two conclusions seem contradictory, and it is not clear how to relate them. This is
+    made more difficult because figure 10 is missing the part labelled "Right", which as I
+    understand should show the achievable squeezing in the 3D case. The authors appear to
+    resolve this seeming contradiction in the conclusion, but it is unclear from the text how
+    this relates to the parameters used in the different simulations.
+
+
